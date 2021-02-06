@@ -7,15 +7,19 @@ import time
 import urllib2
 import lxml.html
 
+MODE_SAVE_SELLER_DB = 0
+MODE_USE_SELLER_DB = 1
+MODE_USE_ONLINE_SELLER_DB = 2
 #####################################################
 #                  CONFIG                           #
 #csv_filename = "C:\\card\\csv\\FULL.csv"
 csv_filename = "C:\\card\\csv\\KAMIGAWA_small.csv"
-
+json_filename = csv_filename + ".json"
 onlyNearMint = True
 onlyTcgPlayerDirect = False
 masterSet = "chk"
 #masterSet = None
+seller_db_mode = MODE_USE_SELLER_DB
 
 #####################################################
 
@@ -136,7 +140,8 @@ def analyze_find_best_single_seller(seller_db, full_cards):
         for seller_name in filtered_seller:
             masterSetCount = 0
             for cardInfo in filtered_seller[seller_name]:
-                tcgplayerid = card_info["tcg_id"]
+                tcgplayerid = int(cardInfo["tcg_id"])
+                print "DEBUG " + str(tcgplayerid)
                 set_name = full_cards[tcgplayerid]["set"]
                 if set_name == masterSet:
                     masterSetCount += 1
@@ -164,7 +169,7 @@ def analyze_find_best_single_seller(seller_db, full_cards):
         price_sum = 0
         print seller[0]
         for card_info in seller[1]:
-            tcgplayerid = card_info["tcg_id"]
+            tcgplayerid = int(card_info["tcg_id"])
             price = card_info["price"]
 
             name = full_cards[tcgplayerid]["name"]
@@ -202,19 +207,25 @@ def analyze_tcgplayer_direct(seller_db, full_cards):
     print "TOTAL=" + str(price_sum)
 
 
+# Find card_needed in full_set_cards
+def find_needed_cards_full_description(full_set_cards, card_needed):
+    set_code = card_needed["code"]
+    col_number = card_needed["col_number"]
+
+    print "    " + set_code + "|" + str(col_number) + "..."
+
+    card = search_card_in_full_set(full_set_cards[set_code], col_number)
+    if card is None:
+        print "ERROR : Can't find " + set_code + " " + str(col_number) + " in full set"
+        exit(1)
+
+    return card
+
+
 def find_sellers(full_set_cards, cards_needed_array, out_full_cards_needed, out_sellers_db):
     print "Load sellers:"
     for card_needed in cards_needed_array:
-        set_code = card_needed["code"]
-        col_number = card_needed["col_number"]
-
-        print "    " + set_code + "|" + str(col_number) + "..."
-
-        card = search_card_in_full_set(full_set_cards[set_code], col_number)
-        if card is None:
-            print "ERROR : Can't find " + set_code + " " + str(col_number) + " in full set"
-            exit(1)
-
+        card = find_needed_cards_full_description(full_set_cards, card_needed)
         print "        " + card["name"] + "..."
 
         if "tcgplayer_id" not in card:
@@ -240,6 +251,7 @@ print "---SETUP---"
 print "   only near mint=" + str(onlyNearMint)
 print "   only tcg player direct mint=" + str(onlyTcgPlayerDirect)
 print "   master set=" + str(masterSet)
+print "   seller db mode=" + str(seller_db_mode)
 print "-----------"
 # load the cards I need
 # {
@@ -263,45 +275,32 @@ for card in cards_needed_array:
         print "    Load " + set_code + "..."
         full_set_cards[set_code] = get_tcgplayer_id(set_code)
 
-# find all the sellers
-"""print "Load sellers:"
 seller_db = {}
 full_cards_needed = {}
-for card_needed in cards_needed_array:
-    set_code = card_needed["code"]
-    col_number = card_needed["col_number"]
+if seller_db_mode == MODE_SAVE_SELLER_DB:
+    find_sellers(full_set_cards, cards_needed_array, full_cards_needed, seller_db)
+    with open(json_filename, "w") as out_file:
+        json.dump(seller_db, out_file, indent=4)
 
-    print "    " + set_code + "|" + str(col_number) + "..."
+    browser.close()
+    exit(0)
+elif seller_db_mode == MODE_USE_SELLER_DB:
+    with open(json_filename) as read_file:
+        seller_db = json.load(read_file)
 
-    card = search_card_in_full_set(full_set_cards[set_code], col_number)
-    if card is None:
-        print "ERROR : Can't find " + set_code + " " + str(col_number) + " in full set"
-        exit(1)
+    for card_needed in cards_needed_array:
+        card = find_needed_cards_full_description(full_set_cards, card_needed)
+        print "        " + card["name"] + "..."
 
-    print "        " + card["name"] + "..."
+        if "tcgplayer_id" not in card:
+            print "        No tcgplayer id"
+            continue
 
-    if "tcgplayer_id" not in card:
-        print "        No tcgplayer id"
-        continue
+        tcgplayerid = card["tcgplayer_id"]
+        full_cards_needed[tcgplayerid] = card
 
-    tcgplayerid = card["tcgplayer_id"]
-    full_cards_needed[tcgplayerid] = card
-
-    tcgplayer_url = "https://shop.tcgplayer.com/product/productsearch?id=" + str(tcgplayerid)
-    html = download_webpage(tcgplayer_url)
-    sellers = get_sellers_from_webpage(html)
-
-    print "        " + str(len(sellers)) + " sellers found."
-
-    if len(sellers) == 0:
-        continue
-
-    seller_db[tcgplayerid] = sellers
-"""
-
-seller_db = {}
-full_cards_needed = {}
-find_sellers(full_set_cards, cards_needed_array, full_cards_needed, seller_db)
+elif seller_db_mode == MODE_USE_ONLINE_SELLER_DB:
+    find_sellers(full_set_cards, cards_needed_array, full_cards_needed, seller_db)
 
 if onlyTcgPlayerDirect:
     analyze_tcgplayer_direct(seller_db, full_cards_needed)
