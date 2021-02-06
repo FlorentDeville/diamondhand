@@ -13,13 +13,14 @@ MODE_USE_ONLINE_SELLER_DB = 2
 #####################################################
 #                  CONFIG                           #
 #csv_filename = "C:\\card\\csv\\FULL.csv"
-csv_filename = "C:\\card\\csv\\KAMIGAWA_small.csv"
+csv_filename = "C:\\card\\csv\\KAMIGAWA.csv"
 json_filename = csv_filename + ".json"
 onlyNearMint = True
 onlyTcgPlayerDirect = False
 masterSet = "chk"
 #masterSet = None
 seller_db_mode = MODE_USE_SELLER_DB
+#seller_db_mode = MODE_SAVE_SELLER_DB
 
 #####################################################
 
@@ -103,18 +104,27 @@ def search_card_in_full_set(full_set, col_number):
 
 # Sort the cards per seller and sort by the seller selling the most cards
 def analyze_find_best_single_seller(seller_db, full_cards):
+
     # count the number of available cards per sellers
     print "Count cards per sellers..."
     seller_count = {}
     for tcgid in seller_db:
         for seller in seller_db[tcgid]:
-            if seller["name"] not in seller_count:
-                seller_count[seller["name"]] = []
+
+            # don't add cards above 5$
+            price = float(seller["price"])
+            name = seller["name"]
+
+            if price >= 5:
+                continue
+
+            if name not in seller_count:
+                seller_count[name] = []
 
             info = {}
             info["tcg_id"] = tcgid
-            info["price"] = seller["price"]
-            seller_count[seller["name"]].append(info)
+            info["price"] = price
+            seller_count[name].append(info)
 
     print "Compute total prices..."
     seller_total_price = {}
@@ -125,11 +135,12 @@ def analyze_find_best_single_seller(seller_db, full_cards):
             seller_total_price[seller_name] += float(price)
 
     print "Filter out sellers below $5..."
-    PRICE_THRESHOLD = 5
-    filtered_seller = {}
-    for seller_name in seller_count:
-        if seller_total_price[seller_name] >= PRICE_THRESHOLD:
-            filtered_seller[seller_name] = seller_count[seller_name]
+    #PRICE_THRESHOLD = 5
+    #filtered_seller = {}
+    #for seller_name in seller_count:
+    #    if seller_total_price[seller_name] >= PRICE_THRESHOLD:
+    #        filtered_seller[seller_name] = seller_count[seller_name]
+    filtered_seller = seller_count
 
     if masterSet is not None:
         # sort seller by number of cards in the master set
@@ -141,7 +152,6 @@ def analyze_find_best_single_seller(seller_db, full_cards):
             masterSetCount = 0
             for cardInfo in filtered_seller[seller_name]:
                 tcgplayerid = int(cardInfo["tcg_id"])
-                print "DEBUG " + str(tcgplayerid)
                 set_name = full_cards[tcgplayerid]["set"]
                 if set_name == masterSet:
                     masterSetCount += 1
