@@ -1,0 +1,3826 @@
+
+
+  
+  <div id="body-inner" class="">
+
+    <div id="header">
+
+      <nav id="main-navigation" class="navbar navbar-default">
+
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a href="/" class=""><img src="https://d17uu2v7oycgti.cloudfront.net/ths/nav-logo.png" alt="Cardhoarder" style="height:64px;"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collapse-menu">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+
+          
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Event tickets <span class="caret"></span></a>          <ul id="currency-dropmenu" class="dropdown-menu" role="menu">
+
+            
+              <li>
+                <a href="/currencies/update/TIX">EVENT TICKETS<br><small class="text-muted">Magic Online</small></a>              </li>
+
+            
+              <li>
+                <a href="/currencies/update/USD">USD</a>              </li>
+
+            
+              <li>
+                <a href="/currencies/update/EUR">EUR</a>              </li>
+
+            
+              <li>
+                <a href="/currencies/update/CAD">CAD</a>              </li>
+
+            
+              <li>
+                <a href="/currencies/update/GBP">GBP</a>              </li>
+
+            
+              <li>
+                <a href="/currencies/update/AUD">AUD</a>              </li>
+
+            
+              <li>
+                <a href="/currencies/update/JPY">JPY</a>              </li>
+
+            
+              <li>
+                <a href="/currencies/update/BRL">BRL</a>              </li>
+
+            
+            <li>
+              <a href="/paying-with-cryptocurrency">CRYPTO</a>            </li>
+
+            <li class="divider" role="separator"></li>
+            <li class="dropdown-header" style="white-space:normal; color: #000;">
+              Automatic 8% discount for cash payments
+              <br><span><a href="/cash-discount">&gt;&gt; Learn more</a></span>
+            </li>
+          </ul>
+        </li>
+
+        <li class="">
+          <a href="/decks/editor">Deck Editor</a>        </li>
+
+        <li class="">
+          <a href="/content">Content</a>        </li>
+
+        <li class="">
+          <a href="/merchandise">Merch</a>        </li>
+
+        <li class="">
+          <a href="/bots">Our Bots</a>        </li>
+
+        <li class="dropdown">
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sell <span class="caret"></span></a>
+          <ul id="sell-dropmenu" class="dropdown-menu" role="menu">
+
+            <li>
+              <a href="/collection-appraisal">Sell your collection</a>            </li>
+            <li>
+              <a href="/sell-mtgo-tickets">Sell event tickets</a>            </li>
+
+          </ul>
+
+        </li>
+
+
+        <li class="visible-xs">
+          <a href="/cart">Cart </a>        </li>
+
+        
+          <li class="visible-xs"><a href="/users/login">Log In</a></li>
+
+          <li class="visible-xs"><a href="/users/add">Sign Up</a></li>
+
+        
+        
+        
+          
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<div id="search-nav" class="navbar navbar-default">
+
+  <div class="container-fluid">
+    
+<form method="GET" class="navbar-form navbar-left " action="/cards/index/sort:relevance/viewtype:detailed" role="search">
+
+  <input type="hidden" name="data[is_foil]" value="all">
+  <div class="form-group">
+
+    <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;"><input class="form-control tt-hint" style="width: 300px; position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);" value="Dismissive Pyromancer" type="text" disabled="" autocomplete="off" spellcheck="false"><input name="data[search]" class="form-control tt-input" style="width: 300px; position: relative; vertical-align: top; background-color: transparent;" placeholder="Search for cards" id="card-search-input" value="Dismissive Pyromancer" type="text" autocomplete="off" spellcheck="false" dir="auto"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Facit; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;"><div class="tt-dataset-0"></div></span></span>
+  </div>
+
+  <input class="btn btn-primary btn-search" type="submit" value="Search">
+  
+<div class="btn-group">
+
+  <button class="btn dropdown-toggle btn-default" type="button" id="quick-links" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-flash"></span>    <span class="caret"></span>
+  </button>
+
+  <ul style="text-align:left;" class="dropdown-menu" role="menu" aria-labelledby="quick-links">
+    <li role="presentation">
+      <a href="/cards/1" role="menuitem">Event Tickets</a>    </li>
+    <li role="presentation">
+      <a href="/cards/999999" role="menuitem">Bot Credits</a>    </li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation" class="dropdown-header">MTGO Packs</li>
+    <li role="presentation">
+      <a href="/cards?data%5Bsets%5D%5B0%5D=CH-DRAFT" role="menuitem">Draft Packs</a>    </li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation" class="dropdown-header">MTGO Sets</li>
+    <li role="presentation">
+      <a href="/cards?data%5Bsets%5D%5B0%5D=CH-COMMON" role="menuitem">Common Sets</a>    </li>
+    <li role="presentation">
+      <a href="/cards?data%5Bsets%5D%5B0%5D=CH-UNCOMMON" role="menuitem">Uncommon Sets</a>    </li>
+    <li role="presentation">
+      <a href="/cards?data%5Bsets%5D%5B0%5D=CH-REDEEMABLE" role="menuitem">Complete Sets</a>    </li>
+  </ul>
+
+</div>
+
+</form>
+
+
+    <div class="collapse navbar-collapse">
+
+      
+        <a href="/users/add" class="navbar-right navbar-btn btn btn-warning">Sign Up</a>
+        <a href="/users/login" class="navbar-right navbar-btn btn btn-default" style="margin-right: 10px; margin-left:10px;">Log In</a>
+      
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="">
+          <a href="/cart" class=""><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a>        </li>
+
+        <li class="">
+          <a href="/card-keeper">Card Keeper</a>        </li>
+
+        
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+    </div>
+
+    
+    <div id="content">
+
+      
+
+      <div id="content-inner" class="">
+
+        <div class="row">
+
+  <div class="col-md-8">
+
+    <div class="parts">
+
+      <div class="row">
+
+        <div class="col-sm-3 filters">
+
+          <h4>
+            Filters            <small>
+              <a href="#" class="btn btn-default btn-small hidden-lg hidden-md hidden-sm" id="search-filters-toggle">hide filters</a>              <a href="/cards" class="btn btn-default btn-small">reset</a>            </small>
+          </h4>
+
+          
+          
+            
+                <div>
+                  <a href="/cards?data%5Bis_foil%5D=all"><span class="glyphicon glyphicon-remove"></span></a>                  Text query = Dismissive Pyromancer                </div>
+
+            
+          
+          <hr>
+
+          <div id="card-filters">
+
+            <div class="filter">
+
+              <h4>Availability</h4>
+              <ul class="list-unstyled has-glyph">
+                
+                <li class=""><a href="/cards/index/viewtype:detailed/sort:relevance?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bin_stock_only%5D=1"><span class="glyphicon glyphicon-unchecked"></span>&nbsp;In Stock Only<span>&nbsp;(29)</span></a></li>
+
+              </ul>
+
+            </div>
+
+            <div class="filter">
+
+              <h4>Legality/Format</h4>
+              
+
+<form class="form-inline" role="form" method="GET" action="/cards/index/sort:relevance/viewtype:detailed">
+  <input type="hidden" name="data[search]" value="Dismissive Pyromancer"><input type="hidden" name="data[is_foil]" value="all">  <div class="form-group"><select name="data[legalities]" class="form-control input-sm" style="" id="legalities">
+<option value="">---</option>
+<option value="Standard">Standard</option>
+<option value="Modern">Modern</option>
+<option value="Legacy">Legacy</option>
+<option value="Vintage">Vintage</option>
+<option value="Pauper">Pauper</option>
+</select></div>  <input style="width: 40px;" class="btn btn-sm btn-default" type="submit" value="Go"></form>
+            </div>
+
+            <div class="filter">
+
+              <h4>Set</h4>
+              
+<form role="form" method="GET" action="/cards/index/sort:relevance/viewtype:detailed">
+  <input type="hidden" name="data[search]" value="Dismissive Pyromancer"><input type="hidden" name="data[is_foil]" value="all">  <div class="form-group" style="margin-bottom:3px;"><input type="hidden" name="data[sets]" value="" id="sets_">
+<select name="data[sets][]" multiple="multiple" class="form-control input-sm" style="min-height:200px;" id="sets">
+<optgroup label="New Release">
+<option value="M19">Core Set 2019</option>
+<option value="BBD">Battlebond</option>
+</optgroup>
+<optgroup label="Dominaria Block">
+<option value="DAR">Dominaria</option>
+</optgroup>
+<optgroup label="Ixalan Block">
+<option value="XLN">Ixalan</option>
+<option value="RIX">Rivals of Ixalan</option>
+</optgroup>
+<optgroup label="Amonkhet Block">
+<option value="AKH">Amonkhet</option>
+<option value="MS3">Amonkhet Invocations</option>
+<option value="HOU">Hour of Devastation</option>
+</optgroup>
+<optgroup label="Kaladesh Block">
+<option value="KLD">Kaladesh</option>
+<option value="MS2">Kaladesh Inventions</option>
+<option value="AER">Aether Revolt</option>
+</optgroup>
+<optgroup label="Shadows over Innistrad Block">
+<option value="SOI">Shadows over Innistrad</option>
+<option value="EMN">Eldritch Moon</option>
+</optgroup>
+<optgroup label="Battle for Zendikar Block">
+<option value="BFZ">Battle for Zendikar</option>
+<option value="EXP">Zendikar Expeditions</option>
+<option value="OGW">Oath of the Gatewatch</option>
+</optgroup>
+<optgroup label="Khans of Tarkir Block">
+<option value="KTK">Khans of Tarkir</option>
+<option value="FRF">Fate Reforged</option>
+<option value="DTK">Dragons of Tarkir</option>
+</optgroup>
+<optgroup label="Theros Block">
+<option value="THS">Theros</option>
+<option value="BNG">Born of the Gods</option>
+<option value="JOU">Journey into Nyx</option>
+</optgroup>
+<optgroup label="Return to Ravnica Block">
+<option value="RTR">Return to Ravnica</option>
+<option value="GTC">Gatecrash</option>
+<option value="DGM">Dragon's Maze</option>
+</optgroup>
+<optgroup label="Innistrad Block">
+<option value="ISD">Innistrad</option>
+<option value="DKA">Dark Ascension</option>
+<option value="AVR">Avacyn Restored</option>
+</optgroup>
+<optgroup label="Scars of Mirrodin Block">
+<option value="SOM">Scars of Mirrodin</option>
+<option value="MBS">Mirrodin Besieged</option>
+<option value="NPH">New Phyrexia</option>
+</optgroup>
+<optgroup label="Zendikar Block">
+<option value="ZEN">Zendikar</option>
+<option value="WWK">Worldwake</option>
+<option value="ROE">Rise of the Eldrazi</option>
+</optgroup>
+<optgroup label="Shards of Alara Block">
+<option value="ALA">Shards of Alara</option>
+<option value="CON">Conflux</option>
+<option value="ARB">Alara Reborn</option>
+</optgroup>
+<optgroup label="Lorwyn-Shadowmoor Block">
+<option value="LRW">Lorwyn</option>
+<option value="MOR">Morningtide</option>
+<option value="SHM">Shadowmoor</option>
+<option value="EVE">Eventide</option>
+</optgroup>
+<optgroup label="Time Spiral Block">
+<option value="TSP">Time Spiral</option>
+<option value="TSB">Timeshifted</option>
+<option value="PLC">Planar Chaos</option>
+<option value="FUT">Future Sight</option>
+</optgroup>
+<optgroup label="Ice Age Block">
+<option value="ICE">Ice Age</option>
+<option value="ALL">Alliances</option>
+<option value="CSP">Coldsnap</option>
+</optgroup>
+<optgroup label="Ravnica Block">
+<option value="RAV">Ravnica: City of Guilds</option>
+<option value="GPT">Guildpact</option>
+<option value="DIS">Dissension</option>
+</optgroup>
+<optgroup label="Champions of Kamigawa Block">
+<option value="CHK">Champions of Kamigawa</option>
+<option value="BOK">Betrayers of Kamigawa</option>
+<option value="SOK">Saviors of Kamigawa</option>
+</optgroup>
+<optgroup label="Mirrodin Block">
+<option value="MRD">Mirrodin</option>
+<option value="DST">Darksteel</option>
+<option value="5DN">Fifth Dawn</option>
+</optgroup>
+<optgroup label="Onslaught Block">
+<option value="ONS">Onslaught</option>
+<option value="LGN">Legions</option>
+<option value="SCG">Scourge</option>
+</optgroup>
+<optgroup label="Odyssey Block">
+<option value="OD">Odyssey</option>
+<option value="TOR">Torment</option>
+<option value="JUD">Judgment</option>
+</optgroup>
+<optgroup label="Invasion Block">
+<option value="IN">Invasion</option>
+<option value="PS">Planeshift</option>
+<option value="AP">Apocalypse</option>
+</optgroup>
+<optgroup label="Mercadian Masques Block">
+<option value="MM">Mercadian Masques</option>
+<option value="NE">Nemesis</option>
+<option value="PR">Prophecy</option>
+</optgroup>
+<optgroup label="Urza Block">
+<option value="UZ">Urzas Saga</option>
+<option value="UL">Urzas Legacy</option>
+<option value="UD">Urzas Destiny</option>
+</optgroup>
+<optgroup label="Tempest Block">
+<option value="TPR">Tempest Remastered</option>
+<option value="TE">Tempest</option>
+<option value="EX">Exodus</option>
+<option value="ST">Stronghold</option>
+</optgroup>
+<optgroup label="Mirage Block">
+<option value="MI">Mirage</option>
+<option value="VI">Visions</option>
+<option value="WL">Weatherlight</option>
+</optgroup>
+<optgroup label="Core Sets">
+<option value="ORI">Magic Origins</option>
+<option value="M15">Magic 2015</option>
+<option value="M14">Magic 2014</option>
+<option value="M13">Magic 2013</option>
+<option value="M12">Magic 2012</option>
+<option value="M11">Magic 2011</option>
+<option value="M10">Magic 2010</option>
+<option value="10E">Tenth Edition</option>
+<option value="9ED">Ninth Edition</option>
+<option value="8ED">Eighth Edition</option>
+<option value="7E">Seventh Edition</option>
+<option value="1E">Limited Edition Alpha</option>
+</optgroup>
+<optgroup label="Special Sets">
+<option value="VAN">Avatars/Vanguard</option>
+<option value="PRM">Promotional</option>
+<option value="W16">Welcome Deck 2016</option>
+<option value="C14">Commander (2014 Edition)</option>
+<option value="C13">Commander (2013 Edition)</option>
+<option value="CMD">Commander (2011 Edition)</option>
+<option value="PC2">Planechase (2012 Edition)</option>
+<option value="PC1">Planechase (2009 Edition)</option>
+</optgroup>
+<optgroup label="Masters Series">
+<option value="A25">Masters 25</option>
+<option value="IMA">Iconic Masters</option>
+<option value="EMA">Eternal Masters</option>
+<option value="AK5">Vintage Masters (Alt)</option>
+<option value="VMA">Vintage Masters</option>
+<option value="MM3">Modern Masters 2017</option>
+<option value="MM2">Modern Masters 2015</option>
+<option value="MMA">Modern Masters</option>
+<option value="ME4">Masters Edition IV</option>
+<option value="ME3">Masters Edition III</option>
+<option value="ME2">Masters Edition II</option>
+<option value="MED">Masters Edition</option>
+</optgroup>
+<optgroup label="Prize Packs">
+<option value="O99">Treasure Chest</option>
+<option value="PZ2">You Make the Cube (PZ2)</option>
+<option value="PZ1">Legendary Cube (PZ1)</option>
+</optgroup>
+<optgroup label="Premium Deck Series">
+<option value="PD3">Graveborn</option>
+<option value="PD2">Fire and Lightning</option>
+<option value="H09">Slivers</option>
+</optgroup>
+<optgroup label="Duel Decks">
+<option value="DDM">Jace vs. Vraska</option>
+<option value="DDL">Heroes vs. Monsters</option>
+<option value="DDK">Sorin vs. Tibalt</option>
+<option value="DDJ">Izzet vs. Golgari</option>
+<option value="DDI">Venser vs. Koth</option>
+<option value="DDH">Ajani vs. Nicol Bolas</option>
+<option value="DDG">Knights vs. Dragons</option>
+<option value="DDF">Elspeth vs. Tezzeret</option>
+<option value="DDE">Phyrexia vs. the Coalition</option>
+<option value="DDD">Garruk vs. Liliana</option>
+<option value="DDC">Divine vs. Demonic</option>
+<option value="DD2">Jace vs. Chandra</option>
+<option value="EVG">Elves vs. Goblins</option>
+</optgroup>
+<optgroup label="From the Vault">
+<option value="V17">Transform</option>
+<option value="V16">Lore</option>
+<option value="V15">Angels</option>
+<option value="V14">Annihilation</option>
+<option value="V13">Twenty</option>
+<option value="V12">Realms</option>
+<option value="V11">Legends</option>
+<option value="V10">Relics</option>
+<option value="V09">Exiled</option>
+<option value="DRB">Dragons</option>
+</optgroup>
+<optgroup label="Sealed Products">
+<option value="CH-DRAFT">Draft Pack</option>
+</optgroup>
+<optgroup label="Sets">
+<option value="CH-COMMON">Common</option>
+<option value="CH-UNCOMMON">Uncommon</option>
+<option value="CH-REDEEMABLE">Redeemable</option>
+<option value="CH-NON-REDEEMABL">Non-Redeemable</option>
+</optgroup>
+<option value="EVENT">Event Tickets</option>
+<option value="CH-COMBO">Combo Products</option>
+</select></div>  <input class="btn btn-sm btn-default" type="submit" value="Filter sets">
+ <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all" class="btn btn-sm btn-default disabled">Clear</a>
+</form>
+            </div>
+
+            <div class="filter">
+
+              <h4>Color</h4>
+              
+
+<ul class="list-unstyled has-glyph checklist-filters color-picker">
+
+  
+    <li>
+
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=White"><span class="glyphicon glyphicon-check"></span>&nbsp;<img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/W.png" style="height:13px;" alt="">&nbsp;White</a>
+      
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=Blue&amp;data%5Bomitted_colors%5D%5B1%5D=Black&amp;data%5Bomitted_colors%5D%5B2%5D=Red&amp;data%5Bomitted_colors%5D%5B3%5D=Green&amp;data%5Bomitted_colors%5D%5B4%5D=Colorless" style="display:none;" class="only-this text-muted pull-right">this only</a>    </li>
+
+  
+    <li>
+
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=Blue"><span class="glyphicon glyphicon-check"></span>&nbsp;<img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/U.png" style="height:13px;" alt="">&nbsp;Blue</a>
+      
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=White&amp;data%5Bomitted_colors%5D%5B1%5D=Black&amp;data%5Bomitted_colors%5D%5B2%5D=Red&amp;data%5Bomitted_colors%5D%5B3%5D=Green&amp;data%5Bomitted_colors%5D%5B4%5D=Colorless" style="display:none;" class="only-this text-muted pull-right">this only</a>    </li>
+
+  
+    <li>
+
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=Black"><span class="glyphicon glyphicon-check"></span>&nbsp;<img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/B.png" style="height:13px;" alt="">&nbsp;Black</a>
+      
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=White&amp;data%5Bomitted_colors%5D%5B1%5D=Blue&amp;data%5Bomitted_colors%5D%5B2%5D=Red&amp;data%5Bomitted_colors%5D%5B3%5D=Green&amp;data%5Bomitted_colors%5D%5B4%5D=Colorless" style="display:none;" class="only-this text-muted pull-right">this only</a>    </li>
+
+  
+    <li>
+
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=Red"><span class="glyphicon glyphicon-check"></span>&nbsp;<img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:13px;" alt="">&nbsp;Red</a>
+      
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=White&amp;data%5Bomitted_colors%5D%5B1%5D=Blue&amp;data%5Bomitted_colors%5D%5B2%5D=Black&amp;data%5Bomitted_colors%5D%5B3%5D=Green&amp;data%5Bomitted_colors%5D%5B4%5D=Colorless" style="display:none;" class="only-this text-muted pull-right">this only</a>    </li>
+
+  
+    <li>
+
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=Green"><span class="glyphicon glyphicon-check"></span>&nbsp;<img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/G.png" style="height:13px;" alt="">&nbsp;Green</a>
+      
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=White&amp;data%5Bomitted_colors%5D%5B1%5D=Blue&amp;data%5Bomitted_colors%5D%5B2%5D=Black&amp;data%5Bomitted_colors%5D%5B3%5D=Red&amp;data%5Bomitted_colors%5D%5B4%5D=Colorless" style="display:none;" class="only-this text-muted pull-right">this only</a>    </li>
+
+  
+    <li>
+
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=Colorless"><span class="glyphicon glyphicon-check"></span>&nbsp;<img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/0.png" style="height:13px;" alt="">&nbsp;Colorless</a>
+      
+      <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bomitted_colors%5D%5B0%5D=White&amp;data%5Bomitted_colors%5D%5B1%5D=Blue&amp;data%5Bomitted_colors%5D%5B2%5D=Black&amp;data%5Bomitted_colors%5D%5B3%5D=Red&amp;data%5Bomitted_colors%5D%5B4%5D=Green" style="display:none;" class="only-this text-muted pull-right">this only</a>    </li>
+
+  
+</ul>
+
+
+            </div>
+
+            <div class="filter">
+
+              <h4>Rarity</h4>
+
+              
+
+
+<ul class="list-unstyled has-glyph checklist-filters">
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Brarity%5D%5B0%5D=Common" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Common<span>&nbsp;(11)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Brarity%5D%5B0%5D=Uncommon" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Uncommon<span>&nbsp;(10)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Brarity%5D%5B0%5D=Rare" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Rare<span>&nbsp;(10)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Brarity%5D%5B0%5D=Mythic+Rare" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Mythic Rare<span>&nbsp;(2)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Brarity%5D%5B0%5D=Special" class="disabled"><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Special<span>&nbsp;(0)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Brarity%5D%5B0%5D=Basic+Land" class="disabled"><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Basic Land<span>&nbsp;(0)</span></a></li>
+
+
+    
+  </ul>
+            </div>
+
+            <div class="filter">
+
+              <h4>Type</h4>
+
+              
+
+
+<ul class="list-unstyled has-glyph checklist-filters">
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Btypes%5D%5B0%5D=Creature" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Creature<span>&nbsp;(27)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Btypes%5D%5B0%5D=Artifact" class="disabled"><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Artifact<span>&nbsp;(0)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Btypes%5D%5B0%5D=Enchantment" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Enchantment<span>&nbsp;(4)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Btypes%5D%5B0%5D=Sorcery" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Sorcery<span>&nbsp;(2)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Btypes%5D%5B0%5D=Instant" class="disabled"><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Instant<span>&nbsp;(0)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Btypes%5D%5B0%5D=Planeswalker" class=""><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Planeswalker<span>&nbsp;(2)</span></a></li>
+
+
+    
+      <li class=""><a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Btypes%5D%5B0%5D=Land" class="disabled"><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Land<span>&nbsp;(0)</span></a></li>
+
+
+    
+  </ul>
+            </div>
+
+            <div class="filter">
+
+              <h4>Foil</h4>
+              
+
+<form class="form-inline" role="form" method="GET" action="/cards/index/sort:relevance/viewtype:detailed">
+  <input type="hidden" name="data[search]" value="Dismissive Pyromancer">  <div class="form-group"><select name="data[is_foil]" class="form-control input-sm" style="width:70px;" id="is_foil">
+<option value="all" selected="selected">---</option>
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select></div>  <input style="width: 40px;" class="btn btn-sm btn-default" type="submit" value="Go"></form>
+            </div>
+
+            <div class="filter">
+
+              <h4>
+                In Buylist                <small>
+                  <span class="glyphicon glyphicon-question-sign has-popover" data-toggle="popover" data-container="body" title="" data-content="Sell cards to us via Magic Online.  Open trade with one of our buybots: CardhoarderBuyBot, CardhoarderBuyBot2 and CardhoarderBuyBot3." data-original-title="Our Buybots"></span>
+                </small>
+              </h4>
+              <ul class="list-unstyled has-glyph">
+                
+                <li class=""><a href="/cards/index/viewtype:detailed/sort:relevance?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all&amp;data%5Bis_buylisted%5D=1"><span class="glyphicon glyphicon-unchecked"></span>&nbsp;Buylisted Cards Only</a></li>
+
+              </ul>
+
+            </div>
+
+            <div class="filter">
+
+              <h4>
+                Price                <small>TIX</small>
+              </h4>
+              
+
+
+<form class="form-inline" role="form" method="GET" action="/cards/index/sort:relevance/viewtype:detailed">
+  <input type="hidden" name="data[search]" value="Dismissive Pyromancer"><input type="hidden" name="data[is_foil]" value="all">  <div class="form-group"><label for="sellRangeGte" class="sr-only">min</label><input name="data[sell][range][gte]" value="" placeholder="min" class="form-control input-sm" style="width:50px;" type="text" id="sellRangeGte"></div>  <div class="form-group"><label for="sellRangeLte" class="sr-only">max</label><input name="data[sell][range][lte]" value="" placeholder="max" style="width:50px;" class="form-control input-sm" type="text" id="sellRangeLte"></div>  <input style="width: 40px;" class="btn btn-sm btn-default" type="submit" value="Go"></form>
+
+
+  <div class="help-block">
+    Ranging from <b>0.01</b> to <b>7.97</b>  </div>
+
+
+            </div>
+
+            <div class="filter">
+
+              <h4>
+                CMC                <small>
+                  <span class="glyphicon glyphicon-question-sign has-popover" data-toggle="popover" data-container="body" title="" data-content="The total amount of mana in a mana cost, regardless of color." data-original-title="Converted mana cost"></span>
+                </small>
+              </h4>
+              
+
+
+<form class="form-inline" role="form" method="GET" action="/cards/index/sort:relevance/viewtype:detailed">
+  <input type="hidden" name="data[search]" value="Dismissive Pyromancer"><input type="hidden" name="data[is_foil]" value="all">  <div class="form-group"><label for="converted_manacostRangeGte" class="sr-only">min</label><input name="data[converted_manacost][range][gte]" value="" placeholder="min" class="form-control input-sm" style="width:50px;" type="text" id="converted_manacostRangeGte"></div>  <div class="form-group"><label for="converted_manacostRangeLte" class="sr-only">max</label><input name="data[converted_manacost][range][lte]" value="" placeholder="max" style="width:50px;" class="form-control input-sm" type="text" id="converted_manacostRangeLte"></div>  <input style="width: 40px;" class="btn btn-sm btn-default" type="submit" value="Go"></form>
+
+
+  <div class="help-block">
+    Ranging from <b>2</b> to <b>6</b>  </div>
+
+
+            </div>
+
+            
+          </div>
+
+        </div>
+
+        <div class="col-sm-9">
+
+          
+          
+            
+            
+              <div class="paging-stats nav navbar">
+
+                Showing 1-35 of 35 results
+                <ul class="nav navbar-nav navbar-right">
+
+                  <li class="dropdown">
+
+                    <button style="margin:0;padding:0;color:#555;" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                      Sort by Relevance <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+
+                      
+                        <li>
+                          <a href="/cards/index/sort:color-name/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all">Color</a>                        </li>
+
+                      
+                        <li>
+                          <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all">Relevance</a>                        </li>
+
+                      
+                        <li>
+                          <a href="/cards/index/sort:sell-asc/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all">Price: low to high</a>                        </li>
+
+                      
+                        <li>
+                          <a href="/cards/index/sort:sell-desc/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all">Price: high to low</a>                        </li>
+
+                      
+                        <li>
+                          <a href="/cards/index/sort:name/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all">Name</a>                        </li>
+
+                      
+                    </ul>
+
+                  </li>
+
+                  <li>
+                    <a href="/cards/index/sort:relevance/viewtype:list?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all" class="view-option"><span class="glyphicon glyphicon-list"></span></a>                  </li>
+                  <li>
+
+                    <a href="/cards/index/sort:relevance/viewtype:detailed?data%5Bsearch%5D=Dismissive+Pyromancer&amp;data%5Bis_foil%5D=all" class="view-option"><span class="glyphicon glyphicon-th-list"></span></a>                  </li>
+
+                </ul>
+
+              </div>
+
+            
+            
+              <table id="search-results-table" class="table table-striped">
+
+  <tbody>
+
+    <tr style="display:none;">
+      <td></td>
+      <td>
+        <strong><a href="#">Scraping search results is stressful on our systems.  We provide far more efficient ways to obtain this data.  Please email support@cardhoarder.com for more information.</a>      </strong></td>
+      <td></td>
+    </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/68433/m19-dismissive-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="" src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/68433.jpg?v=1530488212" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/68433.jpg?v=1530488212" alt="Dismissive Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Bram Sels            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/68433/m19-dismissive-pyromancer">Dismissive Pyromancer</a></strong>
+          <div>
+            Core Set 2019                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {R}, {T}, Discard a card: Draw a card.
+{2}{R}, {T}, Sacrifice Dismissive Pyromancer: It deals 4 damage to target creature.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="68433" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.03 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.03 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.010 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/68434/m19-dismissive-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="" src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/68434.jpg?v=1530488212" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/68434.jpg?v=1530488212" alt="Dismissive Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Bram Sels            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/68434/m19-dismissive-pyromancer-foil">Dismissive Pyromancer</a></strong>
+          <div>
+            Core Set 2019                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {R}, {T}, Discard a card: Draw a card.
+{2}{R}, {T}, Sacrifice Dismissive Pyromancer: It deals 4 damage to target creature.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-muted">unavailable</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="68434" data-quantity="1" class="add-to-cart btn btn-sm disabled btn-default buynow-disabled btn-disabled"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.22 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.20 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/29961/eve-cinder-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="" src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/29961.jpg?v=" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/29961.jpg?v=" alt="Cinder Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Greg Staples            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/29961/eve-cinder-pyromancer-foil">Cinder Pyromancer</a></strong>
+          <div>
+            Eventide                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Elemental Shaman</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Cinder Pyromancer deals 1 damage to target player or planeswalker.
+Whenever you cast a red spell, you may untap Cinder Pyromancer.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">1 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="29961" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.03 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.03 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.010 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/26242/plc-prodigal-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="" src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/26242.jpg?v=" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/26242.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/26242/plc-prodigal-pyromancer-foil">Prodigal Pyromancer</a></strong>
+          <div>
+            Planar Chaos                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="26242" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/39241/pd2-cinder-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="" src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/39241.jpg?v=" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/39241.jpg?v=" alt="Cinder Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Greg Staples            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/39241/pd2-cinder-pyromancer-foil">Cinder Pyromancer</a></strong>
+          <div>
+            Fire and Lightning                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Elemental Shaman</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Cinder Pyromancer deals 1 damage to target player or planeswalker.
+Whenever you cast a red spell, you may untap Cinder Pyromancer.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="39241" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.40 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.37 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/26989/10e-prodigal-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="" src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/26989.jpg?v=" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/26989.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/26989/10e-prodigal-pyromancer-foil">Prodigal Pyromancer</a></strong>
+          <div>
+            Tenth Edition                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="26989" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.05 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.05 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/26988/10e-prodigal-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="" src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/26988.jpg?v=" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/26988.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/26988/10e-prodigal-pyromancer">Prodigal Pyromancer</a></strong>
+          <div>
+            Tenth Edition                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="26988" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/26241/plc-prodigal-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/26241.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/26241/plc-prodigal-pyromancer">Prodigal Pyromancer</a></strong>
+          <div>
+            Planar Chaos                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="26241" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.01 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.01 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/34777/zen-murasa-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/34777.jpg?v=" alt="Murasa Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kekai Kotaki            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/34777/zen-murasa-pyromancer-foil">Murasa Pyromancer</a></strong>
+          <div>
+            Zendikar                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/4.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Shaman Ally</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever Murasa Pyromancer or another Ally enters the battlefield under your control, you may have Murasa Pyromancer deal damage to target creature equal to the number of Allies you control.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="34777" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/29960/eve-cinder-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/29960.jpg?v=" alt="Cinder Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Greg Staples            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/29960/eve-cinder-pyromancer">Cinder Pyromancer</a></strong>
+          <div>
+            Eventide                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Elemental Shaman</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Cinder Pyromancer deals 1 damage to target player or planeswalker.
+Whenever you cast a red spell, you may untap Cinder Pyromancer.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="29960" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.01 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.01 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/66164/ima-prodigal-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/66164.jpg?v=1510846556" alt="Prodigal Pyromancer"></a>          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/66164/ima-prodigal-pyromancer-foil">Prodigal Pyromancer</a></strong>
+          <div>
+            Iconic Masters                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="66164" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/68494/m19-viashino-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/68494.jpg?v=1530488220" alt="Viashino Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jesper Ejsing            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/68494/m19-viashino-pyromancer-foil">Viashino Pyromancer</a></strong>
+          <div>
+            Core Set 2019                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Viashino Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              When Viashino Pyromancer enters the battlefield, it deals 2 damage to target player or planeswalker.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-muted">unavailable</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="68494" data-quantity="1" class="add-to-cart btn btn-sm disabled btn-default buynow-disabled btn-disabled"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/37091/m11-prodigal-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/37091.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/37091/m11-prodigal-pyromancer-foil">Prodigal Pyromancer</a></strong>
+          <div>
+            Magic 2011                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="37091" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/32594/m10-prodigal-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/32594.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/32594/m10-prodigal-pyromancer-foil">Prodigal Pyromancer</a></strong>
+          <div>
+            Magic 2010                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="32594" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.05 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.05 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/66163/ima-prodigal-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/66163.jpg?v=1510846556" alt="Prodigal Pyromancer"></a>          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/66163/ima-prodigal-pyromancer">Prodigal Pyromancer</a></strong>
+          <div>
+            Iconic Masters                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="66163" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.01 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.01 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/32593/m10-prodigal-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/32593.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/32593/m10-prodigal-pyromancer">Prodigal Pyromancer</a></strong>
+          <div>
+            Magic 2010                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="32593" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/37090/m11-prodigal-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/37090.jpg?v=" alt="Prodigal Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jeremy Jarvis            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/37090/m11-prodigal-pyromancer">Prodigal Pyromancer</a></strong>
+          <div>
+            Magic 2011                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/2.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              {T}: Prodigal Pyromancer deals 1 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="37090" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.02 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.02 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/34776/zen-murasa-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/34776.jpg?v=" alt="Murasa Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kekai Kotaki            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/34776/zen-murasa-pyromancer">Murasa Pyromancer</a></strong>
+          <div>
+            Zendikar                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/4.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Shaman Ally</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever Murasa Pyromancer or another Ally enters the battlefield under your control, you may have Murasa Pyromancer deal damage to target creature equal to the number of Allies you control.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="34776" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.01 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.01 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/68493/m19-viashino-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/68493.jpg?v=1530488219" alt="Viashino Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Jesper Ejsing            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/68493/m19-viashino-pyromancer">Viashino Pyromancer</a></strong>
+          <div>
+            Core Set 2019                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Viashino Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              When Viashino Pyromancer enters the battlefield, it deals 2 damage to target player or planeswalker.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="68493" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.05 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.05 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/18084/ons-goblin-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/18084.jpg?v=" alt="Goblin Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Edward P. Beard, Jr.            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/18084/ons-goblin-pyromancer-foil">Goblin Pyromancer</a></strong>
+          <div>
+            Onslaught                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/3.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Goblin Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              When Goblin Pyromancer enters the battlefield, Goblin creatures get +3/+0 until end of turn.
+At the beginning of the end step, destroy all Goblins.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="18084" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.46 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.42 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/18083/ons-goblin-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/18083.jpg?v=" alt="Goblin Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Edward P. Beard, Jr.            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/18083/ons-goblin-pyromancer">Goblin Pyromancer</a></strong>
+          <div>
+            Onslaught                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/3.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Goblin Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              When Goblin Pyromancer enters the battlefield, Goblin creatures get +3/+0 until end of turn.
+At the beginning of the end step, destroy all Goblins.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="18083" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.01 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.01 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.006 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/34820/zen-pyromancer-ascension" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/34820.jpg?v=" alt="Pyromancer Ascension"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kev Walker            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/34820/zen-pyromancer-ascension">Pyromancer Ascension</a></strong>
+          <div>
+            Zendikar                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Enchantment</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell that has the same name as a card in your graveyard, you may put a quest counter on Pyromancer Ascension.
+Whenever you cast an instant or sorcery spell while Pyromancer Ascension has two or more quest counters on it, you may copy that spell. You may choose new targets for the copy.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="34820" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.19 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.17 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.070 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/34821/zen-pyromancer-ascension-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/34821.jpg?v=" alt="Pyromancer Ascension"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kev Walker            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/34821/zen-pyromancer-ascension-foil">Pyromancer Ascension</a></strong>
+          <div>
+            Zendikar                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Enchantment</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell that has the same name as a card in your graveyard, you may put a quest counter on Pyromancer Ascension.
+Whenever you cast an instant or sorcery spell while Pyromancer Ascension has two or more quest counters on it, you may copy that spell. You may choose new targets for the copy.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="34821" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.84 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.77 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/63211/mm3-pyromancer-ascension" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/63211.jpg?v=1490207676" alt="Pyromancer Ascension"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kev Walker            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/63211/mm3-pyromancer-ascension">Pyromancer Ascension</a></strong>
+          <div>
+            Modern Masters 2017                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Enchantment</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell that has the same name as a card in your graveyard, you may put a quest counter on Pyromancer Ascension.
+Whenever you cast an instant or sorcery spell while Pyromancer Ascension has two or more quest counters on it, you may copy that spell. You may choose new targets for the copy.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="63211" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.24 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.22 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.140 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/67458/dar-chandra-bold-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/67458.jpg?v=1524064069" alt="Chandra, Bold Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Zack Stella            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/67458/dar-chandra-bold-pyromancer-foil">Chandra, Bold Pyromancer</a></strong>
+          <div>
+            Dominaria                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/4.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Legendary Planeswalker — Chandra</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              +1: Add {R}{R}. Chandra, Bold Pyromancer deals 2 damage to target player.
+−3: Chandra, Bold Pyromancer deals 3 damage to target creature or planeswalker.
+−7: Chandra, Bold Pyromancer deals 10 damage to target player and each creature and planeswalker they control.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="67458" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              7.97 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              7.33 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/60799/ema-young-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/60799.jpg?v=1466175154" alt="Young Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Cynthia Sheppard            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/60799/ema-young-pyromancer">Young Pyromancer</a></strong>
+          <div>
+            Eternal Masters                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Shaman</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="60799" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.46 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.42 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.250 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/63212/mm3-pyromancer-ascension-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/63212.jpg?v=1490207677" alt="Pyromancer Ascension"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kev Walker            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/63212/mm3-pyromancer-ascension-foil">Pyromancer Ascension</a></strong>
+          <div>
+            Modern Masters 2017                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Enchantment</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell that has the same name as a card in your graveyard, you may put a quest counter on Pyromancer Ascension.
+Whenever you cast an instant or sorcery spell while Pyromancer Ascension has two or more quest counters on it, you may copy that spell. You may choose new targets for the copy.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-muted">unavailable</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="63212" data-quantity="1" class="add-to-cart btn btn-sm disabled btn-default buynow-disabled btn-disabled"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.56 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.52 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.190 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/49413/m14-young-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/49413.jpg?v=" alt="Young Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Cynthia Sheppard            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/49413/m14-young-pyromancer">Young Pyromancer</a></strong>
+          <div>
+            Magic 2014                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Shaman</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="49413" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.06 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.06 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.007 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/49414/m14-young-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/49414.jpg?v=" alt="Young Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Cynthia Sheppard            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/49414/m14-young-pyromancer-foil">Young Pyromancer</a></strong>
+          <div>
+            Magic 2014                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Shaman</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="49414" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.63 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.58 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/60800/ema-young-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/60800.jpg?v=1466175154" alt="Young Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Cynthia Sheppard            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/60800/ema-young-pyromancer-foil">Young Pyromancer</a></strong>
+          <div>
+            Eternal Masters                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/1.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Shaman</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-warning">2 available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="60800" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.52 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.48 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 0.170 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/65342/xln-storm-fleet-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/65342.jpg?v=1505850954" alt="Storm Fleet Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kieran Yanner            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/65342/xln-storm-fleet-pyromancer">Storm Fleet Pyromancer</a></strong>
+          <div>
+            Ixalan                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/4.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Pirate Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Raid — When Storm Fleet Pyromancer enters the battlefield, if you attacked with a creature this turn, Storm Fleet Pyromancer deals 2 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="65342" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.01 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.01 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/65343/xln-storm-fleet-pyromancer-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/65343.jpg?v=1505850954" alt="Storm Fleet Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Kieran Yanner            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/65343/xln-storm-fleet-pyromancer-foil">Storm Fleet Pyromancer</a></strong>
+          <div>
+            Ixalan                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/4.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Creature — Human Pirate Wizard</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Raid — When Storm Fleet Pyromancer enters the battlefield, if you attacked with a creature this turn, Storm Fleet Pyromancer deals 2 damage to any target.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span>4+ available</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="65343" data-quantity="1" class="add-to-cart btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              0.01 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              0.01 USD
+            </span>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/67457/dar-chandra-bold-pyromancer" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/67457.jpg?v=1524064069" alt="Chandra, Bold Pyromancer"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Zack Stella            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/67457/dar-chandra-bold-pyromancer">Chandra, Bold Pyromancer</a></strong>
+          <div>
+            Dominaria                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/4.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Legendary Planeswalker — Chandra</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              +1: Add {R}{R}. Chandra, Bold Pyromancer deals 2 damage to target player.
+−3: Chandra, Bold Pyromancer deals 3 damage to target creature or planeswalker.
+−7: Chandra, Bold Pyromancer deals 10 damage to target player and each creature and planeswalker they control.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-muted">unavailable</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="67457" data-quantity="1" class="add-to-cart btn btn-sm disabled btn-default buynow-disabled btn-disabled"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              3.24 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              2.98 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 2.480 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/67460/dar-chandra-s-outburst-foil" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/67460.jpg?v=1524064069" alt="Chandra's Outburst"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Yongjae Choi            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/67460/dar-chandra-s-outburst-foil">Chandra's Outburst</a></strong>
+          <div>
+            Dominaria                          – foil <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/isfoil.png" alt=""></div>
+                      
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/3.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Sorcery</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Chandra's Outburst deals 4 damage to target player or planeswalker.
+Search your library and/or graveyard for a card named Chandra, Bold Pyromancer, reveal it, and put it into your hand. If you search your library this way, shuffle it.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-muted">unavailable</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="67460" data-quantity="1" class="add-to-cart btn btn-sm disabled btn-default buynow-disabled btn-disabled"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              1.50 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              1.38 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 1.320 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+      <tr>
+
+        <td>
+          
+          <a href="/cards/67459/dar-chandra-s-outburst" class="thumbnail" style="margin-bottom:2px;"><img class="unveil-card" src="https://d17uu2v7oycgti.cloudfront.net/site_assets/FFFFFF-0.png" data-src="https://d17uu2v7oycgti.cloudfront.net/cards/thumb/67459.jpg?v=1524064069" alt="Chandra's Outburst"></a>                      <div style="font-size:11px; color:#999; text-align:center;">
+              Yongjae Choi            </div>
+          
+        </td>
+
+        <td style="width:280px;">
+
+          <strong><a href="/cards/67459/dar-chandra-s-outburst">Chandra's Outburst</a></strong>
+          <div>
+            Dominaria                      </div>
+
+                      <div>
+              <img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/3.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt=""><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/mana_symbols/R.png" style="height:16px;" alt="">            </div>
+          
+                      <div style="font-size:13px; color:#333;">
+              <em>Sorcery</em>
+            </div>
+          
+                      <div class="hidden-xs" style="color:#666; font-size:12px;">
+              Chandra's Outburst deals 4 damage to target player or planeswalker.
+Search your library and/or graveyard for a card named Chandra, Bold Pyromancer, reveal it, and put it into your hand. If you search your library this way, shuffle it.            </div>
+          
+
+          
+        </td>
+
+        <td>
+          
+            <h4>
+              
+                <span class="text-muted">unavailable</span>
+
+              
+              
+
+            </h4>
+
+          
+
+          <div style="margin-bottom:5px;">
+            <a href="/cart_items/add.json" data-card_id="67459" data-quantity="1" class="add-to-cart btn btn-sm disabled btn-default buynow-disabled btn-disabled"><span class="glyphicon glyphicon-plus"></span> Cart</a>          </div>
+
+          <div>
+            <strong>
+              1.23 TIX            </strong>
+
+            
+            <br>
+            <span style="color:#666;">
+
+              1.13 USD
+            </span>
+
+            
+              <br>
+
+              <small class="text-muted">
+                <a href="/buylist">BUYLIST @ 1.040 TIX</a>              </small>
+
+            
+          </div>
+
+        </td>
+
+      </tr>
+
+    
+  </tbody>
+
+</table>
+
+
+              
+            
+          
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <nav class="navbar navbar-inverse navbar-fixed-bottom visible-xs visible-sm" id="card-search-navbar">
+
+  <div class="container-fluid">
+
+      <a href="/cart" class="navbar-brand">Your Cart</a>
+      <div class="navbar-text navbar-left">
+
+        <span class="subtotal">0</span>&nbsp;TIX
+        |
+        
+        <span class="order-subtotal-fiat">0.00</span> USD
+      </div>
+
+      <a href="/orders/add" class="navbar-btn btn btn-success btn-sm">Checkout</a>
+      <div class="navbar-text navbar-right" style="display:none;" id="nav-quantity-alert">
+        <span class="glyphicon glyphicon-warning-sign"></span> Item not added – 4x quantity limit      </div>
+
+  </div>
+
+</nav>
+
+<div class="hidden-sm hidden-xs" id="sidebar-cart" data-spy="affix" data-offset-top="200">
+
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+      <div class="panel-title"><h3>Your Cart</h3></div>
+    </div>
+
+    <div class="panel-body">
+
+      <div id="cart-quantity-alert" style="display:none;" class="alert alert-danger alert-dismissable">
+  <button type="button" class="close">×</button>
+  <strong>Quantity limit exceeded.</strong>
+  <br>You may only order up to 4 of this item.  <br><a href="mailto:support@cardhoarder.com" class="is-trackable-link" data-event_name="Initiated Support Email" data-category="Account">Contact Support</a> for bulk orders.</div>
+      <div id="cart-details">
+
+        <table class="table table-striped table-condensed" style="font-size: 11px;">
+
+          <thead>
+
+            <tr>
+              <th>Name</th>
+              <th>TIX</th>
+              <th>Quantity</th>
+              <th></th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="well well-sm" style="margin-bottom:0;">
+
+        <h3>Subtotal: </h3>
+
+        <div class="row" style="font-size:20px; margin-bottom:10px;">
+
+          <div class="col-sm-6" style="border-right:1px solid #ddd;">
+            <span class="subtotal">0</span>&nbsp;TIX
+          </div>
+
+          <div class="col-sm-6">
+
+            
+            <span class="order-subtotal-fiat">0.00</span> USD          </div>
+
+        </div>
+
+        <a href="/orders/add" class="btn btn-primary">Checkout</a>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+<script id="cart-line-item-tmpl" type="text/x-jquery-tmpl">
+  <tr data-id="${cart_item.CartItem.id}" data-card_id="${cart_item.CartItem.card_id}">
+    <td class="cart-card-info">
+      {{html cart_item.Card.name}}
+      <br />
+      <em>
+        ${cart_item.Card.cardbot_set_id}
+        {{if cart_item.Card.is_foil}}
+          &ndash; foil
+        {{/if}}
+      </em>
+
+    </td>
+    <td>
+      ${cart_item.Card.sell}
+    </td>
+    <td class="cart-quantity-container">
+      <input type="text" name="quantity" value="${cart_item.CartItem.quantity}" class="form-control input-sm cart-quantity" data-quantity="${cart_item.CartItem.quantity}" data-id="${cart_item.CartItem.id}" data-card_id="${cart_item.CartItem.card_id}" data-has_no_quantity_limit="${cart_item.Card.has_no_quantity_limit}" data-href="/cart_items/edit/${cart_item.CartItem.id}.json" />
+    </td>
+    <td>
+      <a href="/cart_items/delete/${cart_item.CartItem.id}.json" class="delete">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
+    </td>
+  </tr>
+</script>
+
+
+  </div>
+
+
+</div>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  
+    <footer role="contentinfo" id="footer-panel">
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-sm-3">
+
+        <h4 class="header">New to Magic Online?</h4>
+
+        <p>
+          Welcome to the community!  New MTGO accounts are eligible for a gift of 2 bot credit.        </p>
+
+        <p>
+          <a href="/mtgo-welcome-gift">Bot Credit Welcome Gift <span class="glyphicon glyphicon-gift"></span></a><br>
+
+          <a href="/mtgo-beginner-guide">Our MTGO Beginner's Guide</a>
+        </p>
+
+          
+      </div>
+
+      <div class="col-sm-3">
+
+        <h4 class="header">Primers/Guides <span class="glyphicon glyphicon-book"></span></h4>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="/mtgo-beginner-guide">MTGO V4 Beginner's Guide</a>          </li>
+          <li>
+            <a href="/mtgo-sell-collection-guide">MTGO Collection Seller's Guide</a>          </li>
+          <li>
+            <a href="/budgeting-mtgo">MTGO Budgeting Guide</a>          </li>
+          <li>
+            <a href="/scientific-brewing-process">The Scientific Brewing Process</a>          </li>
+        </ul>
+
+        <h5 class="text-muted"><span class="glyphicon glyphicon-chevron-down"></span> Magic Online Play Formats</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="/mtgo-vintage-guide">MTGO Vintage</a>          </li>
+          <li>
+            <a href="/mtgo-legacy-guide">MTGO Legacy</a>          </li>
+          <li>
+            <a href="/mtgo-pauper-primer">MTGO Pauper</a>          </li>
+          <li>
+            <a href="/mtgo-1v1-commander-guide">MTGO 1v1 Commander</a>          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-sm-3">
+
+        <h4 class="header">
+          Team Cardhoarder        </h4>
+
+        <p>
+          Cardhoarder's Pro Team battles for dominance at Magic Pro Tour and Grand Prix events.
+        </p>
+
+        <p>
+          &gt;&gt; <strong><a href="/team">About the Team</a></strong>
+          <br>
+          &gt;&gt; <strong><a href="/content">Recent Content from the Team</a></strong>
+
+        </p>
+
+        <hr>
+
+        <h4>Battle of Tix</h4>
+
+        <p>
+          5 Magic finance veterans battle to earn the most profit from Magic Online trading.
+        </p>
+
+        <p>
+          &gt;&gt; <strong><a href="/content/battle-of-tix-reflection-282">Competition Wrap-Up</a></strong>
+        </p>
+
+      </div>
+
+      <div class="col-sm-3">
+
+        <h4>Cardhoarder MTGO</h4>
+
+        <ul class="list-inline social-media">
+
+          <li><a href="http://www.twitter.com/cardhoarder" target="_blank" class="is-trackable-link" data-event_name="Opened Twitter Page" data-category="Valuable Exit"><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/social_media/twitter.png" alt="Cardhoarder on Twitter"></a></li>
+
+          <li><a href="http://www.facebook.com/cardhoardermtgo" target="_blank" class="is-trackable-link" data-event_name="Opened Facebook Page" data-category="Valuable Exit"><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/social_media/facebook.png" alt="Cardhoarder on Facebook"></a></li>
+
+          <li><a href="https://plus.google.com/+CardhoarderMTGO/" target="_blank" class="is-trackable-link" data-event_name="Opened Google Page" data-category="Valuable Exit"><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/social_media/google_plus.png" alt="Cardhoarder on Google Plus"></a></li>
+
+          <li><a href="http://www.twitch.tv/cardhoarder" id="twitch-logo" target="_blank" class="is-trackable-link" data-event_name="Opened Twitch Page" data-category="Valuable Exit"><img src="https://d17uu2v7oycgti.cloudfront.net/site_assets/social_media/twitch.png" alt="Cardhoarder on Twitch TV"></a></li>
+
+        </ul>
+
+        <p>
+          Tune in to our <a href="/podcast"><strong>Cardhoarder Podcast</strong></a> for the latest news about Magic Online.
+        </p>
+
+        <p>
+          Visit our <a href="/merchandise"><strong>Merchandise Store</strong></a> to order a Cardhoarder t-shirt.
+        </p>
+
+        <p>
+          Our mission is to make your Magic Online shopping experience as seamless as possible.        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</footer>
+  
+  <div id="footer-legal">
+
+  <div class="container-fluid">
+
+    <p>
+      © 2018 Cardhoarder LLC.  All rights reserved.
+      <a href="/terms">Terms &amp; Conditions</a> |
+      <a href="/privacy-policy" style="color:#800080;">Privacy Policy <span class="glyphicon glyphicon-star"></span> Updated 5/18/18</a> |
+      <a href="/faq">FAQ</a> | <a href="/about">About Us</a> | <a href="/affiliate-program">Affiliate Program</a> | <a href="/jobs">Jobs</a> | <strong><a href="/customer-service" class="text-danger">CUSTOMER SERVICE</a></strong>
+    </p>
+
+    <p>
+      Magic: the Gathering and its respective properties are copyright of <a href="http://www.wizards.com">Wizards of the Coast</a>.
+      Cardhoarder is not affiliated with, endorsed, or sponsored by Wizards of the Coast.
+
+    </p>
+
+  </div>
+
+</div>
+  
+	<script type="text/javascript" src="/js/main.min.js?updated=2017-02-23"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+
+            $('#search-filters-toggle').click(function(e) {
+
+              e.preventDefault();
+
+              var was_visible = $('#card-filters').is(':visible');
+
+              $('#card-filters').toggle();
+
+              localStorage.setItem('card-filters', was_visible ? 'hidden' : 'visible');
+
+              $('#search-filters-toggle').text(was_visible ? 'show filters' : 'hide filters');
+
+            });
+
+            var filter_setting = localStorage.getItem('card-filters');
+
+            if (window.innerWidth < 768) {
+
+              if (window.location.search.match('hide_filters=1')) {
+                filter_setting = 'hidden';
+              }
+
+              if (filter_setting && filter_setting === 'hidden') {
+                $('#search-filters-toggle').click();
+              }
+
+            }
+
+          });
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+
+  $(document).ready(function() {
+
+    $('.color-picker li').hover(function(e) {
+
+      $(this).find('.only-this').show();
+
+    }, function(e) {
+
+      $(this).find('.only-this').hide();
+
+    });
+
+  });
+
+
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+
+  $('.unveil-card').unveil(200, function(){
+    $(this).removeClass('unveil-card');
+  });
+
+});
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+
+
+  $(document).ready(function() {
+
+    $('#cart-quantity-alert .close').click(function(e) {
+
+      e.preventDefault();
+
+      $(this).closest('div.alert').hide();
+
+    });
+
+    var deleteHandler = function(e) {
+
+      var el = $(this);
+      e.preventDefault();
+
+      $.ajax({
+        url: el.attr('href'),
+        type: 'POST',
+        beforeSend: function() {
+          //loader
+        },
+        error: function() {
+
+          alert('We are having an issue processing your request.  Please refresh the page to renew your session.');
+
+        },
+        success: function(response) {
+
+          if (response.success) {
+
+            if (response.events && response.events.length > 0) {
+
+              var payload = JSON.parse(response.events[0].payload);
+              payload.context = 'search';
+              analytics.track(response.events[0].name, payload);
+
+            }
+
+            el.closest('tr').remove();
+
+            $('#card-search-navbar .subtotal, #sidebar-cart .subtotal').text(response.layout.cart.totals.TIX.total).formatCurrency({symbol:''});
+
+            var other_currency = (response.layout.currency.current.Currency.id === 'TIX') ? 'USD' : response.layout.currency.current.Currency.id;
+
+            $('.order-subtotal-fiat').text(response.layout.cart.totals[other_currency].total).formatCurrency({
+              symbol:'',
+              roundToDecimalPlace: 2
+            });
+
+          } else {
+
+            alert(response.message);
+
+          }
+
+        }
+      });
+
+    }
+
+    var quantityHandler = function(e) {
+
+      var el = $(this),
+        original_quantity = el.data('quantity')
+        new_quantity = el.val();
+
+      if (original_quantity === new_quantity) {
+        return;
+      }
+
+      if (!el.data('has_no_quantity_limit') && new_quantity > 4) {
+
+        el.val(original_quantity);
+        $('#cart-quantity-alert').show();
+        $('#nav-quantity-alert').show();
+        setTimeout(function() {
+          $('#nav-quantity-alert').hide();
+        }, 1500);
+        return;
+
+      }
+
+      el.data('quantity', new_quantity);
+
+      $.ajax({
+        url: el.data('href'),
+        type: 'PUT',
+        dataType: 'json',
+        data: {
+          CartItem: {
+            card_id: el.data('card_id'),
+            quantity: el.val()
+          }
+        },
+        beforeSend: function() {
+          //loader
+        },
+        error: function() {
+
+          alert('We are having an issue processing your request.  Please refresh the page to renew your session.');
+
+        },
+        success: function(response) {
+
+          if (!response.success) {
+
+            el.data('quantity', original_quantity);
+            el.val(original_quantity);
+
+            alert(response.message);
+
+          }
+
+          $('#card-search-navbar .subtotal, #sidebar-cart .subtotal').text(response.layout.cart.totals.TIX.total).formatCurrency({symbol: ''});
+
+          var other_currency = (response.layout.currency.current.Currency.id === 'TIX') ? 'USD' : response.layout.currency.current.Currency.id;
+
+          $('.order-subtotal-fiat').text(response.layout.cart.totals[other_currency].total).formatCurrency({
+            symbol:'',
+            roundToDecimalPlace: 2
+          });
+
+        }
+      });
+
+    }
+
+    $('#sidebar-cart .delete').click(deleteHandler);
+
+    $('#sidebar-cart .cart-quantity').change(quantityHandler);
+
+    $('.add-to-cart').click(function(e) {
+
+      var el = $(this);
+      e.preventDefault();
+
+      if (!el.data('processing')) {
+
+        el.data('processing', true);
+
+        var existing_item = $('#cart-details table tbody tr[data-card_id=' + el.data('card_id') + ']');
+
+        if (existing_item.length) {
+
+          var quantity_input = existing_item.find('.cart-quantity');
+          var existing_quantity = parseInt(quantity_input.val());
+          quantity_input.val(existing_quantity + 1);
+          quantity_input.trigger('change');
+
+          el.data('processing', false);
+
+        } else {
+
+          $.ajax({
+            url: el.attr('href'),
+            type: 'POST',
+            data: {
+              CartItem: {
+                card_id: el.data('card_id'),
+                quantity: el.data('quantity')
+              }
+            },
+            // dataType: 'json',
+            beforeSend: function() {
+              //loader
+            },
+            error: function() {
+
+              alert('We are having an issue processing your add-to-cart request.  Please refresh the page to renew your session.');
+
+            },
+            success: function(response) {
+
+              el.data('processing', false);
+
+              if (response.success) {
+
+                if (response.events && response.events.length > 0) {
+
+                  var payload = JSON.parse(response.events[0].payload);
+                  payload.context = 'search';
+                  analytics.track(response.events[0].name, payload);
+
+                }
+
+                var new_row = $('#cart-line-item-tmpl').tmpl(response.data);
+
+                new_row.find('.delete').click(deleteHandler);
+                new_row.find('.cart-quantity').change(quantityHandler);
+
+                $('#cart-details table tbody').prepend(new_row);
+
+              } else {
+
+                alert(response.message);
+
+              }
+
+              $('#card-search-navbar .subtotal, #sidebar-cart .subtotal').text(response.layout.cart.totals.TIX.total).formatCurrency({symbol: ''});
+
+              var other_currency = (response.layout.currency.current.Currency.id === 'TIX') ? 'USD' : response.layout.currency.current.Currency.id;
+
+              $('.order-subtotal-fiat').text(response.layout.cart.totals[other_currency].total).formatCurrency({
+                symbol:'',
+                roundToDecimalPlace: 2
+              });
+
+            }
+          });
+
+        }
+
+      }
+
+    });
+
+  });
+
+
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+
+  $('.pagination li.disabled a').click(function(e) {
+    e.preventDefault();
+  });
+
+});
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(e) {
+
+  var engine = new Bloodhound({
+    name: 'cardslist',
+    remote: {
+      url: '/cards/typeahead.json?data[search]=%QUERY',
+      filter: function(response) {
+
+        var data = $.map(response.data.cards, function(card) {
+
+          var datum = {
+            id: card.id,
+            name : card.name,
+            value : card.name,
+            set: card.set,
+            sell: card.sell,
+            quantity: (card.quantity > 4) ? '4+' : card.quantity,
+            tokens : [card.name]
+          };
+
+          return datum;
+
+        });
+
+        return data;
+
+      }
+    },
+    datumTokenizer: function(d) {
+      return Bloodhound.tokenizers.whitespace(d.val);
+    },
+    queryTokenizer: Bloodhound.tokenizers.whitespace
+  });
+
+  engine.initialize();
+
+  $('#card-search-input').typeahead(
+    {
+      hint: true
+    },
+    {
+      source: engine.ttAdapter(),
+      displayKey: 'value',
+      templates: {
+        suggestion: Handlebars.compile(
+          '<div><strong>{{{value}}}</strong><br />{{set}} <div class="text-muted pull-right">{{quantity}} available | {{sell}} tickets</div></div>'
+        )
+      }
+    }
+  );
+
+  $('#card-search-input').on('typeahead:selected', function(event, suggestion, dataset) {
+
+    window.location = '/cards?data[search]=' + encodeURI(suggestion.name);
+
+  });
+
+});
+//]]>
+</script><script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover();
+  $('.has-modal').modal();
+
+  $('.nav-tabs li.disabled, .disabled a, a.disabled').click(function(e) {
+
+    e.stopPropagation();
+    e.preventDefault();
+
+  });
+
+  $('input, textarea').placeholder();
+
+});
+//]]>
+</script>
+<script id="growl-alert" type="text/x-jquery-tmpl">
+  <div class="growl-alert alert alert-dismissable alert-${type}">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    ${message}
+  </div>
+</script>
+
+
+
+  <script>
+
+    
+    
+    $('.is-trackable-link').each(function(index, el) {
+
+      if ($(el).data('event_name')) {
+
+        analytics.trackLink(el, function() {
+          return $(el).data('event_name')
+        },
+        function() {
+
+          var properties = {
+            url: window.location.href,
+            path: window.location.pathname,
+            search: window.location.search,
+            title: document.title
+          };
+
+          if ($(el).data('category')) {
+            properties.category = $(el).data('category');
+          }
+
+          return properties;
+
+        });
+
+      } else {
+
+        console.error('Trackable link is missing event name.');
+
+      }
+
+    });
+
+  </script>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+var _analytics_scr = document.createElement('script');
+_analytics_scr.type = 'text/javascript'; _analytics_scr.async = true; _analytics_scr.src = '/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1039702194';
+var _analytics_elem = document.getElementsByTagName('script')[0]; _analytics_elem.parentNode.insertBefore(_analytics_scr, _analytics_elem);
+})();
+// ]]>
+</script>
+
+<iframe id="intercom-frame" style="display: none;"></iframe><div id="intercom-container" style="position: fixed; width: 0px; height: 0px; bottom: 0px; right: 0px; z-index: 2147483647;"><div data-reactroot="" class="intercom-app"><span></span><span></span><!-- react-empty: 4 --><!-- react-empty: 5 --></div></div>
