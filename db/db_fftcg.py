@@ -57,36 +57,37 @@ class DbFFTcg(DbCsv):
             f.write(new_line)
 
 
-print "Setup webdriver..."
-chromeOptions = webdriver.ChromeOptions()
-chromeOptions.add_argument("--start-maximized")
-browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
+if __name__ == "__main__":
+    print "Setup webdriver..."
+    chromeOptions = webdriver.ChromeOptions()
+    chromeOptions.add_argument("--start-maximized")
+    browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
-db = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
+    db = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
 
-search_url = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-i?productLineName=final-fantasy-tcg&setName=opus-i&ProductTypeName=Final%20Fantasy%20Singles&page="
-page_count = 10
+    search_url = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-i?productLineName=final-fantasy-tcg&setName=opus-i&ProductTypeName=Final%20Fantasy%20Singles&page="
+    page_count = 10
 
-for page_id in range(1, page_count+1):
-    print "Scrap page " + str(page_id) + " of " + str(page_count) + "..."
-    complete_search_url = search_url + str(page_id)
+    for page_id in range(1, page_count+1):
+        print "Scrap page " + str(page_id) + " of " + str(page_count) + "..."
+        complete_search_url = search_url + str(page_id)
 
-    browser.get(complete_search_url)
-    time.sleep(2)
-    text_html = browser.execute_script("return document.body.innerHTML")
-    html = lxml.html.fromstring(text_html)
+        browser.get(complete_search_url)
+        time.sleep(2)
+        text_html = browser.execute_script("return document.body.innerHTML")
+        html = lxml.html.fromstring(text_html)
 
-    xpath_cards = "//a[contains(@class, 'search-result__product')]"
-    elements = html.xpath(xpath_cards)
+        xpath_cards = "//a[contains(@class, 'search-result__product')]"
+        elements = html.xpath(xpath_cards)
 
-    for element in elements:
-        card_url = element.attrib.get('href')
+        for element in elements:
+            card_url = element.attrib.get('href')
 
-        print card_url + "..."
-        entry = db.scrap_card_information(card_url)
+            print card_url + "..."
+            entry = db.scrap_card_information(card_url)
 
-        print "writing to csv..."
-        db.write(entry)
+            print "writing to csv..."
+            db.write(entry)
 
-print "Over"
-browser.close()
+    print "Over"
+    browser.close()
