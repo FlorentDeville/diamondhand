@@ -28,7 +28,7 @@ class ScrapperTcgPrice:
         for seller in sellers:
             newPrice = Price()
             newPrice.m_id = dbEntry.id
-            newPrice.m_price = float(seller["price"])
+            newPrice.m_price = float(seller["price"].replace(',', ''))
             newPrice.m_sellerName = seller["name"]
             prices.append(newPrice)
 

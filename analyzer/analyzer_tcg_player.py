@@ -102,7 +102,7 @@ if __name__ == "__main__":
     ffdb = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
     entries = ffdb.load()
     cards_needed = {}
-    for ii in range(0, 10):
+    for ii in range(0, 50):
         cards_needed[entries[ii].id] = entries[ii]
 
     print "Scrap prices..."
