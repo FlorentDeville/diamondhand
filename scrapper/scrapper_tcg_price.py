@@ -40,18 +40,18 @@ class ScrapperTcgPrice:
 
         # check the near mint check box
         if self.m_onlyNearMint and not self.m_enableNearMint:
-            button = browser.find_element_by_xpath("//a[contains(@onclick, 'NearMint')]")
+            button = self.m_browser.find_element_by_xpath("//a[contains(@onclick, 'NearMint')]")
             button.click()
             time.sleep(1)
             self.m_enableNearMint = True
 
         if self.m_onlyTcgPlayerDirect and not self.m_enableTcgPlayerDirect:
-            button = browser.find_element_by_xpath("//a[contains(@onclick, 'WantDirect')]")
+            button = self.m_browser.find_element_by_xpath("//a[contains(@onclick, 'WantDirect')]")
             button.click()
             time.sleep(2)
             self.m_enableTcgPlayerDirect = True
 
-        return browser.execute_script("return document.body.innerHTML")
+        return self.m_browser.execute_script("return document.body.innerHTML")
 
     # Take the inner html as a string and return the list of prices
     def __get_sellers_from_webpage(self, inner_html):
