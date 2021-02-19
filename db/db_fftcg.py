@@ -1,6 +1,7 @@
 import uuid
 
 from selenium import webdriver
+import csv
 import lxml.html
 import time
 
@@ -46,18 +47,36 @@ class DbFFTcg(DbCsv):
 
         newEntry.id = uuid.uuid4().int
         newEntry.tcg_url = _url
+        newEntry.variation = "None"
 
         return newEntry
 
     def write(self, _entry):
-        new_line = "{};{};{};{};{};{};None\n"
-        #new_line = new_line.format(entry["set_name"], entry["name"], entry["number"], entry["rarity"], entry["tcg_url"])
+        new_line = "{};{};{};{};{};{};{};{}\n"
         new_line = new_line.format(_entry.id, _entry.set_name, _entry.set_code, _entry.name, _entry.number, _entry.rarity, _entry.tcg_url, _entry.variation)
         with open(self.m_csvFilename, "a") as f:
             f.write(new_line)
 
+    def load(self):
+        entries = []
+        with open(self.m_csvFilename) as csvFile:
+            lines = csv.reader(csvFile, delimiter=';')
+            for line in lines:
+                newEntry = Entry()
+                newEntry.id = line[0]
+                newEntry.set_name = line[1]
+                newEntry.set_code = line[2]
+                newEntry.name = line[3]
+                newEntry.number = line[4]
+                newEntry.rarity = line[5]
+                newEntry.tcg_url = line[6]
+                newEntry.variation = line[7]
+                entries.append(newEntry)
 
-if __name__ == "__main__":
+        return entries
+
+
+def scrap_all():
     print "Setup webdriver..."
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
@@ -91,3 +110,19 @@ if __name__ == "__main__":
 
     print "Over"
     browser.close()
+
+
+def load_csv():
+    print "Setup webdriver..."
+    chromeOptions = webdriver.ChromeOptions()
+    chromeOptions.add_argument("--start-maximized")
+    browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
+
+    db = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
+    entries = db.load()
+
+    browser.close()
+
+
+if __name__ == "__main__":
+    load_csv()
