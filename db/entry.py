@@ -12,3 +12,4 @@ class Entry:
     rarity = ""         # rarity of the card
     tcg_url = ""        # url in tcgplayer
     variation = ""      # print variation
+    own = False         # do I own this card

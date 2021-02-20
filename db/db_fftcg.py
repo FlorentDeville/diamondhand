@@ -60,7 +60,7 @@ class DbFFTcg(DbCsv):
     def load(self):
         entries = []
         with open(self.m_csvFilename) as csvFile:
-            lines = csv.reader(csvFile, delimiter=';')
+            lines = csv.reader(csvFile, delimiter=',', quotechar='"')
             for line in lines:
                 newEntry = Entry()
                 newEntry.id = line[0]
@@ -71,6 +71,10 @@ class DbFFTcg(DbCsv):
                 newEntry.rarity = line[5]
                 newEntry.tcg_url = line[6]
                 newEntry.variation = line[7]
+                if line[8] == '0':
+                    newEntry.own = False
+                else:
+                    newEntry.own = True
                 entries.append(newEntry)
 
         return entries

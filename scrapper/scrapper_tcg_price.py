@@ -1,3 +1,4 @@
+import json
 import time
 import lxml.html
 
@@ -33,6 +34,10 @@ class ScrapperTcgPrice:
             prices.append(newPrice)
 
         return prices
+
+    def save(self, prices, filename):
+        with open(filename, "w") as out_file:
+            json.dump(prices, out_file, indent=4)
 
     # Download a webpage and return the inner html as a string
     def __download_webpage(self, url):
