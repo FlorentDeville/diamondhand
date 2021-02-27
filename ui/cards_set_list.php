@@ -1,24 +1,13 @@
-<?php 
-	/*$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$db = "wallstreet";
-
-
-	$connection = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-	// set the PDO error mode to exception
-	$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	*/
+<?php
 	$setId = $_GET["set_id"];
 	$query = $connection->query("select * from card where set_id = " . $setId . ";");
+	echo "<table>";
+	echo "<tr><th>N</th><th>Name</th><th>Rarity</th><th>Variation</th>";
 	while($row = $query->fetch())
 	{
-		//$style = "padding:10 30 10 30;background-image:linear-gradient(white, grey, grey);border-radius:5px;margin:10 0 10 0;";
-		$style = "";
-		echo "<div style = \"" . $style . "\">";
-		echo $row["name"] . "<br/>\n";
-		echo "</div>";
+		echo "<tr><td>" . $row["number"] . "</td><td>" . $row["name"] . "</td><td>" . $row["rarity"] . "</td><td>" . $row["variation"] . "</td></tr>";
 	}
+	echo "</table>";
 	$query = null;
 	$connection = null;
 	
