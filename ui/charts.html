@@ -1,0 +1,64 @@
+<html>
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+		$( "#test" ).load( "../data/kaldheim_draft_booster_box.csv" );
+		/*fetch("../data/kaldheim_draft_booster_box.csv").then(response => 
+		{
+			return response.text()
+		})
+		.then(data => 
+		{
+			//document.querySelector("header").innerHTML = data;
+			console.log(data);
+		});*/
+  
+		function dataOnLoad()
+		{
+			$( "#test" ).load( "../data/kaldheim_draft_booster_box.csv" );
+			var dataElement = document.getElementById('data');
+			//var data = object.contentDocument.body.childNodes[0].innerHTML;
+			//console.log(dataElement.contentWindow.document);
+		};
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+	  
+		function drawChart() 
+		{
+			//var dataElement = document.getElementById('data');
+			//console.log(dataElement);
+			//console.log(dataElement.innerHTML);
+			//var htmlElement = dataElement.firstChild;
+			//var htmlElement = document.querySelector("body > pre")
+			//console.log(htmlElement);
+			//var bodyElement = htmlElement.firstChild;
+			//var preElement = bodyElement.firstChild;
+			//console.log(preElement);
+			
+			var data = google.visualization.arrayToDataTable([
+			['Date', 'Price'],
+			['2004',  1000],
+			['2005',  1170],
+			['2006',  660],
+			['2007',  1030]
+			]);
+
+			var options = 
+			{
+				title: 'Kaldheim Draft Booster Box',
+				legend: { position: 'bottom' }
+			};
+
+			var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+			chart.draw(data, options);
+		}
+    </script>
+  </head>
+  <body>
+	<div id="test"></div>
+	<object id="data" data="../data/kaldheim_draft_booster_box.csv" width="300" height="200" onload="dataOnLoad()"></object>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+</html>

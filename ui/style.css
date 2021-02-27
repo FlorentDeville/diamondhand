@@ -1,0 +1,38 @@
+
+div.setButton
+{
+	padding:10 30 10 30;
+	background-image:linear-gradient(#222222, #111111);
+	border-radius:5px;
+	margin:10 0 10 0;
+	width:200px;
+}
+
+div.setButton:hover
+{
+	background-image:linear-gradient(#333333, #111111);
+}
+
+a.setButton:link
+{
+	text-decoration:none;
+	color:white;
+}
+
+a.setButton:visited
+{
+	text-decoration:none;
+	color:white;
+}
+
+a.setButton:hover
+{
+	text-decoration:none;
+	color:white;
+}
+
+a.setButton:active
+{
+	text-decoration:none;
+	color:blue;
+}
