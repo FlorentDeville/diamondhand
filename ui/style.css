@@ -36,3 +36,18 @@ a.setButton:active
 	text-decoration:none;
 	color:blue;
 }
+
+tr
+{
+	background-image:linear-gradient(#222222, #111111);
+}
+
+tr:hover
+{
+	background-image:linear-gradient(#333333, #111111);
+}
+
+th
+{
+	background-image:linear-gradient(#222222, #000000);
+}
