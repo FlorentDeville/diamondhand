@@ -1,25 +1,12 @@
 <?php
-$owned_card_id=$_GET['owned_card_id'];
-
-if(! is_numeric($owned_card_id))
-{
-	echo "Wrong owned card id " . $owned_card_id;
-	return;
-}
-
-$owned_card_id = intval($owned_card_id);
-if(! is_int($owned_card_id))
-{
-	echo "Wrong owned car id " . $owned_card_id;
-	return;
-}
+$name=$_GET['buylist_name'];
 
 include("../connection.php");
 
 //first find all the cards of the set with no variation
-$sql="delete from owned_card where id = ?;";
+$sql="insert into buy_list (name) values (?);";
 $statement = $connection->prepare($sql);
-$statement->execute(array($owned_card_id));
+$statement->execute(array($name));
 
 if($statement == False)
 {
