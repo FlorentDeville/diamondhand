@@ -1,5 +1,8 @@
+import sys
+sys.path.append('C:/workspace/python')
 from selenium import webdriver
 
+from db.db_buylist import load_buylist
 from db.db_fftcg import DbFFTcg
 from scrapper.scrapper_tcg_price import ScrapperTcgPrice
 
@@ -37,7 +40,7 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
             price = card_info["price"]
             seller_total_price[seller_name] += float(price)
 
-    print "Filter out sellers below $5..."
+    #print "Filter out sellers below $5..."
     #PRICE_THRESHOLD = 5
     #filtered_seller = {}
     #for seller_name in seller_count:
@@ -52,8 +55,13 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
     print "---RESULT---"
     for seller in sorted_sellers:
         price_sum = 0
+        diff_sum = 0
         print seller[0]
-        for card_info in seller[1]:
+
+        #sort cards per number
+        sorted_cards = sorted(seller[1], key=lambda entry: entry["card_id"])
+        card_count = len(sorted_cards)
+        for card_info in sorted_cards:
             id = card_info["card_id"]
             price = card_info["price"]
 
@@ -61,10 +69,13 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
             name = card.name
             col_number = card.number
             set_name = card.set_name
-            print('{:<3} {:<3} {:<45} {:>6}'.format(col_number, set_name, name, price))
+            diff = price - all_prices[id][0].m_price
+            print('{:<3} {:<3} {:<45} {:>6} {:+.2f}'.format(col_number, set_name, name, price, diff))
             price_sum = price_sum + float(price)
+            diff_sum = diff_sum + diff
 
-        print "    TOTAL=" + str(price_sum)
+        percent = diff_sum / price_sum * 100
+        print str(card_count) + " TOTAL=" + str(price_sum) + " (" + "{:+.2f}".format(diff_sum) + " " + "{:+.2f}%".format(percent) + ")"
 
 
 # Keep the cheapest cards
@@ -72,18 +83,19 @@ def analyze_tcgplayer_direct(seller_db, full_cards):
     # sort by the cheapest cards first
     print "---RESULT---"
     price_sum = 0
-    for tcgplayerid in seller_db:
-        first_seller = seller_db[tcgplayerid][0]
+    for card_id in seller_db:
+        list_seller = seller_db[card_id]
+        if len(list_seller) == 0:
+            continue
 
-        price_sum = price_sum + float(first_seller["price"])
+        first_seller = seller_db[card_id][0]
 
-        card = full_cards[tcgplayerid]
+        price = first_seller.m_price
+        price_sum = price_sum + float(price)
 
-        price = first_seller["price"]
-
-        name = full_cards[tcgplayerid]["name"]
-        col_number = full_cards[tcgplayerid]["collector_number"]
-        set_name = full_cards[tcgplayerid]["set"]
+        name = full_cards[card_id].name
+        col_number = full_cards[card_id].number
+        set_name = full_cards[card_id].set_name
         # print "    " + str(col_number) + " " + set_name + " " + name + " " + str(price)
         print('{:<3} {:<3} {:<20} {:>6}'.format(col_number, set_name, name, price))
 
@@ -96,18 +108,23 @@ if __name__ == "__main__":
     print "Setup webdriver..."
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
+    chromeOptions.add_argument("--log-level=0")
     browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
-    print "Load csv..."
-    ffdb = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
-    entries = ffdb.load()
+    entries = load_buylist(sys.argv[1])
     cards_needed = {}
-    for ii in range(0, 50):
-        cards_needed[entries[ii].id] = entries[ii]
+    for single_card in entries:
+        if single_card.own is True:
+            continue
+        cards_needed[single_card.id] = single_card
 
     print "Scrap prices..."
     nearMint = True
     tcgDirect = False
+    if len(sys.argv) >= 3:
+        if sys.argv[2] == "True":
+            tcgDirect = True
+
     scrapper = ScrapperTcgPrice(browser, nearMint, tcgDirect)
 
     all_prices = {}
@@ -123,4 +140,5 @@ if __name__ == "__main__":
         analyze_find_best_single_seller(all_prices, cards_needed)
 
     browser.close()
+    browser.quit()
     print "Over"
