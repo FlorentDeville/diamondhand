@@ -1,6 +1,12 @@
 <script>
 	function delete_owned_card(owned_card_id)
 	{
+		var res = confirm('Are you sure you want to delete this card from your stock?')
+		if(!res)
+		{
+			return;
+		}
+		
 		$.get('php_scripts/command_delete_owned_card.php',{'owned_card_id':owned_card_id},function(return_data)
 		{
 			if(return_data.res == 1)
