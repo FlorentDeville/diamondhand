@@ -1,7 +1,9 @@
 import json
 import time
 import lxml.html
+import re
 
+from db.entry import Entry
 from db.db_fftcg import DbFFTcg
 from scrapper.price import Price
 from selenium import webdriver
@@ -31,6 +33,9 @@ class ScrapperTcgPrice:
             newPrice.m_id = dbEntry.id
             newPrice.m_price = float(seller["price"].replace(',', ''))
             newPrice.m_sellerName = seller["name"]
+            newPrice.m_shipping = seller["shipping"]
+            newPrice.m_free_shipping_over_5 = seller["free_shipping_over_5"]
+            newPrice.m_free_shipping_over_35 = seller["free_shipping_over_35"]
             prices.append(newPrice)
 
         return prices
@@ -66,6 +71,7 @@ class ScrapperTcgPrice:
 
         all_names = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__seller')]/div/a")
         all_prices = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__pricing')]/span[contains(@class, 'product-listing__price')]")
+        all_shipping = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__pricing')]/span[contains(@class, 'product-listing__shipping')]")
 
         if len(all_names) != len(all_prices):
             print "ERROR : mismatch between the number of prices and sellers"
@@ -75,6 +81,27 @@ class ScrapperTcgPrice:
             seller_info = {}
             seller_info["name"] = all_names[ii].text
             seller_info["price"] = all_prices[ii].text.replace('$', '')
+            seller_info["free_shipping_over_5"] = False
+            seller_info["free_shipping_over_35"] = False
+
+            shippingText = all_shipping[ii].text
+            if "+ Shipping:" in shippingText:
+                matches = re.search("\+ Shipping: \$(.*)", shippingText)
+                shippingString = matches.groups()[0]
+                shipping = float(shippingString)
+                seller_info["shipping"] = shipping
+
+                shipping_free = all_shipping[ii].xpath("./span/a")
+                if shipping_free is not None and len(shipping_free) > 0:
+                    if "Free Shipping on Orders Over $5" in shipping_free[0].text:
+                        seller_info["free_shipping_over_5"] = True
+            else:
+                shipping_free = all_shipping[ii].xpath("./a")
+                if shipping_free is not None and len(shipping_free) > 0:
+                    if "Free Shipping on Orders Over $35" in shipping_free[0].text:
+                        seller_info["free_shipping_over_35"] = True
+                        seller_info["shipping"] = 1.99
+
             sellers_list.append(seller_info)
 
         return sellers_list
@@ -87,21 +114,39 @@ if __name__ == "__main__":
     browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
     print "Load csv..."
-    ffdb = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
-    entries = ffdb.load()
+    #ffdb = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
+    #entries = ffdb.load()
 
     print "Scrap prices..."
     nearMint = True
     tcgDirect = False
     scrapper = ScrapperTcgPrice(browser, nearMint, tcgDirect)
 
-    for ii in range(0, 10):
-        singleEntry = entries[ii]
-        print "scrap " + singleEntry.name + "..."
+    allPrices = []
+    #for ii in range(0, 5):
+    #singleEntry = entries[ii]
+    singleEntry = Entry()
+    singleEntry.name = "Blessed Breath"
+    singleEntry.number = 1
+    singleEntry.rarity = "common"
+    singleEntry.id = 1
+    singleEntry.set_name = "Champions of Kamigawa"
+    singleEntry.tcg_url = "https://shop.tcgplayer.com/magic/champions-of-kamigawa/blessed-breath?id=11948&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+    singleEntry.own = False
+    singleEntry.set_code = "chk"
 
-        prices = scrapper.get_prices(singleEntry)
-        for price in prices:
-            print "   " + str(price.m_price) + " " + price.m_sellerName
+    print "   " + singleEntry.name + "..."
+
+    prices = scrapper.get_prices(singleEntry)
+    #for price in prices:
+    #    print "      " + str(price.m_price) + " " + price.m_sellerName
+
+    #allPrices = allPrices + prices
+
+    #print "Saving prices..."
+    #pricesDbFilename = "C:\\workspace\\python\\fftcg\\prices.json"
+    #scrapper.save(allPrices, pricesDbFilename)
 
     print "Over"
     browser.close()
+    browser.quit()
