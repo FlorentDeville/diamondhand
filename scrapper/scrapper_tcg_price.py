@@ -101,6 +101,8 @@ class ScrapperTcgPrice:
                     if "Free Shipping on Orders Over $35" in shipping_free[0].text:
                         seller_info["free_shipping_over_35"] = True
                         seller_info["shipping"] = 1.99
+                    elif "+ Shipping: Included" in shipping_free[0].text:
+                        seller_info["shipping"] = 0
 
             sellers_list.append(seller_info)
 

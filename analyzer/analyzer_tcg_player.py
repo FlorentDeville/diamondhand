@@ -10,6 +10,8 @@ from scrapper.scrapper_tcg_price import ScrapperTcgPrice
 # Sort the cards per seller and sort by the seller selling the most cards
 def analyze_find_best_single_seller(all_prices, cards_needed):
 
+    seller_shipping_info = {}
+
     # count the number of available cards per sellers
     print "Count cards per sellers..."
     seller_count = {}
@@ -20,6 +22,12 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
             # don't add cards above 5$
             price = float(seller.m_price)
             name = seller.m_sellerName
+
+            if name not in seller_shipping_info:
+                seller_shipping_info[name] = {}
+                seller_shipping_info[name]["shipping"] = seller.m_shipping
+                seller_shipping_info[name]["shipping_free_over_5"] = seller.m_free_shipping_over_5
+                seller_shipping_info[name]["shipping_free_over_35"] = seller.m_free_shipping_over_35
 
             if price >= 5:
                 continue
@@ -56,7 +64,8 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
     for seller in sorted_sellers:
         price_sum = 0
         diff_sum = 0
-        print seller[0]
+        seller_name = seller[0]
+        print seller_name
 
         #sort cards per number
         sorted_cards = sorted(seller[1], key=lambda entry: entry["card_id"])
@@ -75,6 +84,16 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
             diff_sum = diff_sum + diff
 
         percent = diff_sum / price_sum * 100
+
+        if seller_shipping_info[seller_name]["shipping_free_over_5"] and price_sum >= 5:
+            print "Shipping: Free over $5"
+        elif seller_shipping_info[seller_name]["shipping_free_over_35"] and price_sum >= 35:
+            print "Shipping: Free over $35"
+        else:
+            shipping = seller_shipping_info[seller_name]["shipping"]
+            print "Shipping: " + str(shipping)
+            price_sum = price_sum + shipping
+
         print str(card_count) + " TOTAL=" + str(price_sum) + " (" + "{:+.2f}".format(diff_sum) + " " + "{:+.2f}%".format(percent) + ")"
 
 
@@ -96,10 +115,7 @@ def analyze_tcgplayer_direct(seller_db, full_cards):
         name = full_cards[card_id].name
         col_number = full_cards[card_id].number
         set_name = full_cards[card_id].set_name
-        # print "    " + str(col_number) + " " + set_name + " " + name + " " + str(price)
         print('{:<3} {:<3} {:<20} {:>6}'.format(col_number, set_name, name, price))
-
-        # print card["set"] + " " + card["name"] + " " + first_seller["name"] + " " + first_seller["price"]
 
     print "TOTAL=" + str(price_sum)
 
