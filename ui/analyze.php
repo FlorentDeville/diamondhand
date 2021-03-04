@@ -2,7 +2,27 @@
 	function run_tcgplayer_direct_analysis()
 	{
 		var buylist_id = $("#buylist").val();
-		var command = 'c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py ' + buylist_id + " True";
+		var command = 'c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py -buylist-id ' + buylist_id + " -direct";
+		$.get('php_scripts/command_exec.php', {'command':command}, function(return_data)
+		{
+			var logs = "<div style='border-style:double;font-family: \"Courier New\", Courier, monospace;'>";
+			for(ii = 0; ii < return_data.output.length; ++ii)
+			{
+				var line = return_data.output[ii];
+				line = line.replace(/ /g, "&nbsp;");
+				logs = logs + "<div>" + line + "</div>";
+			}
+			logs = logs + "</div>";
+			
+			$("#result").prepend(logs);
+
+		}, "json");
+	}
+	
+	function run_tcgplayer_analysis()
+	{
+		var buylist_id = $("#buylist").val();
+		var command = 'c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py -buylist-id ' + buylist_id;
 		$.get('php_scripts/command_exec.php', {'command':command}, function(return_data)
 		{
 			var logs = "<div style='border-style:double;font-family: \"Courier New\", Courier, monospace;'>";
@@ -36,10 +56,8 @@
 		}
 		echo "</select>";
 	
-		echo "<input type='submit' name='analyze' value='TCGPlayer Direct Analysis' onclick='run_tcgplayer_direct_analysis()'/>"
-		//$command = escapeshellcmd('c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py 5');
-		//$output = exec($command, $output);
-		//echo $output;		
+		echo "<input type='submit' name='analyze' value='TCGPlayer Direct Analysis' onclick='run_tcgplayer_direct_analysis()'/>";
+		echo "<input type='submit' name='analyze' value='TCGPlayer Analysis' onclick='run_tcgplayer_analysis()'/>";
 	?>
 </div>
 

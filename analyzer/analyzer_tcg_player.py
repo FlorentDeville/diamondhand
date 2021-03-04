@@ -120,14 +120,51 @@ def analyze_tcgplayer_direct(seller_db, full_cards):
     print "TOTAL=" + str(price_sum)
 
 
+def print_help():
+    print "analyzer:"
+    print "Mandatory argument:"
+    print "    -buylist-id <id> : id of the buylist to use"
+    print "Optional argument:"
+    print "    -direct : only use tcgplayer direct sellers"
+    print "    -help : print this help text"
+
+
 if __name__ == "__main__":
+
+    tcgDirect = False
+    buylist_ids = []
+    argc = len(sys.argv)
+    index = 0
+    #for arg in sys.argv:
+    #for index in range(argc):
+    while index < argc:
+        arg = sys.argv[index]
+        if arg == "-buylist-id":
+            index = index + 1
+            if index >= argc:
+                print "Missing value for argument -buylist-id"
+                exit(1)
+            else:
+                buylist_ids.append(sys.argv[index])
+        elif arg == "-direct":
+            tcgDirect = True
+        elif arg == "-help":
+            print_help()
+            exit(0)
+
+        index = index + 1
+
     print "Setup webdriver..."
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
     chromeOptions.add_argument("--log-level=0")
     browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
-    entries = load_buylist(sys.argv[1])
+    entries = []
+    for id in buylist_ids:
+        buylist_entries = load_buylist(id)
+        entries = entries + buylist_entries
+
     cards_needed = {}
     for single_card in entries:
         if single_card.own is True:
@@ -136,11 +173,6 @@ if __name__ == "__main__":
 
     print "Scrap prices..."
     nearMint = True
-    tcgDirect = False
-    if len(sys.argv) >= 3:
-        if sys.argv[2] == "True":
-            tcgDirect = True
-
     scrapper = ScrapperTcgPrice(browser, nearMint, tcgDirect)
 
     all_prices = {}
