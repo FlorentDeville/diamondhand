@@ -21,7 +21,7 @@ if($statement->rowCount() <= 0)
 }
 else
 {
-	$res = array("res" => 1);
+	$res = array("res" => 1, "id" => $connection->lastInsertId());
 	echo json_encode($res);
 }
 ?>
