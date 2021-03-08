@@ -1,5 +1,7 @@
 import csv
+import mysql.connector
 import os
+import sys
 from datetime import datetime
 
 import lxml.html
@@ -22,18 +24,19 @@ class ScrapperEbayPrice:
 
         ret = []
         for sold_item in sold_items_element:
-            xpath_date = ".//div/div[2]/div[2]/div/span/span"
-            date_element = sold_item.xpath(xpath_date)
-            raw_date_text = date_element[0].text
-            date_text = raw_date_text[6:]
+            #xpath_date = ".//div/div[2]/div[2]/div/span/span"
+            #date_element = sold_item.xpath(xpath_date)
+            #raw_date_text = date_element[0].text
+            #date_text = raw_date_text[6:]
 
             #/html/body/div[4]/div[4]/div[2]/div[1]/div[2]/ul/li[15]/div/div[2]/div[5]/span/span
             xpath_time = ".//div/div[2]/div[contains(@class, 's-item__details')]/span/span"
             time_element = sold_item.xpath(xpath_time)
             raw_time_text = time_element[0].text
-            time_text = raw_time_text.split(' ')[1]
+            #time_text = raw_time_text.split(' ')[1]
 
-            date = datetime.strptime(date_text + " " + time_text, '%b %d, %Y %H:%M')
+            today = datetime.today()
+            date = datetime.strptime(raw_time_text + " " + str(today.year), '%b-%d %H:%M %Y')
 
             if start_date is not None and date <= start_date:
                 continue
@@ -65,40 +68,86 @@ class ScrapperEbayPrice:
         return ret
 
 
+def print_help():
+    print "analyzer:"
+    print "Mandatory argument:"
+    print "    -sealed-product-id <id> : id of the sealed produt to use"
+    print "Optional argument:"
+    print "    -commit : commit changes to the db"
+    print "    -help : print this help text"
+
+
 if __name__ == "__main__":
+
+    sealed_product_ids = []
+    commit = False
+    argc = len(sys.argv)
+    index = 0
+    while index < argc:
+        arg = sys.argv[index]
+        if arg == "-sealed-product-id":
+            index = index + 1
+            if index >= argc:
+                print "Missing value for argument -sealed-product-id"
+                exit(1)
+            else:
+                sealed_product_ids.append(sys.argv[index])
+        elif arg == "-commit":
+            commit = True
+        elif arg == "-help":
+            print_help()
+            exit(0)
+
+        index = index + 1
+
     print "Setup webdriver..."
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
     browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
-    csvFilename = "C:\\workspace\\python\\data\kaldheim_draft_booster_box.csv"
+    db = mysql.connector.connect(host="localhost", user="root", password="", database="wallstreet")
 
-    entries = []
+    for sealed_id in sealed_product_ids:
+        print "Scrapping " + str(sealed_id) + "..."
+        lastDate = None
 
-    lastDate = None
-    if os.path.exists(csvFilename):
-        with open(csvFilename) as csvFile:
-            lines = csv.reader(csvFile, delimiter=';', quotechar='"')
-            for line in lines:
-                date = datetime.strptime(line[0], '%Y-%m-%d %H:%M:%S')
-                newEntry = {}
-                newEntry["date"] = date
-                newEntry["price"] = line[1]
-                entries.append(newEntry)
+        #find the last price
+        sql = "select s.name, h.date " \
+              "from sealed_products as s inner join sealed_products_price_history as h on s.id = h.sealed_product_id " \
+              "where s.id=" + str(sealed_id) + " " \
+              "order by h.date desc limit 1"
 
-        lastDate = entries[len(entries)-1]["date"]
+        cursor = db.cursor()
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        if len(results) > 0:
+            lastDate = datetime.strptime(results[0]["date"], '%Y-%m-%d %H:%M:%S')
 
-    scrapper = ScrapperEbayPrice(browser)
+        #find the ebay url
+        sql = "select ebay_sold_url from sealed_products where id =" + str(sealed_id)
+        cursor = db.cursor()
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        if len(results) <= 0:
+            print "ERROR : can't find sealed product with id " + str(sealed_id)
+            exit(1)
 
-    url = "https://www.ebay.com/sch/i.html?_from=R40&_nkw=kaldheim+booster+box+-set+-collector+-bundle+-theme+-repack+-error+-code+-repacked+-promo+-case+-collectors+-%22ice+age%22+-prerelease&_sacat=0&LH_TitleDesc=0&LH_PrefLoc=1&LH_Complete=1&rt=nc&LH_Sold=1&_ipg=200"
-    res = scrapper.get_sold_prices(url, lastDate)
+        url = results[0][0]
 
-    with open(csvFilename, "a") as f:
+        scrapper = ScrapperEbayPrice(browser)
+        res = scrapper.get_sold_prices(url, lastDate)
+
         for price in reversed(res):
-            new_line = "\"{}\";{}\n"
-            new_line = new_line.format(price["date"], price["price"])
-
-            f.write(new_line)
+            date = price["date"]
+            value = price["price"]
+            print "Add new price..."
+            sql = "insert into sealed_products_price_history (sealed_product_id, date, price) values (%s, %s, %s);"
+            sql_values = [sealed_id, date, value]
+            cursor = db.cursor()
+            cursor.execute(sql, sql_values)
+            if commit:
+                db.commit()
 
     print "Over"
     browser.close()
+    browser.quit()
