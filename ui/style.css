@@ -54,6 +54,7 @@ th
 
 a.standard_link:link
 {
+	text-decoration:none;
 	color:white;
 }
 
@@ -64,5 +65,6 @@ a.standard_link:visited
 
 a.standard_link:hover
 {
+	text-decoration:underline;
 	color:#aaaaaa;
 }
