@@ -68,3 +68,23 @@ a.standard_link:hover
 	text-decoration:underline;
 	color:#aaaaaa;
 }
+
+.green
+{
+	color: green;
+}
+
+.red
+{
+	color: red;
+}
+
+.down:before
+{
+	content: '▼';
+}
+
+.up:before
+{
+	content: '▲';
+}

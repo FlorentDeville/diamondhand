@@ -121,7 +121,7 @@ if __name__ == "__main__":
         cursor.execute(sql)
         results = cursor.fetchall()
         if len(results) > 0:
-            lastDate = datetime.strptime(results[0]["date"], '%Y-%m-%d %H:%M:%S')
+            lastDate = results[0][1]
 
         #find the ebay url
         sql = "select ebay_sold_url from sealed_products where id =" + str(sealed_id)
