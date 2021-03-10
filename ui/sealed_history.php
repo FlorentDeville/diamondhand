@@ -34,7 +34,28 @@
 		var options = 
 		{
 			title: title,
-			legend: { position: 'bottom' }
+			legend: 
+			{ 
+				position: 'bottom', 
+				textStyle:
+				{
+					color:'white'
+				}
+			},
+			backgroundColor:
+			{
+				fill: 'black',
+				stroke: 'white',
+				strokeWidth: 1
+			},
+			hAxis: 
+			{
+				textStyle:{color: 'white'}
+			},
+			vAxis: 
+			{
+				textStyle:{color: 'white'}
+			}
 		};
 
 		var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
