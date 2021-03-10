@@ -2,8 +2,14 @@
 	function run_tcgplayer_direct_analysis()
 	{
 		$("#loading_icon").css("visibility", "visible");
-		var buylist_id = $("#buylist").val();
-		var command = 'c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py -buylist-id ' + buylist_id + " -direct";
+		var buylist_ids = $("#buylist").val();
+		var buylist_arg = "";
+		for(ii = 0; ii < buylist_ids.length; ++ii)
+		{
+			buylist_arg = buylist_arg + " -buylist-id " + buylist_ids[ii]
+		}
+
+		var command = 'c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py ' + buylist_arg + " -direct";
 		$.get('php_scripts/command_exec.php', {'command':command}, function(return_data)
 		{
 			var logs = "<div style='border-style:double;font-family: \"Courier New\", Courier, monospace;'>";
@@ -23,8 +29,14 @@
 	function run_tcgplayer_analysis()
 	{
 		$("#loading_icon").css("visibility", "visible");
-		var buylist_id = $("#buylist").val();
-		var command = 'c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py -buylist-id ' + buylist_id;
+		var buylist_ids = $("#buylist").val();
+		var buylist_arg = "";
+		for(ii = 0; ii < buylist_ids.length; ++ii)
+		{
+			buylist_arg = buylist_arg + " -buylist-id " + buylist_ids[ii]
+		}
+		
+		var command = 'c:/Python27/python.exe c:/workspace/python/analyzer/analyzer_tcg_player.py ' + buylist_arg;
 		$.get('php_scripts/command_exec.php', {'command':command}, function(return_data)
 		{
 			var logs = "<div style='border-style:double;font-family: \"Courier New\", Courier, monospace;'>";
@@ -69,16 +81,18 @@
 		$sql = "select * from buy_list;";
 		$result = $connection->query($sql);
 		
-		echo "<select name=\"buylist\" id=\"buylist\">";
+		echo "<select name=\"buylist\" id=\"buylist\" multiple size=\"10\">";
 		echo "<option value=\"\" selected disabled hidden>Select buylist</option>";
 		while($row = $result->fetch())
 		{
 			echo "<option value=\"" . $row["id"] . "\">" . $row["name"] . "</option>";
 		}
 		echo "</select>";
-	
-		echo "<input type='submit' name='analyze' value='TCGPlayer Direct Analysis' onclick='run_tcgplayer_direct_analysis()'/>";
-		echo "<input type='submit' name='analyze' value='TCGPlayer Analysis' onclick='run_tcgplayer_analysis()'/>";
+		
+		echo "<div style=\"display:inline-block;\">";
+		echo "<div><input type='submit' name='analyze' value='TCGPlayer Direct Analysis' onclick='run_tcgplayer_direct_analysis()'/></div>";
+		echo "<div><input type='submit' name='analyze' value='TCGPlayer Analysis' onclick='run_tcgplayer_analysis()'/></div>";
+		echo "</div>";
 	?>
 	<div id="loading_icon" style="width:25;height:25;display:inline-block;visibility:hidden;" class="loader"></div>
 </div>
