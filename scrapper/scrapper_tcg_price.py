@@ -23,11 +23,15 @@ class ScrapperTcgPrice:
         self.m_browser = browser
 
     def get_prices(self, dbEntry):
+        prices = []
         url = dbEntry.tcg_url
+        if url is None or url == "":
+            print "        No Url."
+            return prices
+
         html = self.__download_webpage(url)
         sellers = self.__get_sellers_from_webpage(html)
 
-        prices = []
         for seller in sellers:
             newPrice = Price()
             newPrice.m_id = dbEntry.id
