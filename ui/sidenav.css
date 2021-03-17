@@ -42,6 +42,3 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
-//document.getElementById("mySidenav").style.width = "0";
-	document.getElementById("main").style.marginLeft= "0";

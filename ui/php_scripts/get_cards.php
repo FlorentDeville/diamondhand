@@ -1,6 +1,18 @@
 <?Php
 @$set_id=$_GET['set_id'];
 
+$sort_field = "number";
+if(isset($_GET["sort_field"]))
+{
+	$sort_field = $_GET["sort_field"];
+}
+
+$sort_dir = "asc";
+if(isset($_GET["sort_dir"]))
+{
+	$sort_dir = $_GET["sort_dir"];
+}
+
 if(!is_numeric($set_id))
 {
 	echo "Data Error";
@@ -9,7 +21,7 @@ if(!is_numeric($set_id))
 
 include("../connection.php");
 
-$sql="select id, name, number from card where set_id=" . $set_id . " order by number asc;";
+$sql="select id, name, number from card where set_id=" . $set_id . " order by ". $sort_field . " " . $sort_dir . ";";
 $statement = $connection->query($sql);
 if($statement == False)
 {
