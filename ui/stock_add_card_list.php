@@ -80,7 +80,32 @@ function show_set(sort_field, sort_dir)
 
 function submit_cards()
 {
+	var all_children = $("#cards_table").find("tr");
+	for(var ii = 0; ii < all_children.length; ++ii)
+	{
+		var row = all_children[ii];
+		if(row.id == "")
+			continue;
 
+		var card_id = row.id;
+		var date = row.querySelector("input[id='date']").value;
+		var price = row.querySelector("input[id='price']").value;
+		var condition = 1; //near mint
+
+		if(date == "" || price == "")
+			continue;
+
+		//$card_id=$_GET['card_id'];
+		//$condition_id = $_GET['condition_id'];
+		//$price = $_GET['price'];
+		//$date = $_GET['date'];
+
+		$.get('php_scripts/add_stock_card.php',{'card_id':card_id, 'date':date, 'price':price, 'condition_id': condition },function(return_data)
+		{
+			var content = "<div>" + return_data + "</div>";
+			$("#list_result").prepend(content);
+		}, "text");
+	}
 }
 
 </script>
@@ -114,5 +139,5 @@ function submit_cards()
 	?>
 </div>
 
-<div id="list_container">
-	</div>
+<div id="list_container"></div>
+<div id="list_result"></div>
