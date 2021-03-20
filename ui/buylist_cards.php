@@ -79,6 +79,11 @@
 		}, "json");
 	}
 	
+	function show_buylist(buylist_id, sort_field, sort_dir)
+	{
+		window.location.href = "http://diamondstreet2/index.php?page=buylist_cards.php&buylist_id=" + buylist_id + "&sort_field=" + sort_field + "&sort_dir=" + sort_dir;
+	}
+
 </script>
 <div style="margin-bottom:20px;">
 	<?php
@@ -116,15 +121,45 @@
 
 <div>
 	<table>
-		<tr><th>N</th><th>Name</th><th>Set</th><th>Options</th></tr>
 	<?php
+		function get_sort_arrow($field, $dir, $title, $show_arrow)
+		{
+			$reverse_dir = "desc";
+			$arrow = "▲";
+			if($dir == "desc")
+			{
+				$arrow = " ▼";
+				$reverse_dir = "asc";
+			}
+			
+			if(!$show_arrow)
+				$arrow = "";
+
+			$content = "<span onclick=\"show_buylist('" . $_GET['buylist_id'] . "','" . $field . "','" . $reverse_dir . "')\">" . $title . $arrow . "</span>";
+			return $content;
+		}
+
 		$sort_field = "number";
 		$sort_direction = "asc";
 		if(isset($_GET["sort_field"]))
 			$sort_field = $_GET["sort_field"];
 		if(isset($_GET["sort_dir"]))
 			$sort_direction = $_GET["sort_dir"];
-			
+		
+		$show_arrow = false;
+		if($sort_field == "name")
+			$show_arrow = true;
+		
+		$name_title = get_sort_arrow("name", $sort_direction, "Name", $show_arrow);
+
+		$show_arrow = false;
+		if($sort_field == "number")
+			$show_arrow = true;
+		
+		$number_title = get_sort_arrow("number", $sort_direction, "N", $show_arrow);
+
+		echo "<tr><th>" . $number_title . "</th><th>" . $name_title . "</th><th>Set</th><th>Options</th></tr>";
+
 		$sql = "select buy_list_card.id, card.name as name, sets.code as set_code, sets.name as set_name, card.number 
 		from buy_list_card inner join card on buy_list_card.card_id=card.id
 		inner join sets on card.set_id=sets.id
