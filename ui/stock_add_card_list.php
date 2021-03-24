@@ -50,7 +50,7 @@ function show_set(sort_field, sort_dir)
 		{
 			var card = cards[ii];
 			content += "<tr id='" + card["id"] + "'><td>" + card["number"] + "</td><td>" + card["name"] + "</td>";
-			content += "<td><input type=\"date\" id=\"date\" name=\"date\" placeholder=\"Acquisition Date\"/></td>";
+			content += "<td><input type=\"date\" id=\"date\" name=\"date\" placeholder=\"Acquisition Date\" onkeydown=\"date_on_keydown(event)\"/></td>";
 			content += "<td><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"Price\"/></td></tr>"
 		}
 		content += "</table>";
@@ -90,6 +90,53 @@ function submit_cards()
 		}, "text");
 	}
 }
+
+/////////////////////////////////////////////////////
+// date filed with copy paste enabled
+/////////////////////////////////////////////////////
+var control_pressed = false;
+
+function change_input_type(oldObject, oType) 
+{
+	var newObject = document.createElement("input");
+	newObject.type = oType;
+	if(oldObject.size) {newObject.size = oldObject.size;}
+	if(oldObject.value) {newObject.value = oldObject.value;}
+	if(oldObject.name) {newObject.name = oldObject.name;}
+	if(oldObject.id) {newObject.id = oldObject.id;}
+	if(oldObject.className) {newObject.className = oldObject.className;}
+	oldObject.parentNode.replaceChild(newObject,oldObject);
+	newObject.select();
+	return newObject;
+}
+
+function date_on_keydown(event)
+{
+	var CONTROL_LEFT = 17;
+	if ((event.keyCode == CONTROL_LEFT) && (control_pressed != true)) 
+	{
+		var srcElement = event.srcElement;
+		var txtElement = change_input_type(srcElement, "text");
+		txtElement.onkeyup = date_on_keyup;
+		control_pressed = true;
+	}
+}
+
+function date_on_keyup(event)
+{
+	var CONTROL_LEFT = 17;
+	if ((event.keyCode == CONTROL_LEFT) && (control_pressed != false)) 
+	{
+		var srcElement = event.srcElement;
+		var dateElement = change_input_type(srcElement, "date");
+		dateElement.onkeydown = date_on_keydown;
+		control_pressed = false;
+    }
+}
+
+/////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////
 
 </script>
 <div>
