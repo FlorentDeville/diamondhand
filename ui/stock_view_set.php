@@ -1,12 +1,17 @@
 <script>
 
-$(document).ready(function()
+	$(document).ready(function()
 	{
 		$("#set").change(function()
 		{
 			var set_id=$('#set').val();
 			window.location.href = "/index.php?page=stock_view_set.php&set_id=" + set_id;
 		});
+
+		var set_id=$('#set').val();
+		var sort_field = "number";
+		var sort_dir = "asc";
+		show_set(set_id, sort_field, sort_dir);
 	});
 	
 	function delete_owned_card(owned_card_id)
@@ -30,6 +35,90 @@ $(document).ready(function()
 			}
 		}, "json");
 	}
+
+	function show_set(set_id, sort_field, sort_dir)
+	{
+		var sql = `select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, acq_price,
+			owned_card.id as owned_card_id, 
+			card.number 
+			from owned_card inner join card on owned_card.card_id=card.id inner join conditions on conditions.id=owned_card.condition_id
+			inner join sets on sets.id=card.set_id
+			inner join game on sets.game_id=game.id
+			where card.set_id = ` + set_id + ` 
+			order by ` + sort_field + " " + sort_dir;
+
+		$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
+		{
+			obj = JSON.parse(return_data);
+			var cards = obj["data"];
+			display_array("array_container", cards, sort_field, sort_dir, set_id);
+
+			$("#card_count").empty();
+
+			var card_count = Object.keys(cards).length;
+			$("#card_count").prepend("Found " + card_count.toString() + " cards");
+
+		}, "text");
+	}
+
+	function get_array_header(field, dir, title, show_arrow, set_id)
+	{
+		var reverse_dir = "desc";
+		var arrow = "▲";
+		if(dir == "desc")
+		{
+			arrow = " ▼";
+			reverse_dir = "asc";
+		}
+		
+		if(!show_arrow)
+			arrow = "";
+
+		var content = "<span onclick=\"show_set(" + set_id + ",'" + field + "','" + reverse_dir + "')\">" + title + arrow + "</span>";
+		return content;
+	}
+
+	function display_array(container_id, data, sort_field, sort_dir, set_id)
+	{
+		var content = "<table>";
+		var header_data_array = 
+		[
+			{field:"number", title:"N"},
+			{field:"name", title:"Card Name"},
+			{field:"set_name", title:"Set"},
+			{field:"cond", title:"Condition"},
+			{field:"acq_price", title:"Acq Price"}
+		];
+
+		content += "<tr>";
+		for(var ii = 0; ii < Object.keys(header_data_array).length; ++ii)
+		{
+			var header_data = header_data_array[ii];
+			var header = get_array_header(header_data["field"], sort_dir, header_data["title"], header_data["field"] == sort_field, set_id);
+			content += "<th>" + header + "</th>";
+		}
+		content += "<th>Options</th>";
+		content += "</tr>";
+
+		for(ii=0; ii < Object.keys(data).length; ++ii)
+		{
+			var card = data[ii];
+			
+			content += "<tr id='row_" + card["owned_card_id"] + "'>";
+			content += "<td>" + card["number"] + "</td>";
+			content += "<td>" + card["name"] + "</td>";
+			content += "<td style='text-align:center;' title='" + card['set_name'] + "'>" + card["set_code"] + "</td>";
+			content += "<td style='text-align:center;'>" + card["cond"] + "</td>";
+			content += "<td style='text-align:right;'>" + Number.parseFloat(card["acq_price"]).toFixed(2) + "</td>";
+			content += "<td>Edit <a class=\"setButton\" href='#' onclick='delete_owned_card(" + card["owned_card_id"] + ")'>X</a></td>";
+			content += "</tr>";
+		}
+		content += "</table>";
+
+		$("#" + container_id).empty();
+		$("#" + container_id).prepend(content);
+	}
+
 </script>
 <div>
 <div style="margin-bottom:20px;">
@@ -66,47 +155,14 @@ $(document).ready(function()
 	{
 		return;
 	}
-	$set_id = $_GET["set_id"];
-	
+
 	$sql = "SELECT round(sum(acq_price), 2) as money FROM owned_card inner join card on owned_card.card_id = card.id where card.set_id = " . $set_id;
 	$statement = $connection->query($sql);
 	$result = $statement->fetch();
 	$money = $result["money"];
+	echo "<div id='card_count'></div>";
 	echo "<div>Total Spent : $" . $money . "</div>";
 	
-	$sql = "select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, acq_price,
-			owned_card.id as owned_card_id
-			from owned_card inner join card on owned_card.card_id=card.id inner join conditions on conditions.id=owned_card.condition_id
-			inner join sets on sets.id=card.set_id
-			inner join game on sets.game_id=game.id
-			where card.set_id = " . $set_id;
-	$statement = $connection->query($sql);
-	if($statement == False)
-	{
-		echo "Failed to retrieve the owned card";
-	}
-	
-	$all_cards = $statement->fetchAll();
-	echo "<div> Found " . count($all_cards) . " cards.</div>";
-	
-	echo "<table>";
-	echo "<tr><th>Card Name</th><th>Set</th><th>Condition</th><th>Acq Price</th><th>Options</th></tr>";
-	//while($result=$statement->fetch(PDO::FETCH_ASSOC))
-	foreach($all_cards as $result)
-	{
-		if($result == False)
-		{
-			echo "Failed to retrieve the owned card";
-		}
-		
-		echo "<tr id='row_". $result["owned_card_id"] . "'>";
-		echo "<td>" . $result["name"] . "</td>";
-		echo "<td style='text-align:center;' title='" . $result['set_name'] . "'>" . $result["set_code"] . "</td>";
-		echo "<td style='text-align:center;'>" . $result["cond"] . "</td>";
-		echo "<td style='text-align:right;'>" . number_format($result["acq_price"], 2) . "</td>";
-		echo "<td>Edit <a class=\"setButton\" href='#' onclick='delete_owned_card(" . $result["owned_card_id"] . ")'>X</a></td>";
-		echo "</tr>";
-	}
-	echo "</table>";
+	echo "<div id='array_container'></div>";
 ?>
 </div>
