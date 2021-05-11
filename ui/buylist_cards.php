@@ -158,9 +158,9 @@
 		
 		$number_title = get_sort_arrow("number", $sort_direction, "N", $show_arrow);
 
-		echo "<tr><th>" . $number_title . "</th><th>" . $name_title . "</th><th>Set</th><th>Options</th></tr>";
+		echo "<tr><th>" . $number_title . "</th><th>" . $name_title . "</th><th>Set</th><th>Options</th><th>Links</th></tr>";
 
-		$sql = "select buy_list_card.id, card.name as name, sets.code as set_code, sets.name as set_name, card.number 
+		$sql = "select buy_list_card.id, card.name as name, card.tcg_url, sets.code as set_code, sets.name as set_name, card.number 
 		from buy_list_card inner join card on buy_list_card.card_id=card.id
 		inner join sets on card.set_id=sets.id
 		where buy_list_card.buy_list_id=" . $_GET['buylist_id'] . 
@@ -169,7 +169,8 @@
 		while($row = $result->fetch())
 		{
 			$deleteButton = "<span style='margin:0 10 0 10;' onclick='delete_card(".$row["id"].")'>X</span>";
-			echo "<tr><td>".$row["number"]."</td><td>" . $row["name"] . "</td><td>".$row["set_code"]."</td><td>".$deleteButton."</td></tr>";
+			echo "<tr><td>".$row["number"]."</td><td>" . $row["name"] . "</td><td>".$row["set_code"]."</td><td>".$deleteButton."</td>
+			<td><a class='standard_link' href=\"" . $row["tcg_url"] . "\">TCGP</a></td></tr>";
 		}
 	?>
 	</table>
