@@ -154,6 +154,10 @@ if __name__ == "__main__":
 
         index = index + 1
 
+    if len(buylist_ids) == 0:
+        print_help()
+        exit(0)
+
     print "Setup webdriver..."
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
