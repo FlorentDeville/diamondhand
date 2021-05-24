@@ -30,9 +30,6 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
                 seller_shipping_info[name]["shipping_free_over_5"] = seller.m_free_shipping_over_5
                 seller_shipping_info[name]["shipping_free_over_35"] = seller.m_free_shipping_over_35
 
-            if price >= 5:
-                continue
-
             if name not in seller_count:
                 seller_count[name] = []
 
@@ -119,7 +116,14 @@ def analyze_find_best_single_seller(all_prices, cards_needed):
 # Keep the cheapest cards
 def analyze_tcgplayer_direct(seller_db, full_cards):
     # sort by the cheapest cards first
-    print "---RESULT---"
+    output = []
+
+    output_seller = {}
+    output_seller["seller_name"] = "Direct"
+    output_seller["cards"] = []
+    output_seller["shipping_cost"] = 0
+    output_seller["shipping_reason"] = "Free over $35"
+
     price_sum = 0
     for card_id in seller_db:
         list_seller = seller_db[card_id]
@@ -134,10 +138,21 @@ def analyze_tcgplayer_direct(seller_db, full_cards):
         name = full_cards[card_id].name
         col_number = full_cards[card_id].number
         set_name = full_cards[card_id].set_name
-        print('{:<3} {:<3} {:<20} {:>6}'.format(col_number, set_name, name, price))
+        #print('{:<3} {:<3} {:<20} {:>6}'.format(col_number, set_name, name, price))
 
-    print "TOTAL=" + str(price_sum)
-    return None
+        output_card = {}
+        output_card["name"] = name
+        output_card["set_name"] = set_name
+        output_card["col_number"] = col_number
+        output_card["price"] = price
+        output_card["price_dt"] = 0
+        output_seller["cards"].append(output_card)
+
+    output_seller["total"] = price_sum
+    output_seller["total_dt"] = 0
+    output_seller["total_dt_percent"] = 0
+    output.append(output_seller)
+    return output
 
 
 # Print the result as a json string
@@ -150,7 +165,7 @@ def print_output_json(result):
 def print_output_pretty(result):
     print "---RESULT---"
     for seller in result:
-        print seller["seller_name"]
+        print (seller["seller_name"].encode("utf-8"))
 
         for card_info in seller["cards"]:
             col_number = card_info["col_number"]
