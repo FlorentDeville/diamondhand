@@ -280,7 +280,7 @@ if __name__ == "__main__":
     for card_id in cards_needed:
         card = cards_needed[card_id]
         logging.debug("    Scrap " + card.name + "...")
-        prices = scrapper.get_prices(card)
+        prices = scrapper.get_prices(card.id, card.tcg_url)
         all_prices[card.id] = prices
 
     result = None

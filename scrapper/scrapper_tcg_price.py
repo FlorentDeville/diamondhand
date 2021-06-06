@@ -1,10 +1,10 @@
+import argparse
 import json
+import mysql.connector
 import time
 import lxml.html
 import re
 
-from db.entry import Entry
-from db.db_fftcg import DbFFTcg
 from scrapper.price import Price
 from selenium import webdriver
 
@@ -22,9 +22,9 @@ class ScrapperTcgPrice:
         self.m_onlyTcgPlayerDirect = onlyTcgPlayerDirect
         self.m_browser = browser
 
-    def get_prices(self, dbEntry):
+    def get_prices(self, card_id, card_tcg_url):
         prices = []
-        url = dbEntry.tcg_url
+        url = card_tcg_url
         if url is None or url == "":
             print "        No Url."
             return prices
@@ -34,7 +34,7 @@ class ScrapperTcgPrice:
 
         for seller in sellers:
             newPrice = Price()
-            newPrice.m_id = dbEntry.id
+            newPrice.m_id = card_id
             newPrice.m_price = float(seller["price"].replace(',', ''))
             newPrice.m_sellerName = seller["name"]
             newPrice.m_shipping = seller["shipping"]
@@ -43,6 +43,15 @@ class ScrapperTcgPrice:
             prices.append(newPrice)
 
         return prices
+
+    def get_normal_market_prices(self, card_tcg_url):
+        if card_tcg_url is None or card_tcg_url == "":
+            print "        No Url."
+            return None
+
+        html = self.__download_webpage(card_tcg_url)
+        price = self.__get_normal_market_price_from_webapge(html)
+        return price
 
     def save(self, prices, filename):
         with open(filename, "w") as out_file:
@@ -112,42 +121,65 @@ class ScrapperTcgPrice:
 
         return sellers_list
 
+    # Take the inner html as a string and return the normal market price
+    def __get_normal_market_price_from_webapge(self, inner_html):
+        html = lxml.html.fromstring(inner_html)
+        normal_price = html.xpath("//td[contains(@class, 'price-point__data')]")
+        if len(normal_price) == 0:
+            print "ERROR: Can't find the normal market price"
+            return
+
+        text_price = normal_price[0].text.replace('$', '')
+        price = float(text_price)
+        return price
+
 
 if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description="Parse tcgplayer webpage to retrieve price information.")
+    parser.add_argument('-c', '--card-id', type=int, dest="card_id", help="Id of the card.")
+    parser.add_argument('-sp', '--scrap-seller-prices', dest="scrap_seller_prices", action="store_true", default=False, help="Scrap all the sellers' prices.")
+    parser.add_argument('-nmp', '--scrap-normal-market-price', dest="scrap_normal_market_price", action="store_true", default=False, help="Scrap all the sellers' prices.")
+    options = parser.parse_args()
+
+    if options.scrap_seller_prices is False and options.scrap_normal_market_price is False:
+        parser.print_help()
+        exit(1)
+
     print "Setup webdriver..."
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
     browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
-    print "Load csv..."
-    #ffdb = DbFFTcg(browser, "C:\\workspace\\python\\fftcg\\db.csv")
-    #entries = ffdb.load()
+    print "Get information of card " + str(options.card_id) + "..."
+    db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="wallstreet"
+    )
 
-    print "Scrap prices..."
+    sql = "select card.tcg_url from card where id=" + str(options.card_id)
+
+    cursor = db.cursor()
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    url = results[0][0]
+
     nearMint = True
     tcgDirect = False
     scrapper = ScrapperTcgPrice(browser, nearMint, tcgDirect)
 
-    allPrices = []
-    #for ii in range(0, 5):
-    #singleEntry = entries[ii]
-    singleEntry = Entry()
-    singleEntry.name = "Blessed Breath"
-    singleEntry.number = 1
-    singleEntry.rarity = "common"
-    singleEntry.id = 1
-    singleEntry.set_name = "Champions of Kamigawa"
-    singleEntry.tcg_url = "https://shop.tcgplayer.com/magic/champions-of-kamigawa/blessed-breath?id=11948&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
-    singleEntry.own = False
-    singleEntry.set_code = "chk"
+    if options.scrap_seller_prices is True:
+        print "Scrap prices..."
+        prices = scrapper.get_prices(options.card_id, url)
+        for price in prices:
+            print "      " + str(price.m_price) + " " + price.m_sellerName
 
-    print "   " + singleEntry.name + "..."
-
-    prices = scrapper.get_prices(singleEntry)
-    #for price in prices:
-    #    print "      " + str(price.m_price) + " " + price.m_sellerName
-
-    #allPrices = allPrices + prices
+    if options.scrap_normal_market_price is True:
+        print "Scrap normal market price..."
+        market_price = scrapper.get_normal_market_prices(url)
+        print" Normal Market Price : $" + str(market_price)
 
     #print "Saving prices..."
     #pricesDbFilename = "C:\\workspace\\python\\fftcg\\prices.json"
