@@ -221,7 +221,7 @@ if __name__ == "__main__":
                 buylist_ids.append(sys.argv[index])
         elif arg == "-direct":
             tcgDirect = True
-        elif arg == "-output-mode":
+        elif arg == "-output-format":
             index = index + 1
             if index >= argc:
                 print "Missing value for argument -output-mode"

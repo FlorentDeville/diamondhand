@@ -63,16 +63,20 @@ class ScrapperTcgPrice:
 
         # check the near mint check box
         if self.m_onlyNearMint and not self.m_enableNearMint:
-            button = self.m_browser.find_element_by_xpath("//a[contains(@onclick, 'NearMint')]")
+            xpath = "//span[contains(@id, 'NearMint-filter-label')]"
+            button = self.m_browser.find_element_by_xpath(xpath)
             button.click()
-            time.sleep(1)
+            #time.sleep(1)
             self.m_enableNearMint = True
 
         if self.m_onlyTcgPlayerDirect and not self.m_enableTcgPlayerDirect:
-            button = self.m_browser.find_element_by_xpath("//a[contains(@onclick, 'WantDirect')]")
+            xpath = "//label[contains(@aria-labelledby, 'direct-seller-filter')]"
+            button = self.m_browser.find_element_by_xpath(xpath)
             button.click()
-            time.sleep(2)
+            #time.sleep(2)
             self.m_enableTcgPlayerDirect = True
+
+        time.sleep(2)
 
         return self.m_browser.execute_script("return document.body.innerHTML")
 
@@ -82,9 +86,12 @@ class ScrapperTcgPrice:
 
         sellers_list = []
 
-        all_names = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__seller')]/div/a")
-        all_prices = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__pricing')]/span[contains(@class, 'product-listing__price')]")
-        all_shipping = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__pricing')]/span[contains(@class, 'product-listing__shipping')]")
+        xpath_seller_names = "//a[contains(@class, 'seller-info__name')]"
+        xpath_prices = "//div[contains(@class, 'listing-item__price')]"
+
+        all_names = html.xpath(xpath_seller_names)
+        all_prices = html.xpath(xpath_prices)
+        #all_shipping = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__pricing')]/span[contains(@class, 'product-listing__shipping')]")
 
         if len(all_names) != len(all_prices):
             print "ERROR : mismatch between the number of prices and sellers"
@@ -96,26 +103,27 @@ class ScrapperTcgPrice:
             seller_info["price"] = all_prices[ii].text.replace('$', '')
             seller_info["free_shipping_over_5"] = False
             seller_info["free_shipping_over_35"] = False
+            seller_info["shipping"] = 0
 
-            shippingText = all_shipping[ii].text
-            if "+ Shipping:" in shippingText:
-                matches = re.search("\+ Shipping: \$(.*)", shippingText)
-                shippingString = matches.groups()[0]
-                shipping = float(shippingString)
-                seller_info["shipping"] = shipping
+            #shippingText = all_shipping[ii].text
+            #if "+ Shipping:" in shippingText:
+            #    matches = re.search("\+ Shipping: \$(.*)", shippingText)
+             #   shippingString = matches.groups()[0]
+             #   shipping = float(shippingString)
+             #   seller_info["shipping"] = shipping
 
-                shipping_free = all_shipping[ii].xpath("./span/a")
-                if shipping_free is not None and len(shipping_free) > 0:
-                    if "Free Shipping on Orders Over $5" in shipping_free[0].text:
-                        seller_info["free_shipping_over_5"] = True
-            else:
-                shipping_free = all_shipping[ii].xpath("./a")
-                if shipping_free is not None and len(shipping_free) > 0:
-                    if "Free Shipping on Orders Over $35" in shipping_free[0].text:
-                        seller_info["free_shipping_over_35"] = True
-                        seller_info["shipping"] = 1.99
-                    elif "+ Shipping: Included" in shipping_free[0].text:
-                        seller_info["shipping"] = 0
+                #shipping_free = all_shipping[ii].xpath("./span/a")
+                #if shipping_free is not None and len(shipping_free) > 0:
+                 #   if "Free Shipping on Orders Over $5" in shipping_free[0].text:
+                  #      seller_info["free_shipping_over_5"] = True
+            #else:
+             #   shipping_free = all_shipping[ii].xpath("./a")
+              #  if shipping_free is not None and len(shipping_free) > 0:
+               #     if "Free Shipping on Orders Over $35" in shipping_free[0].text:
+                #        seller_info["free_shipping_over_35"] = True
+                 #       seller_info["shipping"] = 1.99
+                 #   elif "+ Shipping: Included" in shipping_free[0].text:
+                  #      seller_info["shipping"] = 0
 
             sellers_list.append(seller_info)
 
