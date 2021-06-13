@@ -60,23 +60,22 @@ class ScrapperTcgPrice:
     # Download a webpage and return the inner html as a string
     def __download_webpage(self, url):
         self.m_browser.get(url)
+        time.sleep(2)
 
         # check the near mint check box
         if self.m_onlyNearMint and not self.m_enableNearMint:
             xpath = "//span[contains(@id, 'NearMint-filter-label')]"
             button = self.m_browser.find_element_by_xpath(xpath)
             button.click()
-            #time.sleep(1)
-            self.m_enableNearMint = True
+            time.sleep(1)
+            #self.m_enableNearMint = True
 
         if self.m_onlyTcgPlayerDirect and not self.m_enableTcgPlayerDirect:
             xpath = "//label[contains(@aria-labelledby, 'direct-seller-filter')]"
             button = self.m_browser.find_element_by_xpath(xpath)
             button.click()
-            #time.sleep(2)
-            self.m_enableTcgPlayerDirect = True
-
-        time.sleep(2)
+            time.sleep(2)
+            #self.m_enableTcgPlayerDirect = True
 
         return self.m_browser.execute_script("return document.body.innerHTML")
 
