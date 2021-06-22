@@ -13,3 +13,8 @@ class Entry:
     tcg_url = ""        # url in tcgplayer
     variation = ""      # print variation
     own = False         # do I own this card
+
+    def to_string(self):
+        pattern = "{};{};{};{};{};{};{};{};{}"
+        res = pattern.format(self.id, self.set_name, self.set_code, self.name, self.number, self.rarity, self.tcg_url, self.variation, self.own)
+        return res
