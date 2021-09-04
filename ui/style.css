@@ -83,15 +83,34 @@ a.stockMenuButton:active
 	width:500px;
 }
 
+.progressionSet:hover
+{
+	background-image:linear-gradient(#333333, #111111);
+}
+
+.progressionSelectedSet
+{
+	background-image:linear-gradient(#01459a, #111111);
+	border-radius:5px;
+	padding:5 10 5 10;
+	margin:5 0 5 0;
+	width:500px;
+}
+
 .progressionFullSet
 {
-	background-image:linear-gradient(#f1fa78, #111111);
+	background-image:linear-gradient(#ecf842, #111111);
 	border-radius:5px;
 	padding:5 10 5 10;
 	margin:5 0 5 0;
 	width:500px;
 	color:black;
 	font-weight:bold;
+}
+
+.progressionFullSet:hover
+{
+	background-image:linear-gradient(#f7fac9, #111111);
 }
 
 tr
