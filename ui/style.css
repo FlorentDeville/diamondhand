@@ -37,6 +37,43 @@ a.setButton:active
 	color:blue;
 }
 
+div.stockMenuButton
+{
+	background-image:linear-gradient(#222222, #111111);
+	border-radius:5px;
+	display:inline;
+	padding:5 10 5 10;
+}
+
+div.stockMenuButton:hover
+{
+	background-image:linear-gradient(#333333, #111111);
+}
+
+a.stockMenuButton:link
+{
+	text-decoration:none;
+	color:white;
+}
+
+a.stockMenuButton:visited
+{
+	text-decoration:none;
+	color:white;
+}
+
+a.stockMenuButton:hover
+{
+	text-decoration:none;
+	color:white;
+}
+
+a.stockMenuButton:active
+{
+	text-decoration:none;
+	color:blue;
+}
+
 tr
 {
 	background-image:linear-gradient(#222222, #111111);
