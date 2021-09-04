@@ -1,11 +1,47 @@
 <script>
 
+	function update_url_parameter(url, param_name, param_value)
+	{
+		var urlSplit = url.split("?");
+		var parameters = urlSplit[1].split("&");
+
+		var found = false;
+		for(var ii = 0; ii < parameters.length; ++ii)
+		{
+			var splitParameter = parameters[ii].split("=");
+			if(splitParameter[0] == param_name)
+			{
+				parameters[ii] = param_name + "=" + param_value;
+				found = true;
+				break;
+			}
+		}
+
+		if(found == false)
+		{
+			parameters.push(param_name + "=" + param_value);
+		}
+
+		var new_url = urlSplit[0] + "?"
+		for(var ii = 0; ii < parameters.length; ++ii)
+		{
+			if(ii > 0)
+			{
+				new_url += "&";
+			}
+			new_url += parameters[ii];
+		}
+
+		return new_url;
+	}
+
 	$(document).ready(function()
 	{
 		$("#set").change(function()
 		{
 			var set_id=$('#set').val();
-			window.location.href = "/index.php?page=stock_view_set.php&set_id=" + set_id;
+			new_url = update_url_parameter(window.location.href, "set_id", set_id);
+			window.location.href = new_url;
 		});
 
 		var set_id=$('#set').val();
