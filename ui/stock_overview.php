@@ -8,7 +8,7 @@
             $("#missingCards").empty();
             if(return_data.data.length>0)
             {
-                console.log(return_data.data);
+                $("#missingCards").append("<div style=\"margin:0 0 5 0;\">" + return_data.data.length + " missing card(s) in this set:</div>");
                 for(var ii = 0; ii < return_data.data.length; ++ii)
                 {
                     var card = return_data.data[ii];
