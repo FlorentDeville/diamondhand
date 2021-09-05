@@ -45,11 +45,18 @@ function show_set(sort_field, sort_dir)
 		
 		var number_title = get_sort_arrow("number", sort_dir, "N", show_arrow);
 
-		content += "<tr><th>" + number_title + "</th><th>" + name_title +"</th><th>Date</th><th>Price</th>";
+		content += "<tr><th>" + number_title + "</th><th>" + name_title +"</th><th>Variation</th><th>Date</th><th>Price</th>";
 		for(ii=0; ii < Object.keys(cards).length; ++ii)
 		{
 			var card = cards[ii];
 			content += "<tr id='" + card["id"] + "'><td>" + card["number"] + "</td><td>" + card["name"] + "</td>";
+
+			var variationText = "";
+			console.log(card["variation"]);
+			if(card["variation"] != "null" && card["variation"] != null)
+				variationText = card["variation"];
+
+			content += "<td>" + variationText + "<td>";
 			content += "<td><input type=\"date\" id=\"date\" name=\"date\" placeholder=\"Acquisition Date\" onkeydown=\"date_on_keydown(event)\"/></td>";
 			content += "<td><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"Price\"/></td></tr>"
 		}

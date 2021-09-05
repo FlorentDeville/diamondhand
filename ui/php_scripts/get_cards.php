@@ -21,7 +21,7 @@ if(!is_numeric($set_id))
 
 include("../connection.php");
 
-$sql="select id, name, number from card where set_id=" . $set_id . " order by ". $sort_field . " " . $sort_dir . ";";
+$sql="select id, name, number, variation from card where set_id=" . $set_id . " order by ". $sort_field . " " . $sort_dir . ";";
 $statement = $connection->query($sql);
 if($statement == False)
 {
