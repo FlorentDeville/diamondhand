@@ -1,6 +1,17 @@
 <script>
-    function showMissingCard(set_id, clicked_element_id)
+    function toggleShowMissingCard(set_id, clicked_element_id)
     {
+        var SELECTED_CLASS_NAME = "progressionSelectedSet";
+        var DEFAULT_CLASS_NAME = "progressionSet";
+
+        var currentClassName = document.getElementById(clicked_element_id).className;
+        if (currentClassName == SELECTED_CLASS_NAME)
+        {
+            document.getElementById(clicked_element_id).className = DEFAULT_CLASS_NAME;
+            $("#missingCards").empty();
+            return;
+        }
+
         var sql = "select * from owned_card right join card on owned_card.card_id = card.id where owned_card.id is NULL and set_id=" + set_id;
         console.log(sql);
         $.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
@@ -12,7 +23,7 @@
                 for(var ii = 0; ii < return_data.data.length; ++ii)
                 {
                     var card = return_data.data[ii];
-                    $("#missingCards").append("<div>" + card.number + " " + card.name + "</div>");
+                    $("#missingCards").append("<div>" + card.number + " " + card.name + " " + card.variation + "</div>");
                 }
             }
             else
@@ -60,7 +71,7 @@ while($row = $result->fetch())
     $onclick = "";
     if(!$full_set)
     {
-        $onclick = "onclick=\"showMissingCard(".$set_id.", this.id)\"";
+        $onclick = "onclick=\"toggleShowMissingCard(".$set_id.", this.id)\"";
     }
 
     echo "<div class=\"".$style_name."\"".$onclick." id=\"".$set_id."\">";
