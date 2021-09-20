@@ -1,0 +1,93 @@
+<html>
+
+<head>
+	<link href="http://cdn.jsdelivr.net/npm/keyrune@latest/css/keyrune.css" rel="stylesheet" type="text/css" />
+	
+	<style>
+		.icon
+		{
+			width:35px;
+			vertical-align: middle;
+		}
+
+		.iconHelper
+		{
+			display:inline-block; 
+			height:100%; 
+			vertical-align:middle;
+		}
+
+		.gameName
+		{
+			font-family:'Runic MT Condensed';
+			font-weight:bold; 
+			color:black;
+			font-size:50px;
+			letter-spacing:15; 
+			text-align: center;
+			margin-left: 20px;
+		}
+	</style>
+
+</head>
+
+<div style="width:11in;height:1.2in;border: black;border-width:1px; border-style: solid;">
+	<div style="width:100%; height:100%; background-color: white; position: relative;">
+		<!-- Left side set icon -->
+		<div style="height:1.2in; width:320px; position:absolute; align-items:center; justify-content:center; /*border-style:solid;border-size:1px*/">
+			<span class="iconHelper"></span>
+			<img src="ff_binder/img/fire.png" class="icon"/>
+			<img src="ff_binder/img/ice.png" class="icon"/>
+			<img src="ff_binder/img/wind.png" class="icon"/>
+			<img src="ff_binder/img/earth.png" class="icon"/>
+			<img src="ff_binder/img/lightning.png" class="icon"/>
+			<img src="ff_binder/img/water.png" class="icon"/>
+			<img src="ff_binder/img/light.png" class="icon"/>
+			<img src="ff_binder/img/dark.png" class="icon"/>
+		</div>
+		
+		<!-- Set Name -->
+		<div id="gameName" class="gameName">Final Fantasy</div>
+		<div class="gameName">Opus I</div>
+		
+		<!-- Right side set icon -->
+		<div style="height:1.2in; width:320px; position:absolute; right:0; top:0; align-items:center; justify-content:center; padding:0 0 0 0;/*border-style:solid;border-size:1px*/">
+			<span class="iconHelper" style="margin-right:5px;"></span>
+			<img src="ff_binder/img/dark.png" class="icon"/>
+			<img src="ff_binder/img/light.png" class="icon"/>		
+			<img src="ff_binder/img/water.png" class="icon"/>
+			<img src="ff_binder/img/lightning.png" class="icon"/>
+			<img src="ff_binder/img/earth.png" class="icon"/>
+			<img src="ff_binder/img/wind.png" class="icon"/>
+			<img src="ff_binder/img/ice.png" class="icon"/>
+			<img src="ff_binder/img/fire.png" class="icon"/>
+			
+		</div>
+	</div>
+</div>
+
+<script>
+function init()
+{
+
+		
+	//	nameElement.innerHTML = setName;
+	//	
+		positionStyle = "";//"height:1.7in;margin-left:285px;width:5in;position:absolute;";
+		alignmentStyle = "";//"display:flex;align-items:center;justify-content:center;white-space:nowrap;"
+		sizeStyle = "font-size:50px;letter-spacing:15;";
+		textStyle = "font-family:'Runic MT Condensed';font-weight:bold; color:black;"
+		borderStyle = "";//"border-style:solid;border-size:1px;"
+	//	
+		nameElement = document.getElementById("setName");
+		//nameElement.style = positionStyle + sizeStyle + textStyle + borderStyle + alignmentStyle;
+		
+		
+		//positionStyle = "height:0.6in;margin-left:285px;width:5in;position:absolute;";
+		gameNameElement = document.getElementById("gameName");
+		//gameNameElement.style = positionStyle + sizeStyle + textStyle + borderStyle + alignmentStyle;
+}
+
+init();
+</script>
+</html>
