@@ -52,11 +52,11 @@ function show_set(sort_field, sort_dir)
 			content += "<tr id='" + card["id"] + "'><td>" + card["number"] + "</td><td>" + card["name"] + "</td>";
 
 			var variationText = "";
-			console.log(card["variation"]);
+			//console.log(card["variation"]);
 			if(card["variation"] != "null" && card["variation"] != null)
 				variationText = card["variation"];
 
-			content += "<td>" + variationText + "<td>";
+			content += "<td>" + variationText + "</td>";
 			content += "<td><input type=\"date\" id=\"date\" name=\"date\" placeholder=\"Acquisition Date\" onkeydown=\"date_on_keydown(event)\"/></td>";
 			content += "<td><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"Price\"/></td></tr>"
 		}
