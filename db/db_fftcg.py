@@ -58,6 +58,30 @@ sets[5]["page_count"] = 7
 sets[5]["code"] = "op5"
 sets[5]["release_date"] = "2018-03-23 12:00:00"
 
+sets[6] = {}
+sets[6]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-vi?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-vi&ProductTypeName=Final%20Fantasy%20Singles"
+sets[6]["name"] = "opus-vi"
+sets[6]["clean_name"] = "Opus VI"
+sets[6]["page_count"] = 6
+sets[6]["code"] = "op6"
+sets[6]["release_date"] = "2018-07-07 12:00:00"
+
+sets[7] = {}
+sets[7]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-vii?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-vii&ProductTypeName=Final%20Fantasy%20Singles"
+sets[7]["name"] = "opus-vii"
+sets[7]["clean_name"] = "Opus VII"
+sets[7]["page_count"] = 6
+sets[7]["code"] = "op7"
+sets[7]["release_date"] = "2018-10-28 12:00:00"
+
+sets[8] = {}
+sets[8]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-viii?productLineName=final-fantasy-tcg&view=grid&page=1&setName=opus-viii&ProductTypeName=Final%20Fantasy%20Singles"
+sets[8]["name"] = "opus-vii"
+sets[8]["clean_name"] = "Opus VII"
+sets[8]["page_count"] = 7
+sets[8]["code"] = "op8"
+sets[8]["release_date"] = "2019-03-16 12:00:00"
+
 logging.basicConfig(level=logging.INFO)
 rootLogger = logging.getLogger()
 
@@ -237,8 +261,11 @@ def push_to_db(entries, set_id, variation, commit):
         number = matches.group(1)
         cardInsertSqlValues = [card.name, set_id, card.rarity, variation, card.tcg_url, int(number)]
         cursor = connection.cursor()
-        cursor.execute(cardInsertSql, cardInsertSqlValues)
+
+        # If the commit flag is false then we didn't push the set so the set_id doesn't exist.
+        # Executing the request will trigger a foreign key execption.
         if commit:
+            cursor.execute(cardInsertSql, cardInsertSqlValues)
             connection.commit()
 
 
@@ -277,6 +304,7 @@ if __name__ == "__main__":
         entries = load_csv(csv_filename)
         log.info("Push set...")
         set_id = push_set_to_db(set_index, options.commit)
+        log.info("Set added with id %d", set_id)
         log.info("Push cards...")
         push_to_db(entries, set_id, None, options.commit)
 
