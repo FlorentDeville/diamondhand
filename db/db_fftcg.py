@@ -82,6 +82,54 @@ sets[8]["page_count"] = 7
 sets[8]["code"] = "op8"
 sets[8]["release_date"] = "2019-03-16 12:00:00"
 
+sets[9] = {}
+sets[9]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-ix?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-ix&ProductTypeName=Final%20Fantasy%20Singles"
+sets[9]["name"] = "opus-ix"
+sets[9]["clean_name"] = "Opus IX"
+sets[9]["page_count"] = 6
+sets[9]["code"] = "op9"
+sets[9]["release_date"] = "2019-07-19 12:00:00"
+
+sets[10] = {}
+sets[10]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-x?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-x&ProductTypeName=Final%20Fantasy%20Singles"
+sets[10]["name"] = "opus-x"
+sets[10]["clean_name"] = "Opus X"
+sets[10]["page_count"] = 7
+sets[10]["code"] = "op10"
+sets[10]["release_date"] = "2019-11-08 12:00:00"
+
+sets[11] = {}
+sets[11]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-xi?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-xi&ProductTypeName=Final%20Fantasy%20Singles"
+sets[11]["name"] = "opus-xi"
+sets[11]["clean_name"] = "Opus XI"
+sets[11]["page_count"] = 7
+sets[11]["code"] = "op11"
+sets[11]["release_date"] = "2020-03-27 12:00:00"
+
+sets[12] = {}
+sets[12]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-xii?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-xii&ProductTypeName=Final%20Fantasy%20Singles"
+sets[12]["name"] = "opus-xii"
+sets[12]["clean_name"] = "Opus XII"
+sets[12]["page_count"] = 7
+sets[12]["code"] = "op12"
+sets[12]["release_date"] = "2020-11-06 12:00:00"
+
+sets[13] = {}
+sets[13]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-xiii-crystal-radiance?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-xiii-crystal-radiance&ProductTypeName=Final%20Fantasy%20Singles"
+sets[13]["name"] = "opus-xiii"
+sets[13]["clean_name"] = "Opus XIII: Crystal Radiance"
+sets[13]["page_count"] = 7
+sets[13]["code"] = "op13"
+sets[13]["release_date"] = "2021-03-26 12:00:00"
+
+sets[14] = {}
+sets[14]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-xiv-crystal-abyss?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final%20Fantasy%20Singles&setName=opus-xiv-crystal-abyss"
+sets[14]["name"] = "opus-xiv"
+sets[14]["clean_name"] = "Opus XIV: Crystal Abyss"
+sets[14]["page_count"] = 7
+sets[14]["code"] = "op14"
+sets[14]["release_date"] = "2021-08-06 12:00:00"
+
 logging.basicConfig(level=logging.INFO)
 rootLogger = logging.getLogger()
 
@@ -296,10 +344,11 @@ if __name__ == "__main__":
     csv_filename = "C:\\workspace\\python\\fftcg\\db_" + set_name + ".csv"
 
     if options.scrap:
-        log.info("Scrap...")
+        log.info("Scrap set %s...", sets[set_index]["clean_name"])
         scrap_all(set_index, csv_filename)
 
     if options.push:
+        log.info("Push set %s...", sets[set_index]["clean_name"])
         log.info("Load csv...")
         entries = load_csv(csv_filename)
         log.info("Push set...")
