@@ -304,7 +304,7 @@ def push_to_db(entries, set_id, variation, commit):
         cardInsertSql = "insert into card (name, set_id, rarity, variation, tcg_url, number) values (%s, %s, %s, %s, %s, %s)"
 
         # extract the card number from the fftcg number which is <opus>-<number><rarity>
-        pattern = "\\d-(\\d*)."
+        pattern = "\\d*-(\\d*)."
         matches = re.match(pattern, card.number)
         number = matches.group(1)
         cardInsertSqlValues = [card.name, set_id, card.rarity, variation, card.tcg_url, int(number)]
