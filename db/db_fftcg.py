@@ -1,13 +1,17 @@
 import argparse
+import csv
+import logging
+import lxml.html
+import mysql.connector
+import os
 import re
+import sys
+import time
 import uuid
 
-import mysql.connector
 from selenium import webdriver
-import csv
-import lxml.html
-import time
 
+sys.path.append("../")
 from db.db_csv import DbCsv
 from db.entry import Entry
 
@@ -30,6 +34,39 @@ sets[2]["page_count"] = 7
 sets[2]["code"] = "op2"
 sets[2]["release_date"] = "2017-03-24 12:00:00"
 
+sets[3] = {}
+sets[3]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-iii?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final%20Fantasy%20Singles&setName=opus-iii"
+sets[3]["name"] = "opus-iii"
+sets[3]["clean_name"] = "Opus III"
+sets[3]["page_count"] = 7
+sets[3]["code"] = "op3"
+sets[3]["release_date"] = "2017-07-21 12:00:00"
+
+sets[4] = {}
+sets[4]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-iv?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final%20Fantasy%20Singles&setName=opus-iv"
+sets[4]["name"] = "opus-iv"
+sets[4]["clean_name"] = "Opus IV"
+sets[4]["page_count"] = 7
+sets[4]["code"] = "op4"
+sets[4]["release_date"] = "2017-12-01 12:00:00"
+
+sets[5] = {}
+sets[5]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-v?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final%20Fantasy%20Singles&setName=opus-v"
+sets[5]["name"] = "opus-v"
+sets[5]["clean_name"] = "Opus V"
+sets[5]["page_count"] = 7
+sets[5]["code"] = "op5"
+sets[5]["release_date"] = "2018-03-23 12:00:00"
+
+logging.basicConfig(level=logging.INFO)
+rootLogger = logging.getLogger()
+
+logFilename = "c:/tmp/log_%s_%d.log" % (__name__, os.getpid())
+fileHandler = logging.FileHandler(logFilename)
+rootLogger.addHandler(fileHandler)
+
+log = logging.getLogger(__name__)
+
 
 class DbFFTcg(DbCsv):
     m_browser = None
@@ -39,7 +76,7 @@ class DbFFTcg(DbCsv):
         self.m_browser = browser
         self.m_csvFilename = csv_filename
 
-    def scrap_card_information(self, _url):
+    def scrap_card_information(self, _url, set_code):
         self.m_browser.get(_url)
         time.sleep(2)
         text_html = self.m_browser.execute_script("return document.body.innerHTML")
@@ -49,14 +86,14 @@ class DbFFTcg(DbCsv):
 
         xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
         element = html.xpath(xpath_card_name)
-        newEntry.name = element[0].text
+        newEntry.name = element[0].text.strip()
 
         xpath_set_name = "//a[contains(@class, 'product-details__set-name')]/h2"
         element = html.xpath(xpath_set_name)
-        set_name = element[0].text
-        set_name = set_name.strip('\n').strip()
-        newEntry.set_name = set_name
-        newEntry.set_code = "ii"  # make a global map of set name to set code
+        set_clean_name = element[0].text
+        set_clean_name = set_clean_name.strip('\n').strip()
+        newEntry.set_name = set_clean_name
+        newEntry.set_code = set_code
 
         xpath_rarity = "//li/strong[contains(text(), \"Rarity:\")]/following-sibling::span"
         elements = html.xpath(xpath_rarity)
@@ -73,11 +110,11 @@ class DbFFTcg(DbCsv):
         newEntry.id = uuid.uuid4().int
         newEntry.tcg_url = _url
         newEntry.variation = "None"
-
+        log.info("Found card %s", newEntry.name)
         return newEntry
 
     def write(self, _entry):
-        new_line = "{};\"{}\";{};\"{}\";{};{};{};{}\n"
+        new_line = "{};\"{}\";\"{}\";\"{}\";{};{};{};{}\n"
         new_line = new_line.format(_entry.id, _entry.set_name, _entry.set_code, _entry.name, _entry.number, _entry.rarity, _entry.tcg_url, _entry.variation)
         with open(self.m_csvFilename, "a") as f:
             f.write(new_line)
@@ -88,7 +125,7 @@ class DbFFTcg(DbCsv):
             lines = csv.reader(csvFile, delimiter=';', quotechar='"')
             for line in lines:
                 newEntry = Entry()
-                if len(line) == 0: #empty line
+                if len(line) == 0:  # empty line
                     continue
                 newEntry.id = line[0]
                 newEntry.set_name = line[1]
@@ -108,23 +145,20 @@ class DbFFTcg(DbCsv):
 
 
 def scrap_all(set_index, csv_filename):
-    print "Setup webdriver..."
+    log.info("Setup webdriver...")
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
     browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
-    # setName = sets[set_index]["name"] #"opus-ii"
-
-    filename = csv_filename  # "C:\\workspace\\python\\fftcg\\db_" + setName + ".csv"
+    filename = csv_filename
     db = DbFFTcg(browser, filename)
 
-    search_url_pattern = sets[set_index]["url"] #"https://www.tcgplayer.com/search/final-fantasy-tcg/opus-ii?productLineName=final-fantasy-tcg&view=grid&setName=opus-ii&page={}"
-    #search_url = search_url_pattern.format(setName, setName)
+    search_url_pattern = sets[set_index]["url"]
 
-    page_count = sets[set_index]["page_count"] #7
-    for page_id in range(1, page_count):
-        print "Scrap page " + str(page_id) + " of " + str(page_count) + "..."
-        complete_search_url = search_url_pattern.format(page_id) #search_url + str(page_id)
+    page_count = sets[set_index]["page_count"]
+    for page_id in range(1, page_count + 1):
+        log.info("Scrap page %d of %d...", page_id, page_count)
+        complete_search_url = search_url_pattern.format(page_id)
 
         browser.get(complete_search_url)
         time.sleep(2)
@@ -138,13 +172,12 @@ def scrap_all(set_index, csv_filename):
             card_url = element.attrib.get('href')
             card_url = "http://tcgplayer.com" + card_url
 
-            print card_url + "..."
-            entry = db.scrap_card_information(card_url)
+            log.info(card_url + "...")
+            entry = db.scrap_card_information(card_url, sets[set_index]["code"])
 
-            print "writing to csv..."
+            log.info("writing to csv...")
             db.write(entry)
 
-    print "Over"
     browser.close()
 
 
@@ -221,24 +254,30 @@ if __name__ == "__main__":
     parser.add_argument("--push", "-p", dest="push", action="store_true", default=False, help="Push csv file to database.")
     parser.add_argument('--commit', '-c', dest="commit", action="store_true", default=False, help="Commit to the database.")
     options = parser.parse_args()
+    log.info("Start...")
+
+    if options.set_id is None:
+        log.error("Missing set_id")
+        exit(1)
 
     set_index = int(options.set_id)
     if set_index is None or set_index not in sets:
-        print "ERROR : Unknown value for set_id"
+        log.error("ERROR : Unknown value for set_id")
         exit()
 
     set_name = sets[set_index]["name"]
     csv_filename = "C:\\workspace\\python\\fftcg\\db_" + set_name + ".csv"
 
     if options.scrap:
+        log.info("Scrap...")
         scrap_all(set_index, csv_filename)
 
     if options.push:
-        print "Load csv..."
+        log.info("Load csv...")
         entries = load_csv(csv_filename)
-        print "Push set..."
+        log.info("Push set...")
         set_id = push_set_to_db(set_index, options.commit)
-        print "Push cards..."
+        log.info("Push cards...")
         push_to_db(entries, set_id, None, options.commit)
 
-    print "Over"
+    log.info("Over")
