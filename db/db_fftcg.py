@@ -19,7 +19,7 @@ GAMENAME = "Final Fantasy"
 
 sets = {}
 sets[1] = {}
-sets[1]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-i?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-i"
+sets[1]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-i?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final%20Fantasy%20Singles&setName=opus-i"
 sets[1]["name"] = "opus-i"
 sets[1]["clean_name"] = "Opus I"
 sets[1]["page_count"] = 10
