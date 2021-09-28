@@ -31,11 +31,30 @@
 	
 	function create_buylist_from_set_missing_cards()
 	{
-		val set_id = $("#set").val();
-		val buylist_name = $("#buylist_name_2").val();
+		var set_id = $("#set").val();
+		var buylist_name = $("#buylist_name_2").val();
 		
-		
-		"select card.number, card.name, owned_card.id from card inner join sets on card.set_id = sets.id left join owned_card on card.id=owned_card.card_id where sets.name = "Opus I" and owned_card.id is NULL"
+		sql_missing_card = "SELECT card.id FROM card left join owned_card on card.id = owned_card.card_id where owned_card.id is NULL and card.set_id=" + set_id;
+		$.get('php_scripts/execute_sql.php',{'sql':sql_missing_card},function(return_data)
+		{
+			data = return_data.data;
+
+			$.get('php_scripts/command_add_buylist.php',{'buylist_name':buylist_name},function(return_data)
+			{
+				if(return_data.res == 1)
+				{
+				 	buylist_id = return_data.id;
+					for(var ii = 0; ii < data.length; ++ii)
+					{
+						card_id = data[ii]["id"];
+						$.get('php_scripts/command_add_card_buylist.php',{'buylist_id':buylist_id, 'card_id':card_id},function(return_data)
+						{
+							console.log("card added");
+						}, "json");
+					}
+				}	
+			}, "json");
+		}, "json");
 	}
 </script>
 <div style="margin-bottom:20px;">
