@@ -75,9 +75,9 @@ sets[7]["code"] = "op7"
 sets[7]["release_date"] = "2018-10-28 12:00:00"
 
 sets[8] = {}
-sets[8]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-viii?productLineName=final-fantasy-tcg&view=grid&page=1&setName=opus-viii&ProductTypeName=Final%20Fantasy%20Singles"
-sets[8]["name"] = "opus-vii"
-sets[8]["clean_name"] = "Opus VII"
+sets[8]["url"] = "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-viii?productLineName=final-fantasy-tcg&view=grid&page={}&setName=opus-viii&ProductTypeName=Final%20Fantasy%20Singles"
+sets[8]["name"] = "opus-viii"
+sets[8]["clean_name"] = "Opus VIII"
 sets[8]["page_count"] = 7
 sets[8]["code"] = "op8"
 sets[8]["release_date"] = "2019-03-16 12:00:00"
@@ -129,6 +129,19 @@ sets[14]["clean_name"] = "Opus XIV: Crystal Abyss"
 sets[14]["page_count"] = 7
 sets[14]["code"] = "op14"
 sets[14]["release_date"] = "2021-08-06 12:00:00"
+
+mysql_connections = {}
+mysql_connections["local"] = {}
+mysql_connections["local"]["host"] = "localhost"
+mysql_connections["local"]["user"] = "root"
+mysql_connections["local"]["password"] = ""
+mysql_connections["local"]["db"] = "wallstreet"
+
+mysql_connections["global"] = {}
+mysql_connections["global"]["host"] = "50.87.248.17"
+mysql_connections["global"]["user"] = "vsquktmy_worker"
+mysql_connections["global"]["password"] = "0aNb!Gs}2aIW"
+mysql_connections["global"]["db"] = "vsquktmy_wallstreet"
 
 logging.basicConfig(level=logging.INFO)
 rootLogger = logging.getLogger()
@@ -260,8 +273,9 @@ def load_csv(csv_filename):
 
 
 # Push a set to the db and return its id
-def push_set_to_db(set_index, commit):
-    connection = mysql.connector.connect(host="localhost", user="root", database="wallstreet")
+def push_set_to_db(set_index, commit, connection_name):
+    conn_info = mysql_connections[connection_name]
+    connection = mysql.connector.connect(host=conn_info["host"], user=conn_info["user"], password=conn_info["password"], database=conn_info["db"])
 
     # find the game id
     sql = "select id from game where game.name=%s"
@@ -298,8 +312,10 @@ def push_set_to_db(set_index, commit):
 
 
 # Push all entries to the cards table
-def push_to_db(entries, set_id, variation, commit):
-    connection = mysql.connector.connect(host="localhost", user="root", database="wallstreet")
+def push_to_db(entries, set_id, variation, commit, connection_name):
+    conn_info = mysql_connections[connection_name]
+    connection = mysql.connector.connect(host=conn_info["host"], user=conn_info["user"], password=conn_info["password"], database=conn_info["db"])
+
     for card in entries:
         cardInsertSql = "insert into card (name, set_id, rarity, variation, tcg_url, number) values (%s, %s, %s, %s, %s, %s)"
 
@@ -328,6 +344,8 @@ if __name__ == "__main__":
     parser.add_argument("--scrap", dest="scrap", action="store_true", default=False, help="Scrap the data from tcgplayer.")
     parser.add_argument("--push", "-p", dest="push", action="store_true", default=False, help="Push csv file to database.")
     parser.add_argument('--commit', '-c', dest="commit", action="store_true", default=False, help="Commit to the database.")
+    parser.add_argument('--online', '-o', dest="online", action="store_true", default=False, help="Push to the online db. By default, push to the local db.")
+    parser.add_argument('--test-connection', '-t', dest="test_connection", action="store_true", default=False, help="Test the mysql connection.")
     options = parser.parse_args()
     log.info("Start...")
 
@@ -341,7 +359,11 @@ if __name__ == "__main__":
         exit()
 
     set_name = sets[set_index]["name"]
-    csv_filename = "C:\\workspace\\python\\fftcg\\db_" + set_name + ".csv"
+    csv_filename = "C:\\workspace\\python\\data\\fftcg\\db_" + set_name + ".csv"
+
+    connection_name = "local"
+    if options.online is True:
+        connection_name = "global"
 
     if options.scrap:
         log.info("Scrap set %s...", sets[set_index]["clean_name"])
@@ -352,9 +374,21 @@ if __name__ == "__main__":
         log.info("Load csv...")
         entries = load_csv(csv_filename)
         log.info("Push set...")
-        set_id = push_set_to_db(set_index, options.commit)
+        set_id = push_set_to_db(set_index, options.commit, connection_name)
         log.info("Set added with id %d", set_id)
         log.info("Push cards...")
-        push_to_db(entries, set_id, None, options.commit)
+        push_to_db(entries, set_id, None, options.commit, connection_name)
+
+    if options.test_connection:
+        conn_info = mysql_connections[connection_name]
+        connection = mysql.connector.connect(host=conn_info["host"], user=conn_info["user"], password=conn_info["password"], database=conn_info["db"])
+        sql = "select id from sets"
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        if len(results) > 0:
+            log.info("Connection success")
+        else:
+            log.error("Connection failed")
 
     log.info("Over")
