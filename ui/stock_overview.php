@@ -13,23 +13,16 @@
         }
 
         var sql = "select * from owned_card right join card on owned_card.card_id = card.id where owned_card.id is NULL and set_id=" + set_id;
-        console.log(sql);
         $.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
         {
             //show missing cards
-            $("#missingCards").empty();
             if(return_data.data.length>0)
             {
-                $("#missingCards").append("<div style=\"margin:0 0 5 0;\">" + return_data.data.length + " missing card(s) in this set:</div>");
-                var missingCardTable = "<table>";
-                missingCardTable += "<tr><th>N</th><th>Name</th></tr>";
-                for(var ii = 0; ii < return_data.data.length; ++ii)
-                {
-                    var card = return_data.data[ii];
-                    missingCardTable += "<tr><td>" + card.number + "</td><td>" + card.name + "</td></tr>";
-                }
-                missingCardTable += "</table>";
-                $("#missingCards").append(missingCardTable);
+                var cards = return_data.data;
+                var column_array = new Array();
+                column_array.push({header_name:"N", field_name:"number"});
+                column_array.push({header_name:"Name", field_name:"name"});
+			    display_table("missingCards", column_array, cards, "id");
             }
             else
             {
