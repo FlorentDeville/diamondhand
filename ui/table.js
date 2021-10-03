@@ -6,10 +6,9 @@
 function make_header_onclick(container_id, column_id, dir, type)
 {
     var tableElement = $("#" + container_id).find("table")[0];
-    var tr = tableElement.firstChild.children[0];
+    var tr = tableElement.firstChild;//.children[0];
     var th = tr.children[column_id];
-    var span = th.children[0];
-    span.onclick = function() {sort_table(container_id, column_id, dir, type);};
+    th.onclick = function() {sort_table(container_id, column_id, dir, type);};
 }
 
 // Sort the table.
@@ -25,7 +24,7 @@ function sort_table(container_id, column_id, sort_dir, type)
     make_header_onclick(container_id, column_id, sort_dir == "asc" ? "desc" : "asc", type);
 
     //simple bubble sort
-    var rowArray = tableElement.firstChild;
+    var rowArray = tableElement;
     var rowCount = rowArray.children.length;
     for(var ii = 1; ii < rowCount - 1; ++ii)
     {
@@ -85,10 +84,19 @@ function sort_table(container_id, column_id, sort_dir, type)
 // sort_dir : direction of the sort, asc or desc.
 function display_table(container_id, column_array, data, field_row_id, sort_column_id, sort_dir)
 {
-    var content = "<table>";
+    containerElement = document.getElementById(container_id);
+    while (containerElement.firstChild) 
+    {
+        containerElement.removeChild(containerElement.firstChild);
+    }
+
+    tableElement = document.createElement("table");
+    containerElement.appendChild(tableElement);
 
     // display headers
-    content += "<tr>";
+    headerRowElement = document.createElement("tr");
+    tableElement.appendChild(headerRowElement);
+
     for(var ii = 0; ii < Object.keys(column_array).length; ++ii)
     {
         var column_data = column_array[ii];
@@ -111,28 +119,29 @@ function display_table(container_id, column_array, data, field_row_id, sort_colu
             }
         }
 
-        var sort_function = "sort_table('" + container_id + "'," + ii + ", '" + dir + "', '" + column_data.type + "')";
-        var header_content = "<span onclick=\"" + sort_function + "\">" + arrow + column_data.header_name + "</span>";
-        content += "<th>" + header_content + "</th>";
+        headerCellElement = document.createElement("th");
+        var col_id = ii;
+        headerCellElement.onclick = function () { sort_table(container_id, col_id, dir, column_data.type);};
+        headerCellElement.textContent = arrow + column_data.header_name;
+        headerRowElement.appendChild(headerCellElement);
     }
 
     for(ii=0; ii < Object.keys(data).length; ++ii)
     {
         var card = data[ii];
         
-        content += "<tr id='" + card[field_row_id] + "'>";
+        rowElement = document.createElement("tr");
+        rowElement.id = card[field_row_id];
+        tableElement.appendChild(rowElement);
         for(var jj = 0; jj < Object.keys(column_array).length; ++jj)
         {
             var column_data = column_array[jj];
-            content += "<td>" + card[column_data.field_name] + "</td>";
+
+            cellElement = document.createElement("td");
+            cellElement.textContent = card[column_data.field_name];
+            rowElement.appendChild(cellElement);
         }
-
-        content += "</tr>";
     }
-    content += "</table>";
-
-    $("#" + container_id).empty();
-    $("#" + container_id).prepend(content);
 
     sort_table(container_id, sort_column_id, sort_dir, column_array[sort_column_id].type);
 }
