@@ -9,7 +9,7 @@ if(!is_numeric($game_id))
 
 include("../connection.php");
 
-$sql="select * from sets where game_id=" . $game_id;
+$sql="select * from sets where game_id=" . $game_id . " order by release_date asc;";
 $statement = $connection->query($sql);
 $result=$statement->fetchAll(PDO::FETCH_ASSOC);
 
