@@ -8,6 +8,7 @@
         if (currentClassName == SELECTED_CLASS_NAME)
         {
             document.getElementById(clicked_element_id).className = DEFAULT_CLASS_NAME;
+            $("#countMissingCards").empty();
             $("#missingCards").empty();
             return;
         }
@@ -18,6 +19,8 @@
             //show missing cards
             if(return_data.data.length>0)
             {
+                $("#countMissingCards").empty();
+                $("#countMissingCards").append("<div style=\"margin:0 0 5 0;\">" + return_data.data.length + " missing card(s) in this set.</div>");
                 var cards = return_data.data;
                 var column_array = new Array();
                 column_array.push({header_name:"N", field_name:"number"});
@@ -89,9 +92,9 @@ while($row = $result->fetch())
 }
 ?>
     </div>
-    <div id="missingCards">
-
-
+    <div id="missingCardsContainer">
+        <div id="countMissingCards"></div>
+        <div id="missingCards"></div>
     </div>
 </div>
 <div id="msg"></div>
