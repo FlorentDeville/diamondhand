@@ -1,14 +1,47 @@
-// Set the onclick event of a header
-// container_id : element containing the table.
-// column_id : id of the column header to change.
-// dir : direction of the sort.
-// type : type of data in the column.
-function make_header_onclick(container_id, column_id, dir, type)
+// Update the text and onclick event of headers.
+// container_id : id of the element containing the table.
+// sort_column_id : current sorted column.
+// dir : current sorted direction.
+// type : type of the sorted column.
+function update_header(container_id, sort_column_id, dir, type)
 {
-    var tableElement = $("#" + container_id).find("table")[0];
-    var tr = tableElement.firstChild;//.children[0];
-    var th = tr.children[column_id];
-    th.onclick = function() {sort_table(container_id, column_id, dir, type);};
+    containerElement = document.getElementById(container_id);
+    tableElement = containerElement.firstChild;
+    headerRowElement = tableElement.firstChild;
+
+    for(var ii = 0; ii < headerRowElement.children.length; ++ii)
+    {
+        //get the raw name of the column
+        headerCellElement = headerRowElement.children[ii];
+        text = headerCellElement.textContent;
+
+        const ASC_ARROW = "▲";
+        const DESC_ARROW = "▼";
+
+        text = text.replace(ASC_ARROW, "");
+        text = text.replace(DESC_ARROW, "");
+
+        next_sorted_dir = "asc"
+        if(ii == sort_column_id)
+        {
+            if(dir == "asc")
+            {
+                text = ASC_ARROW + " " + text;
+                next_sorted_dir = "desc";
+            }
+            else
+            {
+                text = DESC_ARROW + " " + text;
+                next_sorted_dir = "asc";
+            }
+
+            var col_id = ii;
+            var currentCellSortedDir = next_sorted_dir
+            headerCellElement.onclick = function () { sort_table(container_id, col_id, currentCellSortedDir, type);};
+        }
+
+        headerCellElement.textContent = text;
+    }
 }
 
 // Sort the table.
@@ -21,7 +54,7 @@ function sort_table(container_id, column_id, sort_dir, type)
     var tableElement = $("#" + container_id).find("table")[0];
 
     //change the header sort function
-    make_header_onclick(container_id, column_id, sort_dir == "asc" ? "desc" : "asc", type);
+    update_header(container_id, column_id, sort_dir, type);
 
     //simple bubble sort
     var rowArray = tableElement;
@@ -53,7 +86,6 @@ function sort_table(container_id, column_id, sort_dir, type)
             var switchRows = false;
             if (sort_dir == "asc" && value1 > value2)
             {
-                
                 switchRows = true;
             }
             else if(sort_dir == "desc" && value1 < value2)
@@ -93,36 +125,20 @@ function display_table(container_id, column_array, data, field_row_id, sort_colu
     tableElement = document.createElement("table");
     containerElement.appendChild(tableElement);
 
-    // display headers
+    // create headers
     headerRowElement = document.createElement("tr");
     tableElement.appendChild(headerRowElement);
 
     for(var ii = 0; ii < Object.keys(column_array).length; ++ii)
     {
         var column_data = column_array[ii];
-        var ASC_ARROW = "▲";
-        var DESC_ARROW = "▼";
-
-        var arrow = "";
-        var dir = "asc";
-        if (ii == sort_column_id)
-        {
-            if(dir == "desc")
-            {
-                //arrow = DESC_ARROW + " ";
-                dir = "asc";
-            }
-            else
-            {
-                //arrow = ASC_ARROW + " ";
-                dir = "desc";
-            }
-        }
-
         headerCellElement = document.createElement("th");
+
+        //shadows the global variables.
         var col_id = ii;
-        headerCellElement.onclick = function () { sort_table(container_id, col_id, dir, column_data.type);};
-        headerCellElement.textContent = arrow + column_data.header_name;
+        var type = column_data.type;
+        headerCellElement.onclick = function () { sort_table(container_id, col_id, "asc", type);};
+        headerCellElement.textContent = column_data.header_name;
         headerRowElement.appendChild(headerCellElement);
     }
 
