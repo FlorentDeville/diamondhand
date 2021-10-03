@@ -23,9 +23,9 @@
                 $("#countMissingCards").append("<div style=\"margin:0 0 5 0;\">" + return_data.data.length + " missing card(s) in this set.</div>");
                 var cards = return_data.data;
                 var column_array = new Array();
-                column_array.push({header_name:"N", field_name:"number"});
-                column_array.push({header_name:"Name", field_name:"name"});
-			    display_table("missingCards", column_array, cards, "id");
+                column_array.push({header_name:"N", field_name:"number", type:"int"});
+                column_array.push({header_name:"Name", field_name:"name", type:"string"});
+			    display_table("missingCards", column_array, cards, "id", 0, "asc");
             }
             else
             {
