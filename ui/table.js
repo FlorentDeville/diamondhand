@@ -9,7 +9,7 @@ function update_header(container_id, sort_column_id, dir, type)
     tableElement = containerElement.firstChild;
     headerRowElement = tableElement.firstChild;
 
-    for(var ii = 0; ii < headerRowElement.children.length; ++ii)
+    for(let ii = 0; ii < headerRowElement.children.length; ++ii)
     {
         //get the raw name of the column
         headerCellElement = headerRowElement.children[ii];
@@ -21,7 +21,7 @@ function update_header(container_id, sort_column_id, dir, type)
         text = text.replace(ASC_ARROW, "");
         text = text.replace(DESC_ARROW, "");
 
-        next_sorted_dir = "asc"
+        let next_sorted_dir = "asc"
         if(ii == sort_column_id)
         {
             if(dir == "asc")
@@ -35,9 +35,8 @@ function update_header(container_id, sort_column_id, dir, type)
                 next_sorted_dir = "asc";
             }
 
-            var col_id = ii;
             var currentCellSortedDir = next_sorted_dir
-            headerCellElement.onclick = function () { sort_table(container_id, col_id, currentCellSortedDir, type);};
+            headerCellElement.onclick = function () { sort_table(container_id, ii, currentCellSortedDir, type);};
         }
 
         headerCellElement.textContent = text;
@@ -129,15 +128,12 @@ function display_table(container_id, column_array, data, field_row_id, sort_colu
     headerRowElement = document.createElement("tr");
     tableElement.appendChild(headerRowElement);
 
-    for(var ii = 0; ii < Object.keys(column_array).length; ++ii)
+    for(let ii = 0; ii < Object.keys(column_array).length; ++ii)
     {
-        var column_data = column_array[ii];
+        let column_data = column_array[ii];
         headerCellElement = document.createElement("th");
 
-        //shadows the global variables.
-        var col_id = ii;
-        var type = column_data.type;
-        headerCellElement.onclick = function () { sort_table(container_id, col_id, "asc", type);};
+        headerCellElement.onclick = function () {sort_table(container_id, ii, "asc", column_data.type);};
         headerCellElement.textContent = column_data.header_name;
         headerRowElement.appendChild(headerCellElement);
     }
