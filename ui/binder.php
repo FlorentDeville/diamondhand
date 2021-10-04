@@ -2,7 +2,7 @@
     <div style="display:inline;"> Stocks : </div>
     <a class="stockMenuButton" href="./index.php?page=binder.php&stock_page=pokemon_binder/side.html"><div class="stockMenuButton">Pokemon</div></a>
     <a class="stockMenuButton" href="./index.php?page=binder.php&stock_page=stock_view.php"><div class="stockMenuButton">MTG</div></a>
-    <a class="stockMenuButton" href="./index.php?page=binder.php&stock_page=ff_binder/side.html"><div class="stockMenuButton">Final Fantasy</div></a>
+    <a class="stockMenuButton" href="./index.php?page=binder.php&stock_page=ff_binder/side.php"><div class="stockMenuButton">Final Fantasy</div></a>
 </div>
 <div id="content">
     <?php
