@@ -1,0 +1,26 @@
+[
+  {
+	"url" : "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-i?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final%20Fantasy%20Singles&setName=opus-i",
+    "name" : "opus-i",
+    "clean_name" : "Opus I",
+	"page_count" : 10,
+	"code" : "op1",
+	"release_date" : "2016-10-28 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-ii?productLineName=final-fantasy-tcg&view=grid&setName=opus-ii&page={}&ProductTypeName=Final%20Fantasy%20Singles",
+	"name": "opus-ii",
+	"clean_name": "Opus II",
+	"page_count": 7,
+	"code": "op2",
+	"release_date": "2017-03-24 12:00:00"  
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-iii?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final%20Fantasy%20Singles&setName=opus-iii",
+	"name": "opus-iii",
+	"clean_name": "Opus III",
+	"page_count": 7,
+	"code": "op3",
+	"release_date": "2017-07-21 12:00:00"
+  }
+]

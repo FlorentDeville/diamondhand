@@ -1,0 +1,42 @@
+[
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/base-set?productLineName=pokemon&page={}&view=grid&setName=base-set&ProductTypeName=Cards",
+    "name":"base-set",
+    "clean_name":"Base Set",
+    "page_count":5,
+    "code":"bs",
+    "release_date":"1999-01-09 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/jungle?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=jungle",
+    "name":"jungle",
+    "clean_name":"Jungle",
+    "page_count":3,
+    "code":"ju",
+    "release_date":"1999-06-16 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/fossil?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=fossil",
+    "name":"fossil",
+    "clean_name":"Fossil",
+    "page_count":3,
+    "code":"fo",
+    "release_date":"1999-10-10 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/team-rocket?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=team-rocket",
+    "name":"team-rocket",
+    "clean_name":"Team Rocket",
+    "page_count":4,
+    "code":"tr",
+    "release_date":"2000-04-24 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/base-set-2?productLineName=pokemon&page={}&view=grid&setName=base-set-2&ProductTypeName=Cards",
+    "name":"base-set-2",
+    "clean_name":"Base Set 2",
+    "page_count":6,
+    "code":"b2",
+    "release_date":"2000-02-24 12:00:00"
+  }
+]
