@@ -1,5 +1,5 @@
 import argparse
-import csv
+
 import json
 import logging
 import lxml.html
@@ -8,15 +8,14 @@ import os
 import re
 import sys
 import time
-import uuid
+
 from argparse import RawTextHelpFormatter
 from selenium import webdriver
 
 sys.path.append("../")
+from db.connection import get_connection
 from db.db_pokemon import DbPokemon
 from db.db_fftcg import DbFFTcg
-from db.db_csv import DbCsv
-from db.entry import Entry
 
 logging.basicConfig(level=logging.INFO)
 rootLogger = logging.getLogger()
@@ -75,13 +74,12 @@ def load_csv(csv_filename):
 
 
 # Push a set to the db and return its id
-def push_set_to_db(set_index, commit, connection_name):
-    conn_info = mysql_connections[connection_name]
-    connection = mysql.connector.connect(host=conn_info["host"], user=conn_info["user"], password=conn_info["password"], database=conn_info["db"])
+def push_set_to_db(selected_game, selected_set, commit, connection_name):
+    connection = get_connection(connection_name)
 
     # find the game id
     sql = "select id from game where game.name=%s"
-    sql_values = [GAMENAME]
+    sql_values = [selected_game["clean_name"]]
     cursor = connection.cursor()
     cursor.execute(sql, sql_values)
     results = cursor.fetchall()
@@ -91,11 +89,9 @@ def push_set_to_db(set_index, commit, connection_name):
 
     game_id = results[0][0]
 
-    set_info = sets[set_index]
-
     #check if the set is already there
     sql = "select id from sets where sets.name=%s and sets.game_id=%s"
-    sql_values = [set_info["clean_name"], game_id]
+    sql_values = [selected_set["clean_name"], game_id]
     cursor = connection.cursor()
     cursor.execute(sql, sql_values)
     results = cursor.fetchall()
@@ -104,7 +100,7 @@ def push_set_to_db(set_index, commit, connection_name):
 
     # add the set
     sql = "insert into sets (name, code, release_date, game_id) values (%s, %s, %s, %s)"
-    sql_values = [set_info["clean_name"], set_info["code"], set_info["release_date"], game_id]
+    sql_values = [selected_set["clean_name"], selected_set["code"], selected_set["release_date"], game_id]
     cursor = connection.cursor()
     cursor.execute(sql, sql_values)
     if commit:
@@ -114,17 +110,20 @@ def push_set_to_db(set_index, commit, connection_name):
 
 
 # Push all entries to the cards table
-def push_to_db(entries, set_id, variation, commit, connection_name):
-    conn_info = mysql_connections[connection_name]
-    connection = mysql.connector.connect(host=conn_info["host"], user=conn_info["user"], password=conn_info["password"], database=conn_info["db"])
+def push_to_db(entries, selected_game, set_id, variation, commit, connection_name):
+    connection = get_connection(connection_name)
 
     for card in entries:
         cardInsertSql = "insert into card (name, set_id, rarity, variation, tcg_url, number) values (%s, %s, %s, %s, %s, %s)"
 
         # extract the card number from the fftcg number which is <opus>-<number><rarity>
-        pattern = "\\d*-(\\d*)."
-        matches = re.match(pattern, card.number)
-        number = matches.group(1)
+        if selected_game["name"] == "fftcg":
+            pattern = "\\d*-(\\d*)."
+            matches = re.match(pattern, card.number)
+            number = matches.group(1)
+        else:
+            number = card.number
+
         cardInsertSqlValues = [card.name, set_id, card.rarity, variation, card.tcg_url, int(number)]
         cursor = connection.cursor()
 
@@ -186,10 +185,6 @@ if __name__ == "__main__":
 
         exit()
 
-    connection_name = "local"
-    if options.online is True:
-        connection_name = "global"
-
     if options.scrap:
         if options.game is None:
             log.error("Missing argument --game")
@@ -215,18 +210,45 @@ if __name__ == "__main__":
         scrap_all(selected_game["name"], selected_set, csv_filename)
 
     if options.push:
-        log.info("Push set %s...", sets[set_index]["clean_name"])
+        if options.game is None:
+            log.error("Missing argument --game")
+            exit(1)
+
+        if options.set_id is None:
+            log.error("Missing argument --set_id")
+            exit(1)
+
+        selected_game = None
+        for game in games_list:
+            if game["name"] == options.game:
+                selected_game = game
+
+        if selected_game is None:
+            log.error("Unknown game %s", options.game)
+            exit(1)
+
+        selected_set = sets_list[selected_game["name"]][int(options.set_id)]
+
+        connection_name = "local"
+        if options.online is True:
+            connection_name = "global"
+
+        log.info("Push set %s to db %s...", selected_set["clean_name"], connection_name)
         log.info("Load csv...")
+        csv_filename = make_csv_filename(selected_game["name"], selected_set["name"])
         entries = load_csv(csv_filename)
         log.info("Push set...")
-        set_id = push_set_to_db(set_index, options.commit, connection_name)
+        set_id = push_set_to_db(selected_game, selected_set, options.commit, connection_name)
         log.info("Set added with id %d", set_id)
         log.info("Push cards...")
-        push_to_db(entries, set_id, None, options.commit, connection_name)
+        push_to_db(entries, selected_game, set_id, None, options.commit, connection_name)
 
     if options.test_connection:
-        conn_info = mysql_connections[connection_name]
-        connection = mysql.connector.connect(host=conn_info["host"], user=conn_info["user"], password=conn_info["password"], database=conn_info["db"])
+        connection_name = "local"
+        if options.online is True:
+            connection_name = "global"
+
+        connection = get_connection(connection_name)
         sql = "select id from sets"
         cursor = connection.cursor()
         cursor.execute(sql)
