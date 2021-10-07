@@ -38,5 +38,29 @@
     "page_count":6,
     "code":"b2",
     "release_date":"2000-02-24 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/gym-heroes?productLineName=pokemon&page={}&view=grid&setName=gym-heroes&ProductTypeName=Cards",
+    "name":"gym-heroes",
+    "clean_name":"Gym Heroes",
+    "page_count":6,
+    "code":"g1",
+    "release_date":"2000-08-14 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/gym-challenge?productLineName=pokemon&page={}&view=grid&setName=gym-challenge&ProductTypeName=Cards",
+	"page_count":6,
+    "name":"gym-challenge",
+    "clean_name":"Gym Challenge", 
+    "code":"g2",
+    "release_date":"2000-10-16 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/neo-genesis?productLineName=pokemon&page={}&view=grid&setName=neo-genesis&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"neo-genesis",
+    "clean_name":"Neo Genesis", 
+    "code":"n1",
+    "release_date":"2000-12-16 12:00:00"
   }
 ]
