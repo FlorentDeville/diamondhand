@@ -170,6 +170,7 @@ if __name__ == "__main__":
     parser.add_argument("--push", "-p", dest="push", action="store_true", default=False, help="Push csv file to database.")
     parser.add_argument('--commit', '-c', dest="commit", action="store_true", default=False, help="Commit to the database.")
     parser.add_argument('--online', '-o', dest="online", action="store_true", default=False, help="Push to the online db. By default, push to the local db.")
+    parser.add_argument('--broadcast', '-b', dest="broadcast", action="store_true", default=False, help="Push to the local and  online db. By default, push only to the local db.")
     parser.add_argument('--test-connection', '-t', dest="test_connection", action="store_true", default=False, help="Test the mysql connection.")
     options = parser.parse_args()
     log.info("Start...")
@@ -229,19 +230,29 @@ if __name__ == "__main__":
 
         selected_set = sets_list[selected_game["name"]][int(options.set_id)]
 
-        connection_name = "local"
-        if options.online is True:
-            connection_name = "global"
+        if options.online and options.broadcast:
+            log.error("Can't run with both online and broadcast flag.")
+            exit(1)
 
-        log.info("Push set %s to db %s...", selected_set["clean_name"], connection_name)
-        log.info("Load csv...")
-        csv_filename = make_csv_filename(selected_game["name"], selected_set["name"])
-        entries = load_csv(csv_filename)
-        log.info("Push set...")
-        set_id = push_set_to_db(selected_game, selected_set, options.commit, connection_name)
-        log.info("Set added with id %d", set_id)
-        log.info("Push cards...")
-        push_to_db(entries, selected_game, set_id, None, options.commit, connection_name)
+        connection_list = []
+        if options.online:
+            connection_list.append("global")
+        elif options.broadcast:
+            connection_list.append("global")
+            connection_list.append("local")
+        else:
+            connection_list.append("local")
+
+        for connection_name in connection_list:
+            log.info("Push set %s to db %s...", selected_set["clean_name"], connection_name)
+            log.info("Load csv...")
+            csv_filename = make_csv_filename(selected_game["name"], selected_set["name"])
+            entries = load_csv(csv_filename)
+            log.info("Push set...")
+            set_id = push_set_to_db(selected_game, selected_set, options.commit, connection_name)
+            log.info("Set added with id %d", set_id)
+            log.info("Push cards...")
+            push_to_db(entries, selected_game, set_id, None, options.commit, connection_name)
 
     if options.test_connection:
         connection_name = "local"
