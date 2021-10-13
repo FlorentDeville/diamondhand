@@ -93,13 +93,15 @@
 		$game_id = $game["id"];
 		echo "<div id='" . $game_id . "' class='tabcontent'>";
 		
-		$sql="select sets.name as set_name, sets.id as id from sets where sets.game_id = " . $game_id . " order by release_date desc;";
+		$sql = "select sets_langs.name as set_name, languages.code as lang, sets.id as id from sets_langs inner join languages on sets_langs.lang_id = languages.id
+		inner join sets on sets_langs.set_id = sets.id where sets.game_id=" . $game_id . " order by sets_langs.release_date desc;";
+		//$sql="select sets.name as set_name, sets.id as id from sets where sets.game_id = " . $game_id . " order by release_date desc;";
 		$set_query = $connection->query($sql);
 		while($row = $set_query->fetch())
 		{
 			echo "<a class=\"setButton\" href=\"index.php?page=cards_set_list.php&set_id=" . $row["id"] . "\">";
 			echo "<div class=\"setButton\">";
-			echo $row["set_name"];
+			echo $row["set_name"] . " (" . strtoupper($row["lang"]) . ")";
 			echo "</div>";
 			echo "<a/>";
 		}
