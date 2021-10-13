@@ -5,7 +5,7 @@ $(document).ready(function()
 	const urlParams = new URLSearchParams(queryString);
 	const set_id = urlParams.get('set_id');
 
-	var sql = "select * from card where set_id=" + set_id;
+	var sql = "select * from card where set_lang_id=" + set_id;
 	$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 	{
 		//show missing cards
