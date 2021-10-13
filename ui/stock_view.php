@@ -32,7 +32,8 @@
 	$sql = "select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, acq_price,
 			owned_card.id as owned_card_id
 			from owned_card inner join card on owned_card.card_id=card.id inner join conditions on conditions.id=owned_card.condition_id
-			inner join sets on sets.id=card.set_id
+			inner join sets_langs on sets_langs.id=card.set_lang_id
+			inner join sets on sets_langs.set_id = sets.id
 			inner join game on sets.game_id=game.id";
 	$statement = $connection->query($sql);
 	if($statement == False)
