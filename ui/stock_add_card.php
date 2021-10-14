@@ -5,42 +5,33 @@
 		{
 			var game_id=$('#game').val();
 			$("#set").empty();
-			$.get('php_scripts/get_sets.php',{'game_id':game_id},function(return_data)
+			var sql = "select sets_langs.id, sets.name, languages.code from sets inner join sets_langs on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where sets.game_id=" + game_id;
+			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
-				if(return_data.data.length>0)
+				var sets = return_data.data;
+				$("#set").append("<option value='' selected disabled hidden>Select set</option>");
+				for(var ii = 0; ii < Object.keys(sets).length; ++ii)
 				{
-					//$('#msg').html( return_data.data.length + ' records Found');
-					$("#set").append("<option value='' selected disabled hidden>Select set</option>");
-					$.each(return_data.data, function(key,value)
-					{
-						$("#set").append("<option value='"+value.id+"'>"+value.name+"</option>");
-					});
-				}
-				else
-				{
-					$('#msg').html('No records Found');
+					var set = sets[ii];
+					$("#set").append("<option value='"+set["id"]+"'>"+set["name"] + " (" +set["code"]+")</option>");
 				}
 			}, "json");
 		});
 		
 		$("#set").change(function()
 		{
-			var set_id=$('#set').val();
+			var set_lang_id=$('#set').val();
 			$("#card").empty();
-			$.get('php_scripts/get_cards.php',{'set_id':set_id},function(return_data)
+			var sql = "select card.id, card.number, card.name from card where card.set_lang_id=" + set_lang_id + " order by number asc;"
+			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
-				if(return_data.data.length>0)
+				var cards = return_data.data;
+				$('#msg').html( cards.length + ' records Found');
+				$("#card").append("<option value='' selected disabled hidden>Select set</option>");
+				for(var ii = 0; ii < Object.keys(cards).length; ++ii)
 				{
-					//$('#msg').html( return_data.data.length + ' records Found');
-					$("#card").append("<option value='' selected disabled hidden>Select card</option>");
-					$.each(return_data.data, function(key,value)
-					{
-						$("#card").append("<option value='"+value.id+"'>(" + value.number + ") " + value.name + "</option>");
-					});
-				}
-				else
-				{
-					$('#msg').html('No records Found');
+					var card = cards[ii];
+					$("#card").append("<option value='"+card["id"]+"'>(" + card["number"] + ") " + card["name"] + "</option>");
 				}
 			}, "json");
 		});
@@ -49,20 +40,15 @@
 		{
 			var game_id=$('#add_set_game').val();
 			$("#add_set_set").empty();
-			$.get('php_scripts/get_sets.php',{'game_id':game_id},function(return_data)
+			var sql = "select sets_langs.id, sets.name, languages.code from sets inner join sets_langs on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id"
+			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
-				if(return_data.data.length>0)
+				var sets = return_data.data;
+				$("#add_set_set").append("<option value='' selected disabled hidden>Select set</option>");
+				for(var ii = 0; ii < Object.keys(sets).length; ++ii)
 				{
-					//$('#msg').html( return_data.data.length + ' records Found');
-					$("#add_set_set").append("<option value='' selected disabled hidden>Select set</option>");
-					$.each(return_data.data, function(key,value)
-					{
-						$("#add_set_set").append("<option value='"+value.id+"'>"+value.name+"</option>");
-					});
-				}
-				else
-				{
-					$('#msg').html('No records Found');
+					var set = sets[ii];
+					$("#add_set_set").append("<option value='"+set["id"]+"'>"+set["name"] + " (" +set["code"]+")</option>");
 				}
 			}, "json");
 		});

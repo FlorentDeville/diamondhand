@@ -39,15 +39,15 @@
 	{
 		$("#set").change(function()
 		{
-			var set_id=$('#set').val();
-			new_url = update_url_parameter(window.location.href, "set_id", set_id);
+			var set_lang_id=$('#set').val();
+			new_url = update_url_parameter(window.location.href, "set_lang_id", set_lang_id);
 			window.location.href = new_url;
 		});
 
-		var set_id=$('#set').val();
+		var set_lang_id=$('#set').val();
 		var sort_field = "number";
 		var sort_dir = "asc";
-		show_set(set_id, sort_field, sort_dir);
+		show_set(set_lang_id, sort_field, sort_dir);
 	});
 	
 	function delete_owned_card(owned_card_id)
@@ -72,22 +72,26 @@
 		}, "json");
 	}
 
-	function show_set(set_id, sort_field, sort_dir)
+	function show_set(set_lang_id, sort_field, sort_dir)
 	{
 		var sql = `select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, acq_price,
 			owned_card.id as owned_card_id, 
 			card.number 
-			from owned_card inner join card on owned_card.card_id=card.id inner join conditions on conditions.id=owned_card.condition_id
-			inner join sets on sets.id=card.set_id
+			from owned_card 
+			inner join card on owned_card.card_id=card.id 
+			inner join conditions on conditions.id=owned_card.condition_id
+			inner join sets_langs on sets_langs.id = card.set_lang_id
+			inner join languages on sets_langs.lang_id = languages.id
+			inner join sets on sets.id = sets_langs.set_id
 			inner join game on sets.game_id=game.id
-			where card.set_id = ` + set_id + ` 
+			where card.set_lang_id = ` + set_lang_id + ` 
 			order by ` + sort_field + " " + sort_dir;
 
 		$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 		{
 			obj = JSON.parse(return_data);
 			var cards = obj["data"];
-			display_array("array_container", cards, sort_field, sort_dir, set_id);
+			display_array("array_container", cards, sort_field, sort_dir, set_lang_id);
 
 			$("#card_count").empty();
 
@@ -161,38 +165,41 @@
 	Select set :
 	<select name="set" id="set">
 		<?php
-			$sql = "select sets.id, sets.name, game.name as game_name from sets inner join game on sets.game_id=game.id;";
+			$sql = "select sets_langs.id, sets.name, languages.code as lang, game.name as game_name from sets inner join game on sets.game_id=game.id
+			inner join sets_langs on sets_langs.set_id = sets.id
+			inner join languages on languages.id = sets_langs.lang_id;";
 			$result = $connection->query($sql);
 			
-			if(!isset($_GET["set_id"]))
+			if(!isset($_GET["set_lang_id"]))
 			{
 				echo "<option value=\"\" selected disabled hidden>Select Set</option>";
 			}
 			
 			while($row = $result->fetch())
 			{
-				if (isset($_GET["set_id"]))
+				if (isset($_GET["set_lang_id"]))
 				{
 					$option = "";
-					$set_id = $_GET["set_id"];
-					if ($set_id == $row["id"])
+					$set_lang_id = $_GET["set_lang_id"];
+					if ($set_lang_id == $row["id"])
 					{
 						$option = "selected";
 					}
 				}
-				echo "<option value=\"" . $row["id"] . "\"" . $option . ">(" . $row["game_name"] . ") " . $row["name"] . "</option>";
+				echo "<option value=\"" . $row["id"] . "\"" . $option . ">(" . $row["game_name"] . ") " . $row["name"] . " (" . $row["lang"] . ")</option>";
 			}
 		?>
 	</select>
 </div>
 	
 <?php
-	if(!isset($_GET["set_id"]))
+	if(!isset($_GET["set_lang_id"]))
 	{
 		return;
 	}
 
-	$sql = "SELECT round(sum(acq_price), 2) as money FROM owned_card inner join card on owned_card.card_id = card.id where card.set_id = " . $set_id;
+	$sql = "SELECT round(sum(acq_price), 2) as money FROM owned_card 
+	inner join card on owned_card.card_id = card.id where card.set_lang_id = " . $set_lang_id;
 	$statement = $connection->query($sql);
 	$result = $statement->fetch();
 	$money = $result["money"];

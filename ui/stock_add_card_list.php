@@ -5,20 +5,15 @@
 		{
 			var game_id=$('#game').val();
 			$("#set").empty();
-			$.get('php_scripts/get_sets.php',{'game_id':game_id},function(return_data)
+			var sql = "select sets_langs.id, sets.name, languages.code from sets inner join sets_langs on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where sets.game_id=" + game_id;
+			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
-				if(return_data.data.length>0)
+				var sets = return_data.data;
+				$("#set").append("<option value='' selected disabled hidden>Select set</option>");
+				for(var ii = 0; ii < Object.keys(sets).length; ++ii)
 				{
-					//$('#msg').html( return_data.data.length + ' records Found');
-					$("#set").append("<option value='' selected disabled hidden>Select set</option>");
-					$.each(return_data.data, function(key,value)
-					{
-						$("#set").append("<option value='"+value.id+"'>"+value.name+"</option>");
-					});
-				}
-				else
-				{
-					$('#msg').html('No records Found');
+					var set = sets[ii];
+					$("#set").append("<option value='"+set["id"]+"'>"+set["name"] + " (" +set["code"]+")</option>");
 				}
 			}, "json");
 		});
@@ -26,11 +21,12 @@
 
 function show_set(sort_field, sort_dir)
 {
-	var set_id = $('#set').val();
-	$.get('php_scripts/get_cards.php',{'set_id':set_id, 'sort_field':sort_field, 'sort_dir':sort_dir},function(return_data)
+	var set_lang_id = $('#set').val();
+	sql="select id, name, number, variation from card where set_lang_id=" + set_lang_id + " order by " + sort_field + " " + sort_dir + ";";
+	$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 	{
 		obj = JSON.parse(return_data);
-		var cards = obj["data"];
+		var cards = obj.data;
 		var content = "<table id='cards_table'>";
 
 		var show_arrow = false;
@@ -52,7 +48,6 @@ function show_set(sort_field, sort_dir)
 			content += "<tr id='" + card["id"] + "'><td>" + card["number"] + "</td><td>" + card["name"] + "</td>";
 
 			var variationText = "";
-			//console.log(card["variation"]);
 			if(card["variation"] != "null" && card["variation"] != null)
 				variationText = card["variation"];
 
