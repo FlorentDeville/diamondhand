@@ -161,8 +161,10 @@
 		echo "<tr><th>" . $number_title . "</th><th>" . $name_title . "</th><th>Set</th><th>Options</th><th>Links</th></tr>";
 
 		$sql = "select buy_list_card.id, card.name as name, card.tcg_url, sets.code as set_code, sets.name as set_name, card.number 
-		from buy_list_card inner join card on buy_list_card.card_id=card.id
-		inner join sets on card.set_id=sets.id
+		from buy_list_card 
+		inner join card on buy_list_card.card_id=card.id
+		inner join sets_langs on sets_langs.id = card.set_lang_id
+		inner join sets on sets_langs.set_id=sets.id
 		where buy_list_card.buy_list_id=" . $_GET['buylist_id'] . 
 		" order by " . $sort_field . " " . $sort_direction . ";";
 		$result = $connection->query($sql);

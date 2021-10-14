@@ -34,7 +34,7 @@
 		var set_id = $("#set").val();
 		var buylist_name = $("#buylist_name_2").val();
 		
-		sql_missing_card = "SELECT card.id FROM card left join owned_card on card.id = owned_card.card_id where owned_card.id is NULL and card.set_id=" + set_id;
+		sql_missing_card = "SELECT card.id FROM card left join owned_card on card.id = owned_card.card_id where owned_card.id is NULL and card.set_lang_id=" + set_id;
 		$.get('php_scripts/execute_sql.php',{'sql':sql_missing_card},function(return_data)
 		{
 			data = return_data.data;
@@ -67,11 +67,11 @@
 	<select name="set" id="set">
 	<option value="" selected disabled hidden>Select Set</option>
 	<?php
-		$sql = "select sets.id, sets.name, game.name as game_name from sets inner join game on sets.game_id=game.id;";
+		$sql = "select sets_langs.id, sets.name, game.name as game_name, languages.code from sets inner join game on sets.game_id=game.id inner join sets_langs on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id;";
 		$result = $connection->query($sql);
 		while($row = $result->fetch())
 		{
-			echo "<option value=\"" . $row["id"] . "\">(" . $row["game_name"] . ") " . $row["name"] . "</option>";
+			echo "<option value=\"" . $row["id"] . "\">(" . $row["game_name"] . ") " . $row["name"] . " (" . $row["code"] . ")</option>";
 		}
 	?>
 	</select>
