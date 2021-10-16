@@ -3,7 +3,6 @@ import argparse
 import json
 import logging
 import lxml.html
-import mysql.connector
 import os
 import re
 import sys
@@ -34,10 +33,14 @@ def scrap_all(game_name, set, csv_filename):
     browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
 
     filename = csv_filename
+    db = None
     if game_name == "pokemon":
         db = DbPokemon(browser, filename)
     elif game_name == "fftcg":
         db = DbFFTcg(browser, filename)
+    else:
+        log.exception("Unknown game %s", game_name)
+        exit(1)
 
     search_url_pattern = set["url"]
 
@@ -110,21 +113,31 @@ def push_set_to_db(selected_game, selected_set, commit, connection_name):
 
 
 # Push all entries to the cards table
-def push_to_db(entries, selected_game, set_id, variation, commit, connection_name):
+def push_to_db(entries, selected_game, set_id, commit, connection_name):
     connection = get_connection(connection_name)
 
     for card in entries:
-        cardInsertSql = "insert into card (name, set_id, rarity, variation, tcg_url, number) values (%s, %s, %s, %s, %s, %s)"
+        cardInsertSql = "insert into card (name, set_id, rarity, variation, tcg_url, number, set_number) values (%s, %s, %s, %s, %s, %s, %s)"
 
+        set_number = card.number
+        variation = None
         # extract the card number from the fftcg number which is <opus>-<number><rarity>
         if selected_game["name"] == "fftcg":
             pattern = "\\d*-(\\d*)."
             matches = re.match(pattern, card.number)
             number = matches.group(1)
         else:
-            number = card.number
+            pattern = re.compile("[0-9]+[a-z]")     # pattern for variation : 95b, 105a
+            if pattern.match(card.number):
+                matches = re.match("([0-9]+)([a-z])", card.number)
 
-        cardInsertSqlValues = [card.name, set_id, card.rarity, variation, card.tcg_url, int(number)]
+                number = matches.group(1)
+                variation = matches.group(2)
+            #elif:
+            else:
+                number = card.number
+
+        cardInsertSqlValues = [card.name, set_id, card.rarity, variation, card.tcg_url, int(number), set_number]
         cursor = connection.cursor()
 
         # If the commit flag is false then we didn't push the set so the set_id doesn't exist.
@@ -252,7 +265,7 @@ if __name__ == "__main__":
             set_id = push_set_to_db(selected_game, selected_set, options.commit, connection_name)
             log.info("Set added with id %d", set_id)
             log.info("Push cards...")
-            push_to_db(entries, selected_game, set_id, None, options.commit, connection_name)
+            push_to_db(entries, selected_game, set_id, options.commit, connection_name)
 
     if options.test_connection:
         connection_name = "local"
