@@ -22,7 +22,7 @@
 function show_set(sort_field, sort_dir)
 {
 	var set_lang_id = $('#set').val();
-	sql="select id, name, number, variation from card where set_lang_id=" + set_lang_id + " order by " + sort_field + " " + sort_dir + ";";
+	sql="select id, name, printed_number, variation from card where set_lang_id=" + set_lang_id + " order by " + sort_field + " " + sort_dir + ";";
 	$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 	{
 		obj = JSON.parse(return_data);
@@ -36,16 +36,16 @@ function show_set(sort_field, sort_dir)
 		var name_title = get_sort_arrow("name", sort_dir, "Name", show_arrow);
 
 		show_arrow = false;
-		if(sort_field == "number")
+		if(sort_field == "printed_number")
 			show_arrow = true;
 		
-		var number_title = get_sort_arrow("number", sort_dir, "N", show_arrow);
+		var number_title = get_sort_arrow("printed_number", sort_dir, "N", show_arrow);
 
 		content += "<tr><th>" + number_title + "</th><th>" + name_title +"</th><th>Variation</th><th>Date</th><th>Price</th>";
 		for(ii=0; ii < Object.keys(cards).length; ++ii)
 		{
 			var card = cards[ii];
-			content += "<tr id='" + card["id"] + "'><td>" + card["number"] + "</td><td>" + card["name"] + "</td>";
+			content += "<tr id='" + card["id"] + "'><td>" + card["printed_number"] + "</td><td>" + card["name"] + "</td>";
 
 			var variationText = "";
 			if(card["variation"] != "null" && card["variation"] != null)
@@ -79,11 +79,6 @@ function submit_cards()
 
 		if(date == "" || price == "")
 			continue;
-
-		//$card_id=$_GET['card_id'];
-		//$condition_id = $_GET['condition_id'];
-		//$price = $_GET['price'];
-		//$date = $_GET['date'];
 
 		$.get('php_scripts/add_stock_card.php',{'card_id':card_id, 'date':date, 'price':price, 'condition_id': condition },function(return_data)
 		{
@@ -144,7 +139,7 @@ function date_on_keyup(event)
 <div>
 	<span style='display:inline-block;width:100px;'>Add card</span>
 	<?php
-		$sort_field = "number";
+		$sort_field = "printed_number";
 	 	if(isset($_GET["sort_field"]))
 		 	$sort_field = $_GET["sort_field"];
 

@@ -23,7 +23,7 @@
                 $("#countMissingCards").append("<div style=\"margin:0 0 5 0;\">" + return_data.data.length + " missing card(s) in this set.</div>");
                 var cards = return_data.data;
                 var column_array = new Array();
-                column_array.push({header_name:"N", field_name:"number", type:"int"});
+                column_array.push({header_name:"N", field_name:"printed_number", type:"int"});
                 column_array.push({header_name:"Name", field_name:"name", type:"string"});
 			    display_table("missingCards", column_array, cards, "id", 0, "asc");
             }
@@ -57,10 +57,11 @@ while($row = $result->fetch())
     $set_count_row = $set_count_result->fetch();
     $set_count = $set_count_row[0];
 
-    $sql_get_owned_card_count = "select count(distinct card_id) from owned_card inner join card on owned_card.card_id = card.id where card.set_lang_id =" . $set_lang_id;
+    $sql_get_owned_card_count = "select count(distinct card_id), round(sum(acq_price), 2) from owned_card inner join card on owned_card.card_id = card.id where card.set_lang_id =" . $set_lang_id;
     $owned_result = $connection->query($sql_get_owned_card_count);
     $owned_card_row = $owned_result->fetch();
     $owned_card = $owned_card_row[0];
+    $sum_acq_price = $owned_card_row[1];
 
     $full_set = false;
     $style_name = "progressionSet";
@@ -79,7 +80,8 @@ while($row = $result->fetch())
     echo "<div class=\"".$style_name."\"".$onclick." id=\"".$set_lang_id."\">";
     echo "<div style=\"text-align:center;\">" . $row["name"] . " (" . strtoupper($row["code"]) . ")</div>";
 
-    echo "<div style=\"text-align:center;\">" . $owned_card . "/" . $set_count . "</div>";
+    echo "<div style=\"text-align:center;\">" . $owned_card . "/" . $set_count . "
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ " . $sum_acq_price . "</div>";
 
     $HEIGHT = 10;
     $TOTAL_SIZE = 500;

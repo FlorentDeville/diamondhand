@@ -29,13 +29,14 @@
 			$("#card").empty();
 			$.get('php_scripts/get_cards.php',{'set_id':set_id},function(return_data)
 			{
+				console.log(return_data);
 				if(return_data.data.length>0)
 				{
 					//$('#msg').html( return_data.data.length + ' records Found');
 					$("#card").append("<option value='' selected disabled hidden>Select card</option>");
 					$.each(return_data.data, function(key,value)
 					{
-						$("#card").append("<option value='"+value.id+"'>(" + value.number + ") " + value.name + "</option>");
+						$("#card").append("<option value='"+value.id+"'>(" + value.printed_number + ") " + value.name + "</option>");
 					});
 				}
 				else
@@ -139,7 +140,7 @@
 			return $content;
 		}
 
-		$sort_field = "number";
+		$sort_field = "printed_number";
 		$sort_direction = "asc";
 		if(isset($_GET["sort_field"]))
 			$sort_field = $_GET["sort_field"];
@@ -153,14 +154,14 @@
 		$name_title = get_sort_arrow("name", $sort_direction, "Name", $show_arrow);
 
 		$show_arrow = false;
-		if($sort_field == "number")
+		if($sort_field == "printed_number")
 			$show_arrow = true;
 		
-		$number_title = get_sort_arrow("number", $sort_direction, "N", $show_arrow);
+		$number_title = get_sort_arrow("printed_number", $sort_direction, "N", $show_arrow);
 
 		echo "<tr><th>" . $number_title . "</th><th>" . $name_title . "</th><th>Set</th><th>Options</th><th>Links</th></tr>";
 
-		$sql = "select buy_list_card.id, card.name as name, card.tcg_url, sets.code as set_code, sets.name as set_name, card.number 
+		$sql = "select buy_list_card.id, card.name as name, card.tcg_url, sets.code as set_code, sets.name as set_name, card.printed_number 
 		from buy_list_card 
 		inner join card on buy_list_card.card_id=card.id
 		inner join sets_langs on sets_langs.id = card.set_lang_id
@@ -171,7 +172,7 @@
 		while($row = $result->fetch())
 		{
 			$deleteButton = "<span style='margin:0 10 0 10;' onclick='delete_card(".$row["id"].")'>X</span>";
-			echo "<tr><td>".$row["number"]."</td><td>" . $row["name"] . "</td><td>".$row["set_code"]."</td><td>".$deleteButton."</td>
+			echo "<tr><td>".$row["printed_number"]."</td><td>" . $row["name"] . "</td><td>".$row["set_code"]."</td><td>".$deleteButton."</td>
 			<td><a class='standard_link' href=\"" . $row["tcg_url"] . "\">TCGP</a></td></tr>";
 		}
 	?>

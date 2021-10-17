@@ -45,7 +45,7 @@
 		});
 
 		var set_lang_id=$('#set').val();
-		var sort_field = "number";
+		var sort_field = "printed_number";
 		var sort_dir = "asc";
 		show_set(set_lang_id, sort_field, sort_dir);
 	});
@@ -75,8 +75,7 @@
 	function show_set(set_lang_id, sort_field, sort_dir)
 	{
 		var sql = `select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, acq_price,
-			owned_card.id as owned_card_id, 
-			card.number 
+			owned_card.id as owned_card_id, card.printed_number 
 			from owned_card 
 			inner join card on owned_card.card_id=card.id 
 			inner join conditions on conditions.id=owned_card.condition_id
@@ -123,7 +122,7 @@
 		var content = "<table>";
 		var header_data_array = 
 		[
-			{field:"number", title:"N"},
+			{field:"printed_number", title:"N"},
 			{field:"name", title:"Card Name"},
 			{field:"set_name", title:"Set"},
 			{field:"cond", title:"Condition"},
@@ -145,7 +144,7 @@
 			var card = data[ii];
 			
 			content += "<tr id='row_" + card["owned_card_id"] + "'>";
-			content += "<td>" + card["number"] + "</td>";
+			content += "<td>" + card["printed_number"] + "</td>";
 			content += "<td>" + card["name"] + "</td>";
 			content += "<td style='text-align:center;' title='" + card['set_name'] + "'>" + card["set_code"] + "</td>";
 			content += "<td style='text-align:center;'>" + card["cond"] + "</td>";

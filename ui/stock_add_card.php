@@ -22,16 +22,16 @@
 		{
 			var set_lang_id=$('#set').val();
 			$("#card").empty();
-			var sql = "select card.id, card.number, card.name from card where card.set_lang_id=" + set_lang_id + " order by number asc;"
+			var sql = "select card.id, card.printed_number, card.name from card where card.set_lang_id=" + set_lang_id + " order by display_number asc;"
 			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
 				var cards = return_data.data;
 				$('#msg').html( cards.length + ' records Found');
-				$("#card").append("<option value='' selected disabled hidden>Select set</option>");
+				$("#card").append("<option value='' selected disabled hidden>Select card</option>");
 				for(var ii = 0; ii < Object.keys(cards).length; ++ii)
 				{
 					var card = cards[ii];
-					$("#card").append("<option value='"+card["id"]+"'>(" + card["number"] + ") " + card["name"] + "</option>");
+					$("#card").append("<option value='"+card["id"]+"'>(" + card["printed_number"] + ") " + card["name"] + "</option>");
 				}
 			}, "json");
 		});

@@ -1,7 +1,7 @@
 <?Php
 @$set_id=$_GET['set_id'];
 
-$sort_field = "number";
+$sort_field = "display_number";
 if(isset($_GET["sort_field"]))
 {
 	$sort_field = $_GET["sort_field"];
@@ -21,7 +21,7 @@ if(!is_numeric($set_id))
 
 include("../connection.php");
 
-$sql="select id, name, number, variation from card where set_id=" . $set_id . " order by ". $sort_field . " " . $sort_dir . ";";
+$sql="select id, name, printed_number, variation from card where set_id=" . $set_id . " order by ". $sort_field . " " . $sort_dir . ";";
 $statement = $connection->query($sql);
 if($statement == False)
 {
