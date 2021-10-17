@@ -62,5 +62,69 @@
     "clean_name":"Neo Genesis", 
     "code":"n1",
     "release_date":"2000-12-16 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/neo-discovery?productLineName=pokemon&page={}&view=grid&setName=neo-discovery&ProductTypeName=Cards",
+	"page_count":4,
+    "name":"neo-discovery",
+    "clean_name":"Neo Discovery", 
+    "code":"n2",
+    "release_date":"2001-06-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/southern-islands?productLineName=pokemon&page={}&view=grid&setName=southern-islands&ProductTypeName=Cards",
+	"page_count":1,
+    "name":"southerm-islands",
+    "clean_name":"Southern Islands", 
+    "code":"si",
+    "release_date":"2001-07-31 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/neo-revelation?productLineName=pokemon&page={}&view=grid&setName=neo-revelation&ProductTypeName=Cards",
+	"page_count":3,
+    "name":"neo-revelation",
+    "clean_name":"Neo Revelation", 
+    "code":"n3",
+    "release_date":"2001-09-21 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/neo-destiny?productLineName=pokemon&page={}&view=grid&setName=neo-destiny&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"neo-destiny",
+    "clean_name":"Neo Destiny", 
+    "code":"n4",
+    "release_date":"2002-02-28 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/legendary-collection?productLineName=pokemon&page={}&setName=legendary-collection&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"legendary-collection",
+    "clean_name":"Legendary Collection", 
+    "code":"lc",
+    "release_date":"2002-05-24 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/expedition?productLineName=pokemon&page={}&setName=expedition&ProductTypeName=Cards",
+	"page_count":7,
+    "name":"expedition",
+    "clean_name":"Expedition", 
+    "code":"ex",
+    "release_date":"2002-09-15 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/best-of-promos?productLineName=pokemon&page={}&view=grid&setName=best-of-promos&ProductTypeName=Cards",
+	"page_count":1,
+    "name":"best",
+    "clean_name":"Best Of Game", 
+    "code":"best",
+    "release_date":"2002-12-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/aquapolis?productLineName=pokemon&page={}&view=grid&setName=aquapolis&ProductTypeName=Cards",
+	"page_count":8,
+    "name":"aquapolis",
+    "clean_name":"Aquapolis", 
+    "code":"aq",
+    "release_date":"2003-01-15 12:00:00"
   }
 ]
