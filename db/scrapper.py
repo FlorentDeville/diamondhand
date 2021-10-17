@@ -16,6 +16,8 @@ from db.connection import get_connection
 from db.db_pokemon import DbPokemon
 from db.db_fftcg import DbFFTcg
 
+from db.helper_pokemon import *
+
 logging.basicConfig(level=logging.INFO)
 rootLogger = logging.getLogger()
 
@@ -77,7 +79,7 @@ def load_csv(csv_filename):
 
 
 # Push a set to the db and return its id
-def push_set_to_db(selected_game, selected_set, commit, connection_name):
+def push_set_to_db(selected_game, selected_set, selected_lang, commit, connection_name):
     connection = get_connection(connection_name)
 
     # find the game id
@@ -98,52 +100,166 @@ def push_set_to_db(selected_game, selected_set, commit, connection_name):
     cursor = connection.cursor()
     cursor.execute(sql, sql_values)
     results = cursor.fetchall()
+    set_id = -1
     if len(results) > 0:
-        return results[0][0]  # the set already exists in the db
+        set_id = results[0][0]  # the set already exists in the db
+    else:
+        # add the set
+        sql = "insert into sets (name, code, release_date, game_id) values (%s, %s, %s, %s)"
+        sql_values = [selected_set["clean_name"], selected_set["code"], selected_set["release_date"], game_id]
+        cursor = connection.cursor()
+        cursor.execute(sql, sql_values)
+        if commit:
+            connection.commit()
 
-    # add the set
-    sql = "insert into sets (name, code, release_date, game_id) values (%s, %s, %s, %s)"
-    sql_values = [selected_set["clean_name"], selected_set["code"], selected_set["release_date"], game_id]
+        set_id = cursor.lastrowid
+
+    # get the lang id
+    sql = "select id from languages where code = %s"
+    sql_values=[selected_lang]
     cursor = connection.cursor()
     cursor.execute(sql, sql_values)
+    results = cursor.fetchall()
+    lang_id = -1
+    if len(results) > 0:
+        lang_id = results[0][0]
+    else:
+        log.exception("Unknown language %s", selected_lang)
+
+    # check if the set_lang is there
+    sql = "select id from sets_langs where set_id = %s and lang_id = %s"
+    sql_values = [set_id, lang_id]
+    cursor = connection.cursor()
+    cursor.execute(sql, sql_values)
+    results = cursor.fetchall()
+    set_lang_id = -1
+    if len(results) > 0:
+        set_lang_id = results[0][0]  # the set already exists in the db
+    else:
+        # add the set_lang
+        sql = "insert into sets_langs (set_id, lang_id, name, release_date) values (%s, %s, %s, %s)"
+        sql_values = [set_id, lang_id, selected_set["clean_name"], selected_set["release_date"]]
+        cursor = connection.cursor()
+        cursor.execute(sql, sql_values)
+        if commit:
+            connection.commit()
+
+        set_lang_id = cursor.lastrowid
+
+    return set_lang_id
+
+
+def push_holo_rare(card, set_lang_id, commit, connection_name):
+    connection = get_connection(connection_name)
+
+    #find the name of the card without the number
+    pattern = "(.*)\s\(H[0-9]*\)"
+    matches = re.match(pattern, card.name)
+    name = matches.group(1)
+
+    #find the card id
+    sql = "select id from card where set_lang_id = %s and name = %s"
+    sql_values = [set_lang_id, name]
+    cursor = connection.cursor()
+    cursor.execute(sql, sql_values)
+    results = cursor.fetchall()
+
+    if len(results) == 0:
+        log.exception("Can't find card %d %s", set_lang_id, card.name)
+        exit(1)
+    elif len(results) > 1:
+        log.exception("Multiple cards found for %d %s", set_lang_id, card.name)
+        exit(1)
+
+    card_id = results[0][0]
+
+    #find the variation
+    sql = "select id from variations where code=%s"
+    sql_values = ["hr"]
+    cursor = connection.cursor()
+    cursor.execute(sql, sql_values)
+    results = cursor.fetchall()
+    if len(results) == 0:
+        log.exception("Can't variation %s", "hr")
+        exit(1)
+
+    variation_id = results[0][0]
+
+    #push the variation
+    sql = "insert into cards_variations (card_id, variation_id) values (%s, %s)"
+    sql_values = [card_id, variation_id]
+    cursor = connection.cursor()
+    cursor.execute(sql, sql_values)
+
     if commit:
         connection.commit()
 
-    return cursor.lastrowid
+
+def sort_pokemon_cards(entries):
+    card_count = len(entries)
+
+    for ii in range(0, card_count - 1):
+        low_card = entries[ii]
+
+        low_card_number = helper_pokemon_get_number(low_card)
+        low_card_subnumber = helper_pokemon_get_sub_number(low_card)
+
+        for jj in range(ii+1, card_count):
+            high_card = entries[jj]
+
+            high_card_number = helper_pokemon_get_number(high_card)
+            high_card_subnumber = helper_pokemon_get_sub_number(high_card)
+
+            swap = False
+
+            if low_card.rarity == "Holo Rare" and high_card.rarity != "Holo Rare":
+                swap = True
+            elif low_card.rarity != "Holo Rare" and high_card.rarity == "Holo Rare":  # no holo rare vs holo rare
+                pass
+            elif low_card_number == high_card_number:
+                if low_card_subnumber > high_card_subnumber:
+                    swap = True
+            elif low_card_number > high_card_number:
+                    swap = True
+
+            if swap:
+                entries[ii], entries[jj] = entries[jj], entries[ii]
+                low_card = entries[ii]
+                low_card_number = helper_pokemon_get_number(low_card)
+                low_card_subnumber = helper_pokemon_get_sub_number(low_card)
 
 
 # Push all entries to the cards table
-def push_to_db(entries, selected_game, set_id, commit, connection_name):
+def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
+    if selected_game["name"] == "pokemon":
+        sort_pokemon_cards(entries)
+    else:
+        log.warn("No sort code for game %s", selected_game["name"])
+
     connection = get_connection(connection_name)
 
-    for card in entries:
-        cardInsertSql = "insert into card (name, set_id, rarity, variation, tcg_url, number, set_number) values (%s, %s, %s, %s, %s, %s, %s)"
+    card_pushed = 0
+    # for card in entries:
+    for ii in range(len(entries)):
+        card = entries[ii]
 
-        set_number = card.number
+        cardInsertSql = "insert into card (name, set_lang_id, rarity, variation, tcg_url, display_number, printed_number) values (%s, %s, %s, %s, %s, %s, %s)"
+
+        card_name = card.name
+        printed_number = card.number
+        display_number = ii
         variation = None
-        # extract the card number from the fftcg number which is <opus>-<number><rarity>
-        if selected_game["name"] == "fftcg":
-            pattern = "\\d*-(\\d*)."
-            matches = re.match(pattern, card.number)
-            number = matches.group(1)
-        else:
-            pattern = re.compile("[0-9]+[a-z]")     # pattern for variation : 95b, 105a
-            if pattern.match(card.number):
-                matches = re.match("([0-9]+)([a-z])", card.number)
 
-                number = matches.group(1)
-                variation = matches.group(2)
-            #elif:
-            else:
-                number = card.number
+        if selected_game["name"] == "pokemon":
+            card_name = helper_pokemon_get_name(card)
 
-        cardInsertSqlValues = [card.name, set_id, card.rarity, variation, card.tcg_url, int(number), set_number]
+        cardInsertSqlValues = [card_name, set_lang_id, card.rarity, variation, card.tcg_url, display_number, printed_number]
         cursor = connection.cursor()
+        cursor.execute(cardInsertSql, cardInsertSqlValues)
 
         # If the commit flag is false then we didn't push the set so the set_id doesn't exist.
         # Executing the request will trigger a foreign key execption.
         if commit:
-            cursor.execute(cardInsertSql, cardInsertSqlValues)
             connection.commit()
 
 
@@ -262,10 +378,10 @@ if __name__ == "__main__":
             csv_filename = make_csv_filename(selected_game["name"], selected_set["name"])
             entries = load_csv(csv_filename)
             log.info("Push set...")
-            set_id = push_set_to_db(selected_game, selected_set, options.commit, connection_name)
-            log.info("Set added with id %d", set_id)
+            set_lang_id = push_set_to_db(selected_game, selected_set, "en", options.commit, connection_name)
+            log.info("Set added with id %d", set_lang_id)
             log.info("Push cards...")
-            push_to_db(entries, selected_game, set_id, options.commit, connection_name)
+            push_to_db(entries, selected_game, set_lang_id, options.commit, connection_name)
 
     if options.test_connection:
         connection_name = "local"
