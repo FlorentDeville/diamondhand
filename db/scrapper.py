@@ -4,7 +4,6 @@ import json
 import logging
 import lxml.html
 import os
-import re
 import sys
 import time
 
@@ -149,90 +148,10 @@ def push_set_to_db(selected_game, selected_set, selected_lang, commit, connectio
     return set_lang_id
 
 
-def push_holo_rare(card, set_lang_id, commit, connection_name):
-    connection = get_connection(connection_name)
-
-    #find the name of the card without the number
-    pattern = "(.*)\s\(H[0-9]*\)"
-    matches = re.match(pattern, card.name)
-    name = matches.group(1)
-
-    #find the card id
-    sql = "select id from card where set_lang_id = %s and name = %s"
-    sql_values = [set_lang_id, name]
-    cursor = connection.cursor()
-    cursor.execute(sql, sql_values)
-    results = cursor.fetchall()
-
-    if len(results) == 0:
-        log.exception("Can't find card %d %s", set_lang_id, card.name)
-        exit(1)
-    elif len(results) > 1:
-        log.exception("Multiple cards found for %d %s", set_lang_id, card.name)
-        exit(1)
-
-    card_id = results[0][0]
-
-    #find the variation
-    sql = "select id from variations where code=%s"
-    sql_values = ["hr"]
-    cursor = connection.cursor()
-    cursor.execute(sql, sql_values)
-    results = cursor.fetchall()
-    if len(results) == 0:
-        log.exception("Can't variation %s", "hr")
-        exit(1)
-
-    variation_id = results[0][0]
-
-    #push the variation
-    sql = "insert into cards_variations (card_id, variation_id) values (%s, %s)"
-    sql_values = [card_id, variation_id]
-    cursor = connection.cursor()
-    cursor.execute(sql, sql_values)
-
-    if commit:
-        connection.commit()
-
-
-def sort_pokemon_cards(entries):
-    card_count = len(entries)
-
-    for ii in range(0, card_count - 1):
-        low_card = entries[ii]
-
-        low_card_number = helper_pokemon_get_number(low_card)
-        low_card_subnumber = helper_pokemon_get_sub_number(low_card)
-
-        for jj in range(ii+1, card_count):
-            high_card = entries[jj]
-
-            high_card_number = helper_pokemon_get_number(high_card)
-            high_card_subnumber = helper_pokemon_get_sub_number(high_card)
-
-            swap = False
-
-            if low_card.rarity == "Holo Rare" and high_card.rarity != "Holo Rare":
-                swap = True
-            elif low_card.rarity != "Holo Rare" and high_card.rarity == "Holo Rare":  # no holo rare vs holo rare
-                pass
-            elif low_card_number == high_card_number:
-                if low_card_subnumber > high_card_subnumber:
-                    swap = True
-            elif low_card_number > high_card_number:
-                    swap = True
-
-            if swap:
-                entries[ii], entries[jj] = entries[jj], entries[ii]
-                low_card = entries[ii]
-                low_card_number = helper_pokemon_get_number(low_card)
-                low_card_subnumber = helper_pokemon_get_sub_number(low_card)
-
-
 # Push all entries to the cards table
 def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
     if selected_game["name"] == "pokemon":
-        sort_pokemon_cards(entries)
+        helper_pokemon_sort_cards(entries)
     else:
         log.warn("No sort code for game %s", selected_game["name"])
 
