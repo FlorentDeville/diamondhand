@@ -182,6 +182,16 @@ def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
             connection.commit()
 
 
+def delete_cards_from_set_lang(set_lang_id, commit, connection_name):
+    connection = get_connection(connection_name)
+    sql = "delete from card where set_lang_id = %s"
+    sql_values = [set_lang_id]
+    cursor = connection.cursor()
+    cursor.execute(sql, sql_values)
+    if commit:
+        connection.commit()
+
+
 def make_csv_filename(game_name, set_name):
     csv_filename = "C:\\workspace\\python\\data\\%s\\db_%s.csv" % (game_name, set_name)
     return csv_filename
@@ -220,6 +230,7 @@ if __name__ == "__main__":
     parser.add_argument('--online', '-o', dest="online", action="store_true", default=False, help="Push to the online db. By default, push to the local db.")
     parser.add_argument('--broadcast', '-b', dest="broadcast", action="store_true", default=False, help="Push to the local and  online db. By default, push only to the local db.")
     parser.add_argument('--test-connection', '-t', dest="test_connection", action="store_true", default=False, help="Test the mysql connection.")
+    parser.add_argument('--clean-cards', dest="clean_cards", action="store_true", default=False, help="Delete all the existing cards for the set before pushing again")
     options = parser.parse_args()
     log.info("Start...")
 
@@ -299,6 +310,10 @@ if __name__ == "__main__":
             log.info("Push set...")
             set_lang_id = push_set_to_db(selected_game, selected_set, "en", options.commit, connection_name)
             log.info("Set added with id %d", set_lang_id)
+            if options.clean_cards:
+                log.info("Deleting cards from set %s...", set_lang_id)
+                delete_cards_from_set_lang(set_lang_id, options.commit, connection_name)
+
             log.info("Push cards...")
             push_to_db(entries, selected_game, set_lang_id, options.commit, connection_name)
 
