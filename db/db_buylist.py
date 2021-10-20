@@ -10,10 +10,11 @@ def load_buylist(buylist_id):
         database="wallstreet"
     )
 
-    sql = "select card.id, card.name, sets.name as set_name, sets.code, card.number, card.rarity, card.tcg_url, card.variation " \
+    sql = "select card.id, card.name, sets.name as set_name, sets.code, card.printed_number, card.rarity, card.tcg_url, card.variation " \
           "from buy_list inner join buy_list_card on buy_list.id = buy_list_card.buy_list_id " \
           "inner join card on card.id = buy_list_card.card_id " \
-          "inner join sets on card.set_id=sets.id " \
+          "inner join sets_langs on card.set_lang_id = sets_langs.id " \
+          "inner join sets on sets_langs.set_id=sets.id " \
           "where buy_list.id=" + str(buylist_id)
 
     cursor = db.cursor()
