@@ -72,8 +72,16 @@ function sort_table(container_id, column_id, sort_dir, type)
             switch(type)
             {
                 case "int":
-                    value1 = parseInt(value);
-                    value2 = parseInt(anotherValue);
+                    if(isNaN(value))
+                    {
+                        value1 = value;
+                        value2 = anotherValue;
+                    }
+                    else
+                    {
+                        value1 = parseInt(value);
+                        value2 = parseInt(anotherValue);
+                    }
                     break;
 
                 default:
