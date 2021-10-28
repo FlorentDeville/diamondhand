@@ -84,6 +84,11 @@ function sort_table(container_id, column_id, sort_dir, type)
                     }
                     break;
 
+                case "float":
+                    value1 = parseFloat(value);
+                    value2 = parseFloat(anotherValue);
+                    break;
+
                 default:
                     value1 = value;
                     value2 = anotherValue;
