@@ -1,16 +1,34 @@
-<div id="menu" style="margin:10 0 20 0;">
+<!-- <div id="menu" style="margin:10 0 20 0;">
     <div style="display:inline;"> Stocks : </div>
     <a class="stockMenuButton" href="./index.php?page=binder.php&stock_page=pokemon_binder/side.html"><div class="stockMenuButton">Pokemon</div></a>
     <a class="stockMenuButton" href="./index.php?page=binder.php&stock_page=stock_view.php"><div class="stockMenuButton">MTG</div></a>
     <a class="stockMenuButton" href="./index.php?page=binder.php&stock_page=ff_binder/side.php"><div class="stockMenuButton">Final Fantasy</div></a>
-</div>
+</div> -->
 <div id="content">
     <?php
-        if(isset($_GET["stock_page"]))
+        $sql = "select sets_langs.name as set_name, sets_langs.id as set_lang_id, game.id as game_id from sets_langs
+        inner join sets on sets_langs.set_id = sets.id
+        inner join game on sets.game_id = game.id;";
+        $result = $connection->query($sql);
+
+        while($row = $result->fetch())
         {
-            $page = $_GET["stock_page"];
-            include("./" . $page);
+            $MTG = 1;
+            $POK = 2;
+            $FF = 3;
+
+            $link = "";
+            switch($row["game_id"])
+            {
+                case $FF:
+                    $link = "./ff_binder/side.php?set_lang_id=" . $row["set_lang_id"];
+                    break;
+
+                default:
+                break;
+            }
+
+            echo "<span><a target=\"_blank\" href=\"" . $link . "\">" . $row["set_name"] . "</a></span><br/>";
         }
-        
     ?>
 </div>

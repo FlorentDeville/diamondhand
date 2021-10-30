@@ -29,6 +29,7 @@
 
 </head>
 <?php
+include("../connection.php"); 
 
 function show_side($set_name)
 {
@@ -39,14 +40,14 @@ function show_side($set_name)
 			<!-- Left side set icon -->
 			<div style='height:1.2in; width:320px; position:absolute; align-items:center; justify-content:center; /*border-style:solid;border-size:1px*/'>
 				<span class='iconHelper'></span>
-				<img src='ff_binder/img/fire.png' class='icon'/>
-				<img src='ff_binder/img/ice.png' class='icon'/>
-				<img src='ff_binder/img/wind.png' class='icon'/>
-				<img src='ff_binder/img/earth.png' class='icon'/>
-				<img src='ff_binder/img/lightning.png' class='icon'/>
-				<img src='ff_binder/img/water.png' class='icon'/>
-				<img src='ff_binder/img/light.png' class='icon'/>
-				<img src='ff_binder/img/dark.png' class='icon'/>
+				<img src='./img/fire.png' class='icon'/>
+				<img src='./img/ice.png' class='icon'/>
+				<img src='./img/wind.png' class='icon'/>
+				<img src='./img/earth.png' class='icon'/>
+				<img src='./img/lightning.png' class='icon'/>
+				<img src='./img/water.png' class='icon'/>
+				<img src='./img/light.png' class='icon'/>
+				<img src='./img/dark.png' class='icon'/>
 			</div>";
 			
 			$length = strlen($set_name);
@@ -66,27 +67,27 @@ function show_side($set_name)
 			<!-- Right side set icon -->
 			<div style='height:1.2in; width:320px; position:absolute; right:0; top:0; align-items:center; justify-content:center; padding:0 0 0 0;/*border-style:solid;border-size:1px*/'>
 				<span class='iconHelper' style='margin-right:5px;'></span>
-				<img src='ff_binder/img/dark.png' class='icon'/>
-				<img src='ff_binder/img/light.png' class='icon'/>		
-				<img src='ff_binder/img/water.png' class='icon'/>
-				<img src='ff_binder/img/lightning.png' class='icon'/>
-				<img src='ff_binder/img/earth.png' class='icon'/>
-				<img src='ff_binder/img/wind.png' class='icon'/>
-				<img src='ff_binder/img/ice.png' class='icon'/>
-				<img src='ff_binder/img/fire.png' class='icon'/>
+				<img src='./img/dark.png' class='icon'/>
+				<img src='./img/light.png' class='icon'/>		
+				<img src='./img/water.png' class='icon'/>
+				<img src='./img/lightning.png' class='icon'/>
+				<img src='./img/earth.png' class='icon'/>
+				<img src='./img/wind.png' class='icon'/>
+				<img src='./img/ice.png' class='icon'/>
+				<img src='./img/fire.png' class='icon'/>
 				
 			</div>
 		</div>
 	</div>";
 }
 
-$sql = "select sets.name from sets inner join game on sets.game_id = game.id where game.name = \"Final Fantasy\" order by release_date asc;";
+$set_lang_id = $_GET["set_lang_id"];
+$sql = "select sets_langs.name from sets_langs where id=" . $set_lang_id;
 $result = $connection->query($sql);
 
-while($row = $result->fetch())
-{
-	show_side($row["name"]);
-}
+$row = $result->fetch();
+show_side($row["name"]);
+
 ?>
 <script>
 function init()
