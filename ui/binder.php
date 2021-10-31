@@ -17,18 +17,20 @@
             $POK = 2;
             $FF = 3;
 
-            $link = "";
+            $link_side = "";
+            $link_front = "";
             switch($row["game_id"])
             {
                 case $FF:
-                    $link = "./ff_binder/side.php?set_lang_id=" . $row["set_lang_id"];
+                    $link_side = "./ff_binder/side.php?set_lang_id=" . $row["set_lang_id"];
+                    $link_front = "./ff_binder/front.php?set_lang_id=" . $row["set_lang_id"];
                     break;
 
                 default:
                 break;
             }
 
-            echo "<span><a target=\"_blank\" href=\"" . $link . "\">" . $row["set_name"] . "</a></span><br/>";
+            echo "<span>" . $row["set_name"] . "</span>&nbsp;<a target=\"_blank\" href=\"" . $link_side . "\">side</a>&nbsp; <a target=\"_blank\" href=\"" . $link_front . "\">front</a><br/>";
         }
     ?>
 </div>
