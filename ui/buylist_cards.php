@@ -5,7 +5,8 @@
 		{
 			var game_id=$('#game').val();
 			$("#set").empty();
-			$.get('php_scripts/get_sets.php',{'game_id':game_id},function(return_data)
+			var sql = "select sets_langs.name, languages.code, sets_langs.id from sets_langs inner join sets on sets_langs.set_id = sets.id inner join languages on languages.id = sets_langs.lang_id where sets.game_id=" + game_id;
+			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
 				if(return_data.data.length>0)
 				{
@@ -13,7 +14,7 @@
 					$("#set").append("<option value='' selected disabled hidden>Select set</option>");
 					$.each(return_data.data, function(key,value)
 					{
-						$("#set").append("<option value='"+value.id+"'>"+value.name+"</option>");
+						$("#set").append("<option value='"+value.id+"'>"+value.name+" (" + value.code + ")</option>");
 					});
 				}
 				else
@@ -27,7 +28,8 @@
 		{
 			var set_id=$('#set').val();
 			$("#card").empty();
-			$.get('php_scripts/get_cards.php',{'set_id':set_id},function(return_data)
+			var sql = "select id, printed_number, name from card where set_lang_id=" + set_id + " order by display_number asc";
+			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
 				console.log(return_data);
 				if(return_data.data.length>0)
