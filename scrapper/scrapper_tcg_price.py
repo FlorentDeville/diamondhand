@@ -30,6 +30,9 @@ class ScrapperTcgPrice:
             return prices
 
         html = self.__download_webpage(url)
+        if html is None:
+            return prices
+
         sellers = self.__get_sellers_from_webpage(html)
 
         for seller in sellers:
@@ -65,17 +68,22 @@ class ScrapperTcgPrice:
         # check the near mint check box
         if self.m_onlyNearMint and not self.m_enableNearMint:
             xpath = "//span[contains(@id, 'NearMint-filter-label')]"
-            button = self.m_browser.find_element_by_xpath(xpath)
+            button = None
+            try:
+                button = self.m_browser.find_element_by_xpath(xpath)
+            except:
+                return None
+
             button.click()
             time.sleep(1)
-            #self.m_enableNearMint = True
+            # self.m_enableNearMint = True
 
         if self.m_onlyTcgPlayerDirect and not self.m_enableTcgPlayerDirect:
             xpath = "//label[contains(@aria-labelledby, 'direct-seller-filter')]"
             button = self.m_browser.find_element_by_xpath(xpath)
             button.click()
             time.sleep(2)
-            #self.m_enableTcgPlayerDirect = True
+            # self.m_enableTcgPlayerDirect = True
 
         return self.m_browser.execute_script("return document.body.innerHTML")
 
@@ -90,7 +98,7 @@ class ScrapperTcgPrice:
 
         all_names = html.xpath(xpath_seller_names)
         all_prices = html.xpath(xpath_prices)
-        #all_shipping = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__pricing')]/span[contains(@class, 'product-listing__shipping')]")
+        # all_shipping = html.xpath("//div[contains(@class, 'product-listing')]/div[contains(@class, 'product-listing__pricing')]/span[contains(@class, 'product-listing__shipping')]")
 
         if len(all_names) != len(all_prices):
             print "ERROR : mismatch between the number of prices and sellers"
@@ -104,25 +112,25 @@ class ScrapperTcgPrice:
             seller_info["free_shipping_over_35"] = False
             seller_info["shipping"] = 0
 
-            #shippingText = all_shipping[ii].text
-            #if "+ Shipping:" in shippingText:
+            # shippingText = all_shipping[ii].text
+            # if "+ Shipping:" in shippingText:
             #    matches = re.search("\+ Shipping: \$(.*)", shippingText)
-             #   shippingString = matches.groups()[0]
-             #   shipping = float(shippingString)
-             #   seller_info["shipping"] = shipping
+            #   shippingString = matches.groups()[0]
+            #   shipping = float(shippingString)
+            #   seller_info["shipping"] = shipping
 
-                #shipping_free = all_shipping[ii].xpath("./span/a")
-                #if shipping_free is not None and len(shipping_free) > 0:
-                 #   if "Free Shipping on Orders Over $5" in shipping_free[0].text:
-                  #      seller_info["free_shipping_over_5"] = True
-            #else:
-             #   shipping_free = all_shipping[ii].xpath("./a")
-              #  if shipping_free is not None and len(shipping_free) > 0:
-               #     if "Free Shipping on Orders Over $35" in shipping_free[0].text:
-                #        seller_info["free_shipping_over_35"] = True
-                 #       seller_info["shipping"] = 1.99
-                 #   elif "+ Shipping: Included" in shipping_free[0].text:
-                  #      seller_info["shipping"] = 0
+            # shipping_free = all_shipping[ii].xpath("./span/a")
+            # if shipping_free is not None and len(shipping_free) > 0:
+            #   if "Free Shipping on Orders Over $5" in shipping_free[0].text:
+            #      seller_info["free_shipping_over_5"] = True
+            # else:
+            #   shipping_free = all_shipping[ii].xpath("./a")
+            #  if shipping_free is not None and len(shipping_free) > 0:
+            #     if "Free Shipping on Orders Over $35" in shipping_free[0].text:
+            #        seller_info["free_shipping_over_35"] = True
+            #       seller_info["shipping"] = 1.99
+            #   elif "+ Shipping: Included" in shipping_free[0].text:
+            #      seller_info["shipping"] = 0
 
             sellers_list.append(seller_info)
 
@@ -145,8 +153,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Parse tcgplayer webpage to retrieve price information.")
     parser.add_argument('-c', '--card-id', type=int, dest="card_id", help="Id of the card.")
-    parser.add_argument('-sp', '--scrap-seller-prices', dest="scrap_seller_prices", action="store_true", default=False, help="Scrap all the sellers' prices.")
-    parser.add_argument('-nmp', '--scrap-normal-market-price', dest="scrap_normal_market_price", action="store_true", default=False, help="Scrap all the sellers' prices.")
+    parser.add_argument('-sp', '--scrap-seller-prices', dest="scrap_seller_prices", action="store_true", default=False,
+                        help="Scrap all the sellers' prices.")
+    parser.add_argument('-nmp', '--scrap-normal-market-price', dest="scrap_normal_market_price", action="store_true",
+                        default=False, help="Scrap all the sellers' prices.")
     options = parser.parse_args()
 
     if options.scrap_seller_prices is False and options.scrap_normal_market_price is False:
@@ -188,9 +198,9 @@ if __name__ == "__main__":
         market_price = scrapper.get_normal_market_prices(url)
         print" Normal Market Price : $" + str(market_price)
 
-    #print "Saving prices..."
-    #pricesDbFilename = "C:\\workspace\\python\\fftcg\\prices.json"
-    #scrapper.save(allPrices, pricesDbFilename)
+    # print "Saving prices..."
+    # pricesDbFilename = "C:\\workspace\\python\\fftcg\\prices.json"
+    # scrapper.save(allPrices, pricesDbFilename)
 
     print "Over"
     browser.close()
