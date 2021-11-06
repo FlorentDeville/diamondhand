@@ -222,7 +222,7 @@ if __name__ == "__main__":
         game_help_text += "\t%s\n" % (game["name"])
 
     parser.add_argument('--game', '-g', dest="game", help=game_help_text)
-    parser.add_argument('--list-sets', dest="list_sets", action="store_true", default=False, help="List the sets for the selected game")
+    parser.add_argument('--setlist', dest="list_sets", action="store_true", default=False, help="List the sets for the selected game")
     parser.add_argument('--set-id', '-s', dest="set_id", help="Index of the set to work with")
     parser.add_argument("--scrap", dest="scrap", action="store_true", default=False, help="Scrap the data from tcgplayer.")
     parser.add_argument("--push", "-p", dest="push", action="store_true", default=False, help="Push csv file to database.")
