@@ -126,5 +126,78 @@
     "clean_name":"Aquapolis", 
     "code":"aq",
     "release_date":"2003-01-15 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/skyridge?productLineName=pokemon&page={}&view=grid&setName=skyridge&ProductTypeName=Cards",
+	"page_count":8,
+    "name":"skyridge",
+    "clean_name":"Skyridge", 
+    "code":"sk",
+    "release_date":"2003-05-12 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/ruby-and-sapphire?productLineName=pokemon&page={}&view=grid&setName=ruby-and-sapphire&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"ruby-and-sapphire",
+    "clean_name":"EX Ruby & Sapphire", 
+    "code":"rs",
+    "release_date":"2003-07-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/sandstorm?productLineName=pokemon&page={}&view=grid&setName=sandstorm&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"sandstorm",
+    "clean_name":"EX Sandstorm", 
+    "code":"ss",
+    "release_date":"2003-09-17 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/dragon?productLineName=pokemon&page={}&view=grid&setName=dragon&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"dragon",
+    "clean_name":"EX Dragon", 
+    "code":"dr",
+    "release_date":"2003-11-24 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/team-magma-vs-team-aqua?productLineName=pokemon&page={}&view=grid&setName=team-magma-vs-team-aqua&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"team-magma-vs-team-aqua",
+    "clean_name":"EX Team Magma vs Team Aqua", 
+    "code":"ma",
+    "release_date":"2004-03-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/hidden-legends?productLineName=pokemon&page={}&view=grid&setName=hidden-legends&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"hidden-legends",
+    "clean_name":"EX Hidden Legends",
+    "code":"hl",
+    "release_date":"2004-06-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/firered-and-leafgreen?productLineName=pokemon&page={}&view=grid&setName=firered-and-leafgreen&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"firered-and-leafgreen",
+    "clean_name":"EX FireRed & LeafGreen",
+    "code":"rg",
+    "release_date":"2004-08-30 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/team-rocket-returns?productLineName=pokemon&page={}&view=grid&setName=team-rocket-returns&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"team-rocket-returns",
+    "clean_name":"EX Team Rocket Returns",
+    "code":"rr",
+    "release_date":"2004-11-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/deoxys?productLineName=pokemon&page={}&view=grid&setName=deoxys&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"deoxys",
+    "clean_name":"EX Deoxys",
+    "code":"dx",
+    "release_date":"2005-02-01 12:00:00"
   }
+  
 ]
