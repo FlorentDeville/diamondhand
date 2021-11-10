@@ -5,7 +5,7 @@ def helper_pokemon_get_number(entry):
     patterns_list = [
             "^(\d+)$",       # 78, 79
             "^(\d+)[a-z]$",  # 78a, 78b
-            "^[a-zA-Z](\d+)$"       # H78, H79
+            "^\D(\d+)$"       # H78, H79
         ]
 
     number = None
@@ -17,7 +17,13 @@ def helper_pokemon_get_number(entry):
         number = matches.group(1)
         break
 
-    return int(number)
+    n = None  # it's possible a card has no number but only a sign like ?
+    try:
+        n = int(number)
+    except:
+        pass
+
+    return n
 
 
 def helper_pokemon_get_sub_number(entry):
@@ -40,7 +46,7 @@ def helper_pokemon_get_sub_number(entry):
 
 def helper_pokemon_get_sub_set(entry):
     patterns_list = [
-        "^([a-zA-Z])\d+$"  # H78, H79
+        "^(\D)\d+$"  # H78, H79
     ]
 
     sub_set = None
@@ -92,18 +98,22 @@ def helper_pokemon_sort_cards(entries):
 
             swap = False
 
-            if low_card_subset is None and high_card_subset is not None:
+            if low_card_number is None and high_card_number is not None:
+                swap = True
+            elif low_card_subset is None and high_card_subset is not None:
                 pass
             elif low_card_subset is not None and high_card_subset is None:
                 swap = True
             elif low_card_subset is not None and high_card_subset is not None:
-                if low_card_number > high_card_number:
+                if low_card_subset > high_card_subset:
+                    swap = True
+                elif low_card_number > high_card_number:
                     swap = True
             elif low_card_number == high_card_number:
                 if low_card_subnumber > high_card_subnumber:
                     swap = True
             elif low_card_number > high_card_number:
-                    swap = True
+                swap = True
 
             if swap:
                 entries[ii], entries[jj] = entries[jj], entries[ii]

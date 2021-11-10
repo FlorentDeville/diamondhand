@@ -157,8 +157,6 @@ def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
 
     connection = get_connection(connection_name)
 
-    card_pushed = 0
-    # for card in entries:
     for ii in range(len(entries)):
         card = entries[ii]
 
