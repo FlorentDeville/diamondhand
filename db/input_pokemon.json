@@ -198,6 +198,30 @@
     "clean_name":"EX Deoxys",
     "code":"dx",
     "release_date":"2005-02-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/emerald?productLineName=pokemon&page={}&view=grid&setName=emerald&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"emerald",
+    "clean_name":"EX Emerald",
+    "code":"em",
+    "release_date":"2005-05-09 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/unseen-forces?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=unseen-forces",
+	"page_count":7,
+    "name":"unseen-forces",
+    "clean_name":"EX Unseen Forces",
+    "code":"uf",
+    "release_date":"2005-08-22 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/delta-species?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=delta-species",
+	"page_count":5,
+    "name":"delta-species",
+    "clean_name":"EX Delta Species",
+    "code":"uf",
+    "release_date":"2005-10-31 12:00:00"
   }
   
 ]
