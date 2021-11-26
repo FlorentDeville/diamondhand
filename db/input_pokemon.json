@@ -222,6 +222,61 @@
     "clean_name":"EX Delta Species",
     "code":"uf",
     "release_date":"2005-10-31 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/legend-maker?productLineName=pokemon&page={}&view=grid&setName=legend-maker&ProductTypeName=Cards",
+	"page_count":4,
+    "name":"legend-maker",
+    "clean_name":"EX Legend Maker",
+    "code":"lm",
+    "release_date":"2006-02-13 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/holon-phantoms?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=holon-phantoms",
+	"page_count":5,
+    "name":"holon-phantoms",
+    "clean_name":"EX Holon Phantoms",
+    "code":"hp",
+    "release_date":"2006-05-03 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/crystal-guardians?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=crystal-guardians",
+	"page_count":5,
+    "name":"crystal-guardians",
+    "clean_name":"EX Crystal Guardians",
+    "code":"cg",
+    "release_date":"2006-08-30 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/dragon-frontiers?productLineName=pokemon&page={}&view=grid&setName=dragon-frontiers&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"dragon-frontiers",
+    "clean_name":"EX Dragon Frontiers",
+    "code":"df",
+    "release_date":"2006-11-08 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/power-keepers?productLineName=pokemon&page={}&view=grid&setName=power-keepers&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"power-keepers",
+    "clean_name":"EX Power Keepers",
+    "code":"pk",
+    "release_date":"2007-02-14 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/diamond-and-pearl?productLineName=pokemon&page={}&view=grid&setName=diamond-and-pearl&ProductTypeName=Cards",
+	"page_count":6,
+    "name":"diamond-pearl",
+    "clean_name":"Diamond & Pearl",
+    "code":"dp",
+    "release_date":"2007-05-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/diamond-and-pearl-promos?productLineName=pokemon&page={}&view=grid&setName=diamond-and-pearl-promos&ProductTypeName=Cards",
+	"page_count":3,
+    "name":"black-star-promos",
+    "clean_name":"DP Black Star Promos",
+    "code":"dpp",
+    "release_date":"2007-05-01 12:00:00"
   }
-  
 ]
