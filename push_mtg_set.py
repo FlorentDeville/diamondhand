@@ -64,7 +64,7 @@ if __name__ == "__main__":
     lang_id = 0
     if len(results) > 0:
         lang_id = results[0][0]
-        print("Language %s found with id %s", SET_CODE, lang_id)
+        print "Language %s found with id %s" % (LANG, lang_id)
     else:
         print("ERROR: the language with code %s doesn't exist.", LANG)
         exit(1)
@@ -88,7 +88,7 @@ if __name__ == "__main__":
             connection.commit()
 
         set_lang_id = cursor.lastrowid
-        print("Set %s %s added to sets_langs", SET_CODE, LANG)
+        print "Set %s %s added to sets_langs" % (SET_CODE, LANG)
 
     #get the card information from scryfall
     card_list_url_pattern = "https://api.scryfall.com/cards/search?order=set&q=e%3A{}+lang%3A{}&unique=prints"
@@ -126,20 +126,20 @@ if __name__ == "__main__":
                 if "tcgplayer" in card["purchase_uris"]:
                     tcgPlayerUrl = card["purchase_uris"]["tcgplayer"]
 
-            cardInsertSql = "insert into card (name, set_lang_id, rarity, variation, tcg_url, number, image_url) values (%s, %s, %s, %s, %s, %s, %s)"
+            cardInsertSql = "insert into card (name, set_lang_id, rarity, variation, tcg_url, display_number, image_url, printed_number) values (%s, %s, %s, %s, %s, %s, %s, %s)"
 
             card_name = card["name"]
             if "printed_name" in card:
                 card_name = card["printed_name"]
 
-            cardInsertSqlValues = [card_name, set_lang_id, card["rarity"], variation, tcgPlayerUrl, int(number), image_url]
+            cardInsertSqlValues = [card_name, set_lang_id, card["rarity"], variation, tcgPlayerUrl, int(number), image_url, number]
             cursor = connection.cursor()
             cursor.execute(cardInsertSql, cardInsertSqlValues)
             if COMMIT:
                 connection.commit()
 
             cardAdded = cardAdded + 1
-            print("Card added : %s", str(cardAdded))
+            print "Card added : %s" % str(cardAdded)
 
         index = index + 1
         hasMore = cardList["has_more"]
