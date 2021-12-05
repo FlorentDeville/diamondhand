@@ -278,5 +278,13 @@
     "clean_name":"DP Black Star Promos",
     "code":"dpp",
     "release_date":"2007-05-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/mysterious-treasures?productLineName=pokemon&page={}&view=grid&setName=mysterious-treasures&ProductTypeName=Cards",
+	"page_count":6,
+    "name":"mysterious-treasures",
+    "clean_name":"Mysterious Treasures",
+    "code":"mt",
+    "release_date":"2007-08-01 12:00:00"
   }
 ]
