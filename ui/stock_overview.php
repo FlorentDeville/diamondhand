@@ -57,11 +57,17 @@ while($row = $result->fetch())
     $set_count_row = $set_count_result->fetch();
     $set_count = $set_count_row[0];
 
-    $sql_get_owned_card_count = "select count(distinct card_id), round(sum(acq_price), 2) from owned_card inner join card on owned_card.card_id = card.id where card.set_lang_id =" . $set_lang_id;
+    $sql_get_owned_card_count = "select count(distinct card_id) as count_owned_cards, round(sum(acq_price), 2) from owned_card inner join card on owned_card.card_id = card.id where card.set_lang_id =" . $set_lang_id;
     $owned_result = $connection->query($sql_get_owned_card_count);
     $owned_card_row = $owned_result->fetch();
     $owned_card = $owned_card_row[0];
     $sum_acq_price = $owned_card_row[1];
+
+    //don't show sets with 0 cards owned.
+    if ($owned_card == 0)
+    {
+        continue;
+    }
 
     $full_set = false;
     $style_name = "progressionSet";
