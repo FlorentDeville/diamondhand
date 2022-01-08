@@ -41,12 +41,31 @@
         }, "json");
     }
 </script>
+
+<div id="menu" style="margin:10 0 20 0;">
+    <div style="display:inline;"> Games : </div>
+    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php"><div class="stockMenuButton">All</div></a>
+    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=1"><div class="stockMenuButton">MTG</div></a>
+    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=2"><div class="stockMenuButton">Pokemon</div></a>
+    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=3"><div class="stockMenuButton">FF</div></a>
+</div>
+
 <div style="display:flex;">
     <div style="float:left; margin:0 50 0 0;">
 <?php
 
+$cond = "";
+if(isset($_GET["gameid"]))
+{
+    $cond = "game_id=" . $_GET["gameid"];
+}
+else
+{
+    $cond = "1 = 1";
+}
+
 $sql_get_all_sets = "select sets.name, sets_langs.id, languages.code 
-from sets_langs inner join sets on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id;";
+from sets_langs inner join sets on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where " . $cond;
 $result = $connection->query($sql_get_all_sets);
 			
 while($row = $result->fetch())
