@@ -25,6 +25,7 @@
                 var column_array = new Array();
                 column_array.push({header_name:"N", field_name:"printed_number", type:"int"});
                 column_array.push({header_name:"Name", field_name:"name", type:"string"});
+                column_array.push({header_name:"Variation", field_name:"variation", type:"string"});
 			    display_table("missingCards", column_array, cards, "id", 0, "asc");
             }
             else
