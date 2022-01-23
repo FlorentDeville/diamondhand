@@ -286,5 +286,69 @@
     "clean_name":"Mysterious Treasures",
     "code":"mt",
     "release_date":"2007-08-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/secret-wonders?productLineName=pokemon&page={}&view=grid&setName=secret-wonders&ProductTypeName=Cards",
+	"page_count":6,
+    "name":"secret-wonders",
+    "clean_name":"Secret Wonders",
+    "code":"sw",
+    "release_date":"2007-11-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/great-encounters?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=great-encounters",
+	"page_count":6,
+    "name":"great-encounters",
+    "clean_name":"Great Encounters",
+    "code":"ge",
+    "release_date":"2008-02-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/majestic-dawn?productLineName=pokemon&page={}&view=grid&ProductTypeName=Cards&setName=majestic-dawn",
+	"page_count":5,
+    "name":"majestic-dawn",
+    "clean_name":"Majestic Dawn",
+    "code":"md",
+    "release_date":"2008-05-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/legends-awakened?productLineName=pokemon&page={}&view=grid&setName=legends-awakened&ProductTypeName=Cards",
+	"page_count":7,
+    "name":"legends-awakened",
+    "clean_name":"Legends Awakened",
+    "code":"la",
+    "release_date":"2008-08-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/stormfront?productLineName=pokemon&page={}&view=grid&setName=stormfront&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"stormfront",
+    "clean_name":"Stormfront",
+    "code":"sf",
+    "release_date":"2008-11-01 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/platinum?productLineName=pokemon&page={}&view=grid&setName=platinum&ProductTypeName=Cards",
+	"page_count":6,
+    "name":"platinium",
+    "clean_name":"Platinium",
+    "code":"pl",
+    "release_date":"2009-02-11 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/rising-rivals?productLineName=pokemon&page={}&view=grid&setName=rising-rivals&ProductTypeName=Cards",
+	"page_count":5,
+    "name":"platinium-rising-rivals",
+    "clean_name":"Platinium - Rising Rivals",
+    "code":"rr",
+    "release_date":"2009-05-16 12:00:00"
+  },
+  {
+    "url":"https://www.tcgplayer.com/search/pokemon/supreme-victors?productLineName=pokemon&page={}&view=grid&setName=supreme-victors&ProductTypeName=Cards",
+	"page_count":7,
+    "name":"platinium-supreme-victors",
+    "clean_name":"Platinium - Supreme Victors",
+    "code":"sv",
+    "release_date":"2009-08-19 12:00:00"
   }
 ]
