@@ -46,7 +46,7 @@ class DbPokemon(DbCsv):
         element = html.xpath(xpath_card_name)
         newEntry.name = element[0].text.strip()
 
-        xpath_set_name = "//a[contains(@class, 'product-details__set-name')]/h2"
+        xpath_set_name = "//h2[contains(@data-testid, 'lblProductDetailsSetName')]"
         element = html.xpath(xpath_set_name)
         set_clean_name = element[0].text
         set_clean_name = set_clean_name.strip('\n').strip()
