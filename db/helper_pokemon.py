@@ -5,7 +5,7 @@ def helper_pokemon_get_number(entry):
     patterns_list = [
             "^(\d+)$",       # 78, 79
             "^(\d+)[a-z]$",  # 78a, 78b
-            "^\D(\d+)$"       # H78, H79
+            "^\D+(\d+)$"       # H78, H79
         ]
 
     number = None
@@ -46,7 +46,7 @@ def helper_pokemon_get_sub_number(entry):
 
 def helper_pokemon_get_sub_set(entry):
     patterns_list = [
-        "^(\D)\d+$"  # H78, H79
+        "^(\D+)\d+$"  # H78, H79
     ]
 
     sub_set = None
