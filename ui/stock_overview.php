@@ -66,7 +66,7 @@ else
 }
 
 $sql_get_all_sets = "select sets.name, sets_langs.id, languages.code 
-from sets_langs inner join sets on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where " . $cond;
+from sets_langs inner join sets on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where " . $cond . " order by sets_langs.release_date asc";
 $result = $connection->query($sql_get_all_sets);
 			
 while($row = $result->fetch())
