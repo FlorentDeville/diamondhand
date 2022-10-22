@@ -22,5 +22,29 @@
 	"page_count": 7,
 	"code": "op3",
 	"release_date": "2017-07-21 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/crystal-dominion?productLineName=final-fantasy-tcg&view=grid&setName=crystal-dominion&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "crystal-dominion",
+	"clean_name": "Crystal Dominion",
+	"page_count": 8,
+	"code": "cd",
+	"release_date": "2021-11-26 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/emissaries-of-light?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final+Fantasy+Singles&setName=emissaries-of-light",
+	"name": "emissaries-of-light",
+	"clean_name": "Emissaries Of Light",
+	"page_count": 7,
+	"code": "eol",
+	"release_date": "2022-04-15 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/rebellions-call?productLineName=final-fantasy-tcg&view=grid&page={}&ProductTypeName=Final+Fantasy+Singles&setName=rebellions-call",
+	"name": "rebellion-call",
+	"clean_name": "Rebellion's Call",
+	"page_count": 7,
+	"code": "rc",
+	"release_date": "2022-08-12 12:00:00"
   }
 ]

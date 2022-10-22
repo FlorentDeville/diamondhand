@@ -130,7 +130,6 @@ sets[14]["page_count"] = 7
 sets[14]["code"] = "op14"
 sets[14]["release_date"] = "2021-08-06 12:00:00"
 
-
 class DbFFTcg(DbCsv):
     m_browser = None
     m_csvFilename = ""
@@ -142,17 +141,19 @@ class DbFFTcg(DbCsv):
 
     def scrap_card_information(self, _url, set_code):
         self.m_browser.get(_url)
-        time.sleep(2)
+        time.sleep(4)
         text_html = self.m_browser.execute_script("return document.body.innerHTML")
         html = lxml.html.fromstring(text_html)
 
         newEntry = Entry()
 
-        xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
+       # xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
+        xpath_card_name = "//span[contains(@class, 'lastcrumb')]"
         element = html.xpath(xpath_card_name)
         newEntry.name = element[0].text.strip()
 
-        xpath_set_name = "//a[contains(@class, 'product-details__set-name')]/h2"
+        #xpath_set_name = "//a[contains(@class, 'product-details__set-name')]/h2"
+        xpath_set_name = "//div[contains(@class, 'product-details__name__sub-header__links')]/div/a/span"
         element = html.xpath(xpath_set_name)
         set_clean_name = element[0].text
         set_clean_name = set_clean_name.strip('\n').strip()

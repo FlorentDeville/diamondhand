@@ -51,7 +51,8 @@ def scrap_all(game_name, set, csv_filename):
         complete_search_url = search_url_pattern.format(page_id)
 
         browser.get(complete_search_url)
-        time.sleep(2)
+        TIME_TO_WAIT = 4
+        time.sleep(TIME_TO_WAIT)
         text_html = browser.execute_script("return document.body.innerHTML")
         html = lxml.html.fromstring(text_html)
 
@@ -153,7 +154,8 @@ def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
     if selected_game["name"] == "pokemon":
         helper_pokemon_sort_cards(entries)
     else:
-        log.warn("No sort code for game %s", selected_game["name"])
+        log.warn("No sort code for game %s. Use default sort.", selected_game["name"])
+        entries.sort(key=lambda x: x.number)
 
     connection = get_connection(connection_name)
 
