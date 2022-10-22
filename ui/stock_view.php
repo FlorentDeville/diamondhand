@@ -1,25 +1,28 @@
+
 <script>
-	function delete_owned_card(owned_card_id)
+    $(document).ready(function()
 	{
-		var res = confirm('Are you sure you want to delete this card from your stock?')
-		if(!res)
+        var sql = `select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, cast(acq_price as decimal(5, 2)) as acq_price, languages.code as lang,
+			owned_card.id as owned_card_id
+			from owned_card inner join card on owned_card.card_id=card.id inner join conditions on conditions.id=owned_card.condition_id
+			inner join sets_langs on sets_langs.id=card.set_lang_id
+			inner join sets on sets_langs.set_id = sets.id
+			inner join game on sets.game_id=game.id
+			inner join languages on languages.id = sets_langs.lang_id`;
+
+		$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 		{
-			return;
-		}
-		
-		$.get('php_scripts/command_delete_owned_card.php',{'owned_card_id':owned_card_id},function(return_data)
-		{
-			if(return_data.res == 1)
-			{
-				var row_id = "#row_" + owned_card_id;
-				$(row_id).remove();
-			}
-			else
-			{
-				console.log("error");
-			}
+			var sets = return_data.data;
+
+			var column_array = new Array();
+			column_array.push({header_name:"Card Name", field_name:"name", type:"string"});
+			column_array.push({header_name:"Set", field_name:"set_name", type:"string"});
+			column_array.push({header_name:"Lang", field_name:"lang", type:"string"});
+			column_array.push({header_name:"Condition", field_name:"cond", type:"string"});
+			column_array.push({header_name:"Acq Price", field_name:"acq_price", type:"float"});
+			display_table("table", column_array, sets, "owned_card_id", 4, "desc");
 		}, "json");
-	}
+	});
 </script>
 <div>
 <?php
@@ -28,38 +31,6 @@
 	$result = $statement->fetch();
 	$money = $result["money"];
 	echo "<div>Total Spent : $" . $money . "</div>";
-	
-	$sql = "select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, acq_price, languages.code as lang,
-			owned_card.id as owned_card_id
-			from owned_card inner join card on owned_card.card_id=card.id inner join conditions on conditions.id=owned_card.condition_id
-			inner join sets_langs on sets_langs.id=card.set_lang_id
-			inner join sets on sets_langs.set_id = sets.id
-			inner join game on sets.game_id=game.id
-			inner join languages on languages.id = sets_langs.lang_id";
-	$statement = $connection->query($sql);
-	if($statement == False)
-	{
-		echo "Failed to retrieve the owned card";
-	}
-	
-	echo "<table>";
-	echo "<tr><th>Card Name</th><th>Set</th><th>Lang</th><th>Condition</th><th>Acq Price</th><th>Options</th></tr>";
-	while($result=$statement->fetch(PDO::FETCH_ASSOC))
-	{
-		if($result == False)
-		{
-			echo "Failed to retrieve the owned card";
-		}
-		
-		echo "<tr id='row_". $result["owned_card_id"] . "'>";
-		echo "<td>" . $result["name"] . "</td>";
-		echo "<td style='text-align:center;' title='" . $result['set_name'] . "'>" . $result["set_code"] . "</td>";
-		echo "<td style='text-align:center;'>" . $result["lang"] . "</td>";
-		echo "<td style='text-align:center;'>" . $result["cond"] . "</td>";
-		echo "<td style='text-align:right;'>" . number_format($result["acq_price"], 2) . "</td>";
-		echo "<td>Edit <a class=\"setButton\" href='#' onclick='delete_owned_card(" . $result["owned_card_id"] . ")'>X</a></td>";
-		echo "</tr>";
-	}
-	echo "</table>";
 ?>
+	<div id="table"></div>
 </div>
