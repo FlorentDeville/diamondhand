@@ -121,7 +121,7 @@ function sort_table(container_id, column_id, sort_dir, type)
 // column_array : array of object describing the columns of the table. The variables are:
 //      header_name : string to display in the header.
 //      field_name : name of the field in the data.
-//      type : type of data (int, string)
+//      type : type of data (int, float, string)
 // data : array of rows containing the data to display in the table.
 // field_row_id : field to use to set the id of each row in the table.
 // sort_column_id : id of the column to use to sort the table.
@@ -165,6 +165,11 @@ function display_table(container_id, column_array, data, field_row_id, sort_colu
             cellElement = document.createElement("td");
             cellElement.textContent = card[column_data.field_name];
             rowElement.appendChild(cellElement);
+
+            if(column_data.type == "float" || column_data.type == "int")
+            {
+                cellElement.style.textAlign = "right";
+            }
         }
     }
 
