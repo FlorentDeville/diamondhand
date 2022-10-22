@@ -15,6 +15,7 @@ $(document).ready(function()
 			
 			var cards = return_data.data;
 			var column_array = new Array();
+			column_array.push({header_name:"Order", field_name:"display_number", type:"int"});
 			column_array.push({header_name:"N", field_name:"printed_number", type:"int"});
 			column_array.push({header_name:"Name", field_name:"name", type:"string"});
 			column_array.push({header_name:"Rarity", field_name:"rarity", type:"string"});
