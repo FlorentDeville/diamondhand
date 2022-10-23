@@ -1,3 +1,7 @@
+import csv
+
+from db.entry import Entry
+
 class DbCsv:
 
     def __init__(self):

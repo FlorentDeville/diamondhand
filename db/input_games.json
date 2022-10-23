@@ -6,5 +6,9 @@
 	{
 		"name":"pokemon",
 		"clean_name":"Pokemon"
+	},
+	{
+		"name":"dbs",
+		"clean_name":"Dragon Ball Super"
 	}
 ]

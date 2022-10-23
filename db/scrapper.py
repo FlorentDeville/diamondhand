@@ -14,6 +14,7 @@ sys.path.append("../")
 from db.connection import get_connection
 from db.db_pokemon import DbPokemon
 from db.db_fftcg import DbFFTcg
+from db.db_dbs import DbDbs
 
 from db.helper_pokemon import *
 
@@ -39,6 +40,8 @@ def scrap_all(game_name, set, csv_filename):
         db = DbPokemon(browser, filename)
     elif game_name == "fftcg":
         db = DbFFTcg(browser, filename)
+    elif game_name == "dbs":
+        db = DbDbs(browser, filename)
     else:
         log.exception("Unknown game %s", game_name)
         exit(1)
@@ -215,7 +218,7 @@ if __name__ == "__main__":
 
         sets_list[game["name"]] = sets
 
-    parser = argparse.ArgumentParser(description="Parse tcgplayer to create the list of cards in a set of FFTCG.", formatter_class=RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(description="Parse tcgplayer to create the list of cards in a set.", formatter_class=RawTextHelpFormatter)
 
     game_help_text = "Index of games:\n"
     for game in games_list:
