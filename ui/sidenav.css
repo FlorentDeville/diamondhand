@@ -1,6 +1,6 @@
 .sidenav {
   height: 100%;
-  width: 250px; /*set to 0 to not keep opened*/
+  width: 200px; /*set to 0 to not keep opened*/
   position: fixed;
   z-index: 1;
   top: 0;
@@ -35,7 +35,7 @@
 #main {
   transition: margin-left .5s;
   padding: 16px;
-  margin-left:250px; /*set to 0 to not keep opened*/
+  margin-left:200px; /*set to 0 to not keep opened*/
 }
 
 @media screen and (max-height: 450px) {
