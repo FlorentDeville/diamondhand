@@ -49,6 +49,7 @@
     <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=1"><div class="stockMenuButton">MTG</div></a>
     <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=2"><div class="stockMenuButton">Pokemon</div></a>
     <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=3"><div class="stockMenuButton">FF</div></a>
+    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=4"><div class="stockMenuButton">DBS</div></a>
 </div>
 
 <div style="display:flex;">
