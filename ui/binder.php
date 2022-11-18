@@ -25,6 +25,8 @@
                         break;
 
                     case "2" : //pokemon
+                        card["side_link"] = "./pokemon_binder/side.php?set_lang_id=" + card["set_lang_id"];
+                        card["front_link"] = "./pokemon_binder/front.php?set_lang_id=" + card["set_lang_id"];
                         break;
 
                     case "3" : //ff
