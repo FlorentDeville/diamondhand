@@ -35,6 +35,8 @@
                         break;
 
                     case "4" : //dbs
+                        card["side_link"] = "./binder_dbs/side.php?set_lang_id=" + card["set_lang_id"];
+                        card["front_link"] = "./binder_dbs/front.php?set_lang_id=" + card["set_lang_id"];
                         break;
 
                     default:
