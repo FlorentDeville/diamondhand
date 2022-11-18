@@ -20,7 +20,7 @@ $(document).ready(function()
 			column_array.push({header_name:"Name", field_name:"name", type:"string"});
 			column_array.push({header_name:"Rarity", field_name:"rarity", type:"string"});
 			column_array.push({header_name:"Var", field_name:"variation", type:"string"});
-			column_array.push({header_name:"Links", field_name:"tcg_url", type:"string"});
+			column_array.push({header_name:"Links", field_name:"tcg_url", type:"link"});
 			display_table("card_list_container", column_array, cards, "id", 0, "asc");
 		}
 		else
