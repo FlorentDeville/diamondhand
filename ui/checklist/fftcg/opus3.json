@@ -1,0 +1,1085 @@
+set = 
+{
+	"name" : "Opus III",
+	"cardlist" :
+[
+ {
+   "Number": "3-001C",
+   "Name": "Red Mage (3-001)",
+   "Type": "Backup",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-002R",
+   "Name": "Ifrit (3-002)",
+   "Type": "Summon",
+   "Element": "Fire",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-003R",
+   "Name": "Ace (3-003)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-004H",
+   "Name": "Garland (3-004)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-005C",
+   "Name": "Imaginary Brawler (3-005)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-006R",
+   "Name": "King (3-006)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-007C",
+   "Name": "Bard (3-007)",
+   "Type": "Backup",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-008C",
+   "Name": "Cloud (3-008)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-009C",
+   "Name": "Cater (3-009)",
+   "Type": "Backup",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-010R",
+   "Name": "Gekkou (3-010)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-011C",
+   "Name": "Gladiator (3-011)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-012L",
+   "Name": "Zack (3-012)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-013R",
+   "Name": "Amarant (3-013)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-014C",
+   "Name": "Cinque (3-014)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-015R",
+   "Name": "Black Waltz 2 (3-015)",
+   "Type": "Backup",
+   "Element": "Fire",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-016H",
+   "Name": "Palom (3-016)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-017L",
+   "Name": "Vivi (3-017)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-018C",
+   "Name": "Vivi (3-018)",
+   "Type": "Backup",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-019H",
+   "Name": "Faris (3-019)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-020H",
+   "Name": "Phoenix (3-020)",
+   "Type": "Summon",
+   "Element": "Fire",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-021C",
+   "Name": "Cannoneer (3-021)",
+   "Type": "Backup",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-022H",
+   "Name": "Machina (3-022)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-023C",
+   "Name": "Luca (3-023)",
+   "Type": "Backup",
+   "Element": "Fire",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-024R",
+   "Name": "Rubicante (3-024)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-025C",
+   "Name": "Emina (3-025)",
+   "Type": "Backup",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-026C",
+   "Name": "Kazusa (3-026)",
+   "Type": "Backup",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-027R",
+   "Name": "Qator Bashtar (3-027)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-028C",
+   "Name": "Semblance of a Gunslinger (3-028)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-029R",
+   "Name": "Edward (3-029)",
+   "Type": "Backup",
+   "Element": "Ice",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-030L",
+   "Name": "Kuja (3-030)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-031R",
+   "Name": "Kurasame (3-031)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-032R",
+   "Name": "Shiva (3-032)",
+   "Type": "Summon",
+   "Element": "Ice",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-033L",
+   "Name": "Genesis (3-033)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-034H",
+   "Name": "Genesis Avatar (3-034)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-035R",
+   "Name": "Shelke (3-035)",
+   "Type": "Backup",
+   "Element": "Ice",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-036H",
+   "Name": "Cid Aulstyne (3-036)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-037H",
+   "Name": "Zalera, the Death Seraph (3-037)",
+   "Type": "Summon",
+   "Element": "Ice",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-038H",
+   "Name": "Xezat (3-038)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-039R",
+   "Name": "Sephiroth (3-039)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-040C",
+   "Name": "DGS Trooper 1st Class (3-040)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-041C",
+   "Name": "Deepground Soldier (3-041)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-042C",
+   "Name": "Deepground Soldier (3-042)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-043C",
+   "Name": "Time Mage (3-043)",
+   "Type": "Backup",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-044C",
+   "Name": "Harley (3-044)",
+   "Type": "Backup",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-045R",
+   "Name": "White Tiger l'Cie Qun'mi (3-045)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-046H",
+   "Name": "White Tiger l'Cie Nimbus (3-046)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-047C",
+   "Name": "Cannoneer (3-047)",
+   "Type": "Backup",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-048C",
+   "Name": "Mystic Knight (3-048)",
+   "Type": "Forward",
+   "Element": "Ice",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-049C",
+   "Name": "Izana (3-049)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-050L",
+   "Name": "Aerith (3-050)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-051R",
+   "Name": "Eight (3-051)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-052C",
+   "Name": "Dancer (3-052)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-053C",
+   "Name": "Ranger (3-053C)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-054C",
+   "Name": "Black Chocobo (3-054)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-055C",
+   "Name": "Thief (3-055)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-056H",
+   "Name": "Zidane (3-056)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-057R",
+   "Name": "Seven (3-057)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-058C",
+   "Name": "Sky Pirate Replica (3-058)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-059H",
+   "Name": "King Tycoon (3-059)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-060R",
+   "Name": "Tsukinowa (3-060)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-061R",
+   "Name": "Diablos (3-061)",
+   "Type": "Summon",
+   "Element": "Wind",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-062C",
+   "Name": "Deuce (3-062)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-063H",
+   "Name": "Dorgann (3-063)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-064H",
+   "Name": "Trey (3-064)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-065L",
+   "Name": "Bartz (3-065)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-066R",
+   "Name": "Barbariccia (3-066)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-067R",
+   "Name": "Wind Drake (3-067)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-068C",
+   "Name": "Geomancer (3-068)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-069C",
+   "Name": "Yuffie (3-069)",
+   "Type": "Forward",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-070C",
+   "Name": "Oracle (3-070)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-071H",
+   "Name": "Chaos, Walker of the Wheel (3-071)",
+   "Type": "Summon",
+   "Element": "Wind",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-072R",
+   "Name": "Rem (3-072)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-073C",
+   "Name": "Ursula (3-073)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-074R",
+   "Name": "Atomos (3-074)",
+   "Type": "Summon",
+   "Element": "Earth",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-075C",
+   "Name": "Horror of Antiquity (3-075)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-076R",
+   "Name": "Masked Woman (3-076)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-077H",
+   "Name": "Galuf (3-077)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-078H",
+   "Name": "Krile (3-078)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-079H",
+   "Name": "Kefka (3-079)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-080R",
+   "Name": "Black Tortoise l'Cie Gilgamesh (3-080)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-081C",
+   "Name": "Summoner (3-081)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-082R",
+   "Name": "Scarmiglione (3-082)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-083C",
+   "Name": "Segwarides (3-083)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-084C",
+   "Name": "WRO Member (3-084)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-085C",
+   "Name": "WRO Member (3-085)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-086C",
+   "Name": "WRO Commander (3-086)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-087H",
+   "Name": "Zeromus, the Condemner (3-087)",
+   "Type": "Summon",
+   "Element": "Earth",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-088L",
+   "Name": "Delita (3-088)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-089R",
+   "Name": "The Girl Who Forgot Her Name (3-089)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-090C",
+   "Name": "Ninja (3-090)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-091C",
+   "Name": "Berserker (3-091)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-092L",
+   "Name": "Prishe (3-092)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-093H",
+   "Name": "Brandelis (3-093)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-094C",
+   "Name": "Pellinore (3-094)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-095R",
+   "Name": "Yang (3-095)",
+   "Type": "Forward",
+   "Element": "Earth",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-096R",
+   "Name": "Rydia (3-096)",
+   "Type": "Backup",
+   "Element": "Earth",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-097R",
+   "Name": "Arecia Al-Rashia (3-097)",
+   "Type": "Backup",
+   "Element": "Lightning",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-098R",
+   "Name": "Angeal (3-098)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-099R",
+   "Name": "Angeal Penance (3-099)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-100L",
+   "Name": "Exdeath (3-100)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-101R",
+   "Name": "Enuo (3-101)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-102R",
+   "Name": "Odin (3-102)",
+   "Type": "Summon",
+   "Element": "Lightning",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-103H",
+   "Name": "Gilgamesh (3-103)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-104C",
+   "Name": "Queen (3-104)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-105C",
+   "Name": "Black Waltz 3 (3-105)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-106C",
+   "Name": "Black Mage (3-106)",
+   "Type": "Backup",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-107C",
+   "Name": "Black Mage (3-107)",
+   "Type": "Backup",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-108H",
+   "Name": "Kelger (3-108)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-109C",
+   "Name": "Sice (3-109)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-110R",
+   "Name": "Zangetsu (3-110)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-111H",
+   "Name": "Jack (3-111)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-112H",
+   "Name": "Exodus, the Judge-Sal (3-112)",
+   "Type": "Summon",
+   "Element": "Lightning",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-113R",
+   "Name": "Nine (3-113)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-114C",
+   "Name": "Freya (3-114)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-115C",
+   "Name": "Cannoneer (3-115)",
+   "Type": "Backup",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-116C",
+   "Name": "Mystic Knight (3-116)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-117C",
+   "Name": "Simulacrum of a Hero (3-117)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-118H",
+   "Name": "Lightning (3-118)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-119L",
+   "Name": "Ramza (3-119)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-120C",
+   "Name": "Dragoon (3-120)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-121C",
+   "Name": "Blue Mage (3-121)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-122C",
+   "Name": "Artemicion (3-122)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-123R",
+   "Name": "Fanfrit, the Darkening Cloud (3-123)",
+   "Type": "Summon",
+   "Element": "Water",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-124R",
+   "Name": "Izayoi (3-124)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-125C",
+   "Name": "Ephemeral Summoner (3-125)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-126H",
+   "Name": "Eiko (3-126)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-127R",
+   "Name": "Eiko (3-127)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-128C",
+   "Name": "Dancer (3-128)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-129L",
+   "Name": "Garnet (3-129)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-130R",
+   "Name": "Cagnazzo (3-130)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-131H",
+   "Name": "Ghido (3-131)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-132R",
+   "Name": "Quacho Queen (3-132)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-133C",
+   "Name": "Quina (3-133)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-134C",
+   "Name": "Summoner (3-134)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-135H",
+   "Name": "Syldra (3-135)",
+   "Type": "Summon",
+   "Element": "Water",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-136C",
+   "Name": "White Mage (3-136)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-137R",
+   "Name": "Steiner (3-137)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-138H",
+   "Name": "Ceodore (3-138)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-139C",
+   "Name": "Knight (3-139)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-140R",
+   "Name": "Porom (3-140)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Rare"
+ },
+ {
+   "Number": "3-141C",
+   "Name": "Mog (IX) (3-141)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-142H",
+   "Name": "Famed Mimic Gogo (3-142)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-143C",
+   "Name": "Leonora (3-143)",
+   "Type": "Backup",
+   "Element": "Water",
+   "Rarity": "Common"
+ },
+ {
+   "Number": "3-144L",
+   "Name": "Lenna (3-144)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-145L",
+   "Name": "Ultima, the High Seraph (3-145)",
+   "Type": "Summon",
+   "Element": "Light",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-146H",
+   "Name": "Minerva (3-146)",
+   "Type": "Forward",
+   "Element": "Light",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-147L",
+   "Name": "Zodiark, Keeper of Precepts (3-147)",
+   "Type": "Summon",
+   "Element": "Dark",
+   "Rarity": "Legend"
+ },
+ {
+   "Number": "3-148H",
+   "Name": "Feral Chaos (3-148)",
+   "Type": "Forward",
+   "Element": "Dark",
+   "Rarity": "Hero"
+ },
+ {
+   "Number": "3-149S",
+   "Name": "Vivi (3-149)",
+   "Type": "Forward",
+   "Element": "Fire",
+   "Rarity": "Starter"
+ },
+ {
+   "Number": "3-150S",
+   "Name": "Moogle (Class Zero) (3-150)",
+   "Type": "Backup",
+   "Element": "Wind",
+   "Rarity": "Starter"
+ },
+ {
+   "Number": "3-151S",
+   "Name": "Queen (3-151)",
+   "Type": "Forward",
+   "Element": "Lightning",
+   "Rarity": "Starter"
+ },
+ {
+   "Number": "3-152S",
+   "Name": "Garnet (3-152)",
+   "Type": "Forward",
+   "Element": "Water",
+   "Rarity": "Starter"
+ },
+ {
+   "Number": "3-153S",
+   "Name": "Ace (3-153)",
+   "Type": "Forward",
+   "Element": "Light",
+   "Rarity": "Starter"
+ },
+ {
+   "Number": "3-154S",
+   "Name": "Zidane (3-154)",
+   "Type": "Forward",
+   "Element": "Light",
+   "Rarity": "Starter"
+ }
+]
+}

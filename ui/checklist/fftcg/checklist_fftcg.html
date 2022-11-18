@@ -1,0 +1,203 @@
+<html>
+<script src="./define.js"></script>
+<!--<script type="text/javascript" src="opus1.json"></script>-->
+<script>
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const pageIndex = urlParams.get("pageIndex");
+const json = urlParams.get("json");
+
+script = document.createElement("script");
+script.type = "text/javascript";
+script.src = json;
+document.head.appendChild(script);
+
+cardDisplayedIndex = 0;
+
+function processCurrentPage(data, pageIndex)
+{
+	titleElement = document.getElementById("setName");
+	titleElement.innerHTML = set["name"];
+
+		
+	textSyle = "font-size:12;font-family:'Goudy Mediaeval';";
+	
+	start = MAX_PER_PAGE * pageIndex;
+	end = start + MAX_PER_PAGE;
+	console.log("start = " + start);
+	console.log("end = " + end);
+	if(end > set["cardlist"].length)
+		end = set["cardlist"].length;
+		
+	console.log("cardcount = " + set["cardlist"].length.toString());
+	for(ii = start; ii < end; ii++)
+	{
+		card = set["cardlist"][ii];
+					
+		checkbox = document.createElement("input");
+		checkbox.type="checkbox";
+		checkbox.style="width:9;height:9;margin-right:5;";
+		
+		item = document.createElement("li");
+		item.style = "list-style:none;margin:0;padding:0;height:13";
+		item.appendChild(checkbox);
+		
+		colorIcon = document.createElement("img");
+		colorIcon.style="font-size:8px;margin-right:5px;width:10px;";
+		
+		color = card["Element"];
+			
+		if(color == "Fire")
+		{
+			colorIcon.src = "./img/fire.png";
+		}
+		else if(color == "Ice")
+		{
+			colorIcon.src = "./img/ice.png";
+		}
+		else if(color == "Wind")
+		{ 
+			colorIcon.src = "./img/wind.png";
+		}
+		else if(color == "Earth")
+		{ 
+			colorIcon.src = "./img/earth.png";
+		}
+		else if(color == "Lightning")
+		{ 
+			colorIcon.src = "./img/lightning.png";
+		}
+		else if(color == "Water")
+		{ 
+			colorIcon.src = "./img/water.png";
+		}
+		else if(color == "Light")
+		{ 
+			colorIcon.src = "./img/light.png";
+		}
+		else if(color == "Dark")
+		{ 
+			colorIcon.src = "./img/dark.png";
+		}
+
+		item.appendChild(colorIcon);
+		
+		textMarginLeft = 0;
+		
+		textSizeStyle = "margin-left:" + textMarginLeft + ";";
+		
+		text = document.createElement("span");
+		cardName = card["Name"];
+		index = cardName.indexOf("(")
+		subStr = cardName.substring(0, index);
+
+		text.innerHTML = subStr + "............................................................................................................................";
+		text.style = "vertical-align:bottom;display:inline-block;margin:0;width:140;overflow:hidden;white-space:nowrap;width:125px;" + textSyle + textSizeStyle;
+		item.appendChild(text);
+		
+		numText = document.createElement("span");
+		numText.innerHTML = card["Number"];
+		numText.style = "margin:0;" + textSyle;
+		item.appendChild(numText);
+		
+		cardDisplayedIndex++;
+		
+		if(cardDisplayedIndex > MAX_PER_COLUMN * 2)
+			listElement = document.getElementById("rightList");
+		else if(cardDisplayedIndex > MAX_PER_COLUMN) 
+			listElement = document.getElementById("centerList");
+		else 
+			listElement = document.getElementById("leftList");
+			
+		listElement.appendChild(item);
+		
+	}
+}
+
+
+</script>
+
+<head>
+	<link href="http://cdn.jsdelivr.net/npm/keyrune@latest/css/keyrune.css" rel="stylesheet" type="text/css" />
+	<link href="http://cdn.jsdelivr.net/npm/mana-font@latest/css/mana.css" rel="stylesheet" type="text/css" />
+	
+	<style>
+		#wrapper
+		{
+			width: 200px;
+			height: 200px;
+		}
+
+		.content
+		{
+			position: relative;
+			z-index: 100;
+		}
+
+		.background
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -100;
+		}
+	</style>
+</head>
+
+<body style="width:8in;height:11in;border: black;border-width: 10px; /*border-style: solid;*/">
+	<div id="wrapper" style="width:21cm;min-height:29.7cm;">
+		<div class="content" style="width:21cm;min-height:29.7cm;"> 
+			<!-- Set Name -->
+			<div id="setName" style="text-align:center; font-size:80; font-family:'Goudy Mediaeval'; font-weight:bold;"></div>
+
+			<div id="leftListContainer" style="width:30%; display:inline-block;vertical-align:top">
+				<ul id="leftList"></ul>
+			</div>
+			
+			<div id="centerListContainer" style="width:30%; display:inline-block;vertical-align:top">
+				<ul id="centerList"></ul>
+			</div>
+			
+			<div id="rightListContainer" style="width:30%; display:inline-block;vertical-align:top">
+				<ul id="rightList"></ul>
+			</div>
+
+			<div style="position:absolute; bottom:70px; left:220px;">
+				<img src="./img/fire.png" width="50px"/>
+				<img src="./img/ice.png" width="50"/>
+				<img src="./img/wind.png" width="50px"/>
+				<img src="./img/earth.png" width="50px"/>
+				<img src="./img/lightning.png" width="50px"/>
+				<img src="./img/water.png" width="50px"/>
+				<img src="./img/light.png" width="50px"/>
+				<img src="./img/dark.png" width="50px"/>
+			</div>
+				
+			<div id="pageCount" style="position:absolute;bottom:70px;left:745px;font-family:'Goudy Mediaeval'">
+				<!--<script>
+					if(pageCount > 1)
+					{
+						currentPageCount = parseInt(pageIndex) + 1
+						document.write(currentPageCount.toString() + "/" + pageCount.toString());
+					}
+				</script>-->
+			</div>
+		</div>
+		
+		<div class="background" style="opacity:0.2; width:21cm">
+				<div style="text-align:center;"></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+				<script>
+					//className = "ss ss-" + setCode + " ss-mythic ss-grad";
+					//document.write('<i class="' + className + '" style="font-size:500px"></i>');
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+processCurrentPage(0, pageIndex);
+</script>
+
+</html>
