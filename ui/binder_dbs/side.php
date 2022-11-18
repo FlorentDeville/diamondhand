@@ -18,7 +18,7 @@
 		.gameName
 		{
 			font-family:'Saiyan Sans';
-			font-weight:bold; 
+			/*font-weight:bold; */
 			color:black;
 			font-size:50px;
 			/*letter-spacing:15; */
