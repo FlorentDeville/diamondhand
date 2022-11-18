@@ -32,6 +32,8 @@
                     case "3" : //ff
                         card["side_link"] = "./ff_binder/side.php?set_lang_id=" + card["set_lang_id"];
                         card["front_link"] = "./ff_binder/front.php?set_lang_id=" + card["set_lang_id"];
+                        card["checklist_p1"] = "./checklist/fftcg/checklist_fftcg.html?json=" + card["set_lang_id"] + "&pageIndex=0";
+                        card["checklist_p2"] = "./checklist/fftcg/checklist_fftcg.html?json=" + card["set_lang_id"] + "&pageIndex=1";
                         break;
 
                     case "4" : //dbs
@@ -50,6 +52,8 @@
 			column_array.push({header_name:"Set", field_name:"set_name", type:"string"});
 			column_array.push({header_name:"Side", field_name:"side_link", type:"link"});
 			column_array.push({header_name:"Front", field_name:"front_link", type:"link"});
+            column_array.push({header_name:"P1", field_name:"checklist_p1", type:"link"});
+            column_array.push({header_name:"P2", field_name:"checklist_p2", type:"link"});
 			display_table("content", column_array, sets, "set_lang_id", 0, "asc");
 		}, "json");
 	});

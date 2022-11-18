@@ -1,18 +1,19 @@
 <html>
 <script src="./define.js"></script>
-<!--<script type="text/javascript" src="opus1.json"></script>-->
+<!-- <script type="text/javascript" src="./5.json"></script> -->
 <script>
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const pageIndex = urlParams.get("pageIndex");
-const json = urlParams.get("json");
+const json = "./" + urlParams.get("json") + ".json";
 
 script = document.createElement("script");
 script.type = "text/javascript";
 script.src = json;
+script.onload = () => {processCurrentPage(0, pageIndex); };
 document.head.appendChild(script);
-
+//setTimeout(() => {processCurrentPage(0, pageIndex); }, 1000);
 cardDisplayedIndex = 0;
 
 function processCurrentPage(data, pageIndex)
@@ -113,6 +114,9 @@ function processCurrentPage(data, pageIndex)
 		listElement.appendChild(item);
 		
 	}
+
+	loadingElement = document.getElementById("loading");
+	loadingElement.style.display="none";
 }
 
 
@@ -146,6 +150,9 @@ function processCurrentPage(data, pageIndex)
 </head>
 
 <body style="width:8in;height:11in;border: black;border-width: 10px; /*border-style: solid;*/">
+	<div id="loading">
+		Loading...
+	</div>
 	<div id="wrapper" style="width:21cm;min-height:29.7cm;">
 		<div class="content" style="width:21cm;min-height:29.7cm;"> 
 			<!-- Set Name -->
@@ -196,8 +203,8 @@ function processCurrentPage(data, pageIndex)
 	</div>
 </body>
 
-<script>
+<!-- <script>
 processCurrentPage(0, pageIndex);
-</script>
+</script> -->
 
 </html>
