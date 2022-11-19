@@ -12,7 +12,31 @@
       "name" : "the-awakening",
       "clean_name" : "The Awakening",
       "page_count" : 0,
-      "code" : "st1",
+      "code" : "sd1",
       "release_date" : "2017-07-28 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/union-force?productLineName=dragon-ball-super-ccg&view=grid&setName=union-force&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "union-force",
+      "clean_name" : "Union Force",
+      "page_count" : 6,
+      "code" : "bt2",
+      "release_date" : "2017-11-03 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/cross-worlds?productLineName=dragon-ball-super-ccg&view=grid&page={}&setName=cross-worlds&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "cross-worlds",
+      "clean_name" : "Cross Worlds",
+      "page_count" : 6,
+      "code" : "bt3",
+      "release_date" : "2018-03-09 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/colossal-warfare?productLineName=dragon-ball-super-ccg&view=grid&page={}&ProductTypeName=Dragon+Ball+Super+Singles&setName=colossal-warfare",
+      "name" : "colossal-warfare",
+      "clean_name" : "Colossal Warfare",
+      "page_count" : 6,
+      "code" : "bt4",
+      "release_date" : "2018-07-13 12:00:00"
     }
 ]
