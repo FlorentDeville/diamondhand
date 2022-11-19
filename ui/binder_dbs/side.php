@@ -20,10 +20,10 @@
 			font-family:'Saiyan Sans';
 			/*font-weight:bold; */
 			color:black;
-			font-size:50px;
+			font-size:40px;
 			/*letter-spacing:15; */
 			text-align: center;
-			margin-left: 20px;
+			/* margin-left: 20px; */
 		}
 	</style>
 
@@ -31,7 +31,7 @@
 <?php
 include("../connection.php"); 
 
-function show_side($set_name)
+function show_side($set_name, $set_lang_id)
 {
 	//show left side
 	echo "
@@ -52,12 +52,17 @@ function show_side($set_name)
 			$length = strlen($set_name);
 			$DEFAULT_LETTER_SPACING = 5;
 			$letter_spacing = $DEFAULT_LETTER_SPACING;
-
+			//echo "<div style='height:1.2in; width:320px; position:absolute; align-items:center; justify-content:center; border-style:solid;border-size:1px'>";
 			//Game Name
-			echo "<div id='gameName' class='gameName' style='letter-spacing:" . $DEFAULT_LETTER_SPACING . "px;'>Dragon Ball Super</div>";
-		
+			//echo "<div id='gameName' class='gameName' style='letter-spacing:" . $DEFAULT_LETTER_SPACING . "px;'>&nbsp;</div>";
+			//echo "<div class='gameName'><img src='./img/side/logo.png' style=\"width:420px;\"/></div>";
+
 			//set name
-			echo "<div class='gamename' style='letter-spacing:" . $letter_spacing . "px;'>" . $set_name . "</div>";
+			//echo "<div class='gamename' style='letter-spacing:" . $letter_spacing . "px;'>" . $set_name . "</div>";
+			echo "<div style=\"text-align:center;\">
+					<span class='iconHelper'></span>
+					<img src='./img/side/" . $set_lang_id . ".png' style=\"width:420px;vertical-align:middle;\"/>
+				</div>";			
 			
 			//right side
 			echo "
@@ -82,7 +87,7 @@ $sql = "select sets_langs.name from sets_langs where id=" . $set_lang_id;
 $result = $connection->query($sql);
 
 $row = $result->fetch();
-show_side($row["name"]);
+show_side($row["name"], $set_lang_id);
 
 ?>
 <script>
