@@ -32,7 +32,7 @@
             item = menuList[ii];
             var gameButton = document.createElement("a");
             gameButton.href = item.link;
-            if(item.id == current_page)
+            if((item.id == current_page) || (item.id == "stock_overview.php" && current_page == null))
                 gameButton.classList.add("selectedStockMenuButton");
             else
                 gameButton.classList.add("stockMenuButton");

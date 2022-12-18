@@ -65,14 +65,14 @@ a.stockMenuButton:visited
 a.selectedStockMenuButton:link
 {
 	text-decoration: none;
-	color:white;
+	color:rgb(182, 182, 182);
 	font-weight: bold;
 }
 
 a.selectedStockMenuButton:visited
 {
 	text-decoration: none;
-	color:white;
+	color:rgb(182, 182, 182);
 	font-weight: bold;
 }
 
