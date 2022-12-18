@@ -41,15 +41,41 @@
             document.getElementById(clicked_element_id).className = "progressionSelectedSet";
         }, "json");
     }
+
+    function addGamesButton(current_game_id)
+    {
+        gameList = [];
+        gameList.push({name:"All", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php", id:null});
+        gameList.push({name:"MTG", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=1", id:1});
+        gameList.push({name:"Pokemon", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=2", id:2});
+        gameList.push({name:"FF", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=3", id:3});
+        gameList.push({name:"DBS", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=4", id:4});
+
+        var menu = document.getElementById("game_menu");
+        for(var ii = 0; ii < gameList.length; ++ii)
+        {
+            game = gameList[ii];
+            var gameButton = document.createElement("a");
+            gameButton.href = game.link;
+            if(game.id == current_game_id)
+                gameButton.classList.add("selectedStockMenuButton");
+            else
+                gameButton.classList.add("stockMenuButton");
+
+            gameButton.style.padding="0px 2px 0px 2px";
+
+            var buttonContent = document.createElement("div");
+            buttonContent.textContent=game.name;
+            buttonContent.classList.add("stockMenuButton");
+            gameButton.appendChild(buttonContent);
+
+            menu.appendChild(gameButton);
+        }
+    }
 </script>
 
-<div id="menu" style="margin:10 0 20 0;">
+<div id="game_menu" style="margin:10 0 20 0;">
     <div style="display:inline;"> Games : </div>
-    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php"><div class="stockMenuButton">All</div></a>
-    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=1"><div class="stockMenuButton">MTG</div></a>
-    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=2"><div class="stockMenuButton">Pokemon</div></a>
-    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=3"><div class="stockMenuButton">FF</div></a>
-    <a class="stockMenuButton" href="./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=4"><div class="stockMenuButton">DBS</div></a>
 </div>
 
 <div style="display:flex;">
@@ -128,3 +154,10 @@ while($row = $result->fetch())
     </div>
 </div>
 <div id="msg"></div>
+
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const game_id = urlParams.get('gameid');
+    addGamesButton(game_id);
+</script>

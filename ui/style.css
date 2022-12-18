@@ -62,16 +62,18 @@ a.stockMenuButton:visited
 	color:white;
 }
 
-a.stockMenuButton:hover
+a.selectedStockMenuButton:link
 {
-	text-decoration:none;
+	text-decoration: none;
 	color:white;
+	font-weight: bold;
 }
 
-a.stockMenuButton:active
+a.selectedStockMenuButton:visited
 {
-	text-decoration:none;
-	color:blue;
+	text-decoration: none;
+	color:white;
+	font-weight: bold;
 }
 
 .progressionSet
