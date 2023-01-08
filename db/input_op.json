@@ -6,5 +6,13 @@
       "page_count" : 1,
       "code" : "st01",
       "release_date" : "2022-12-02 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/one-piece-card-game/starter-deck-2-worst-generation?view=grid&productLineName=one-piece-card-game&page={}&ProductTypeName=Cards&setName=starter-deck-2-worst-generation",
+      "name" : "starter-deck-2",
+      "clean_name" : "Starter Deck 2: Worst Generation",
+      "page_count" : 1,
+      "code" : "st02",
+      "release_date" : "2022-12-02 12:00:00"
     }
 ]
