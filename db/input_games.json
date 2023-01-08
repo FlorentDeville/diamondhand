@@ -10,5 +10,9 @@
 	{
 		"name":"dbs",
 		"clean_name":"Dragon Ball Super"
+	},
+	{
+		"name":"op",
+		"clean_name":"One Piece"
 	}
 ]
