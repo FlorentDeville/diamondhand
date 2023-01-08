@@ -14,5 +14,13 @@
       "page_count" : 1,
       "code" : "st02",
       "release_date" : "2022-12-02 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/one-piece-card-game/starter-deck-3-the-seven-warlords-of-the-sea?view=grid&productLineName=one-piece-card-game&page={}&ProductTypeName=Cards&setName=starter-deck-3-the-seven-warlords-of-the-sea",
+      "name" : "starter-deck-3",
+      "clean_name" : "Starter Deck 3: The Seven Warlords of The Sea",
+      "page_count" : 1,
+      "code" : "st03",
+      "release_date" : "2022-12-02 12:00:00"
     }
 ]
