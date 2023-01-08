@@ -15,6 +15,7 @@ from db.connection import get_connection
 from db.db_pokemon import DbPokemon
 from db.db_fftcg import DbFFTcg
 from db.db_dbs import DbDbs
+from db.db_op import DbOp
 
 from db.helper_pokemon import *
 
@@ -42,6 +43,8 @@ def scrap_all(game_name, set, csv_filename):
         db = DbFFTcg(browser, filename)
     elif game_name == "dbs":
         db = DbDbs(browser, filename)
+    elif game_name == "op":
+        db = DbOp(browser, filename)
     else:
         log.exception("Unknown game %s", game_name)
         exit(1)
