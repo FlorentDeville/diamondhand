@@ -22,5 +22,13 @@
       "page_count" : 1,
       "code" : "st03",
       "release_date" : "2022-12-02 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/one-piece-card-game/starter-deck-4-animal-kingdom-pirates?view=grid&productLineName=one-piece-card-game&page={}&ProductTypeName=Cards&setName=starter-deck-4-animal-kingdom-pirates",
+      "name" : "starter-deck-4",
+      "clean_name" : "Starter Deck 4: Animal Kingdom Pirates",
+      "page_count" : 1,
+      "code" : "st04",
+      "release_date" : "2022-12-02 12:00:00"
     }
 ]
