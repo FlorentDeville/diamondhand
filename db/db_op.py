@@ -44,10 +44,30 @@ class DbOp(DbCsv):
         xpath_number = "//li/strong[contains(text(), \"Number:\")]/following-sibling::span"
         elements = html.xpath(xpath_number)
 
+        if len(elements) == 0:
+            return None
+
         number_element = elements[0]
         newEntry.number = number_element.text
 
         newEntry.id = uuid.uuid4().int
         newEntry.tcg_url = _url
         newEntry.variation = "None"
+
+        if "(Parallel) (Alternate Art)" in newEntry.name:
+            newEntry.variation = "Parallel Alternate Art"
+            newEntry.name = newEntry.name.replace("(Parallel) (Alternate Art)", "")
+        
+        if "(Parallel)" in newEntry.name:
+            newEntry.variation = "Parallel"
+            newEntry.name = newEntry.name.replace("(Parallel)", "")
+        
+        if "(Alternate Art)" in newEntry.name:
+            newEntry.variation = "Alternate Art"
+            newEntry.name = newEntry.name.replace("(Alternate Art)", "")
+
+        if "(Box Topper)" in newEntry.name:
+            newEntry.variation = "Box Topper"
+            newEntry.name = newEntry.name.replace("(Box Topper)", "")
+     
         return newEntry

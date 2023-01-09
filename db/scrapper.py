@@ -71,6 +71,9 @@ def scrap_all(game_name, set, csv_filename):
 
             log.info(card_url + "...")
             entry = db.scrap_card_information(card_url, set["code"])
+            if entry is None:
+                log.info("ignoring card")
+                continue
 
             log.info("writing to csv...")
             db.write(entry)
@@ -174,6 +177,9 @@ def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
         printed_number = card.number
         display_number = ii
         variation = None
+
+        if card.variation is not None:
+            variation = card.variation    
 
         if selected_game["name"] == "pokemon":
             card_name = helper_pokemon_get_name(card)

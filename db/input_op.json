@@ -30,5 +30,13 @@
       "page_count" : 1,
       "code" : "st04",
       "release_date" : "2022-12-02 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/one-piece-card-game/romance-dawn?view=grid&productLineName=one-piece-card-game&page={}&ProductTypeName=Cards&setName=romance-dawn",
+      "name" : "romance-dawn",
+      "clean_name" : "Romance Dawn",
+      "page_count" : 7,
+      "code" : "op01",
+      "release_date" : "2022-12-02 12:00:00"
     }
 ]
