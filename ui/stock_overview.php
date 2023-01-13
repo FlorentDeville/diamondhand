@@ -50,6 +50,7 @@
         gameList.push({name:"Pokemon", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=2", id:2});
         gameList.push({name:"FF", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=3", id:3});
         gameList.push({name:"DBS", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=4", id:4});
+        gameList.push({name:"OP", link:"./index.php?page=stock_index.php&stock_page=stock_overview.php&gameid=5", id:5});
 
         var menu = document.getElementById("game_menu");
         for(var ii = 0; ii < gameList.length; ++ii)
