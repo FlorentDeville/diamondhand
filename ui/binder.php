@@ -41,6 +41,11 @@
                         card["front_link"] = "./binder_dbs/front.php?set_lang_id=" + card["set_lang_id"];
                         break;
 
+                    case "5": //one piece
+                        card["side_link"] = "./binder/one_piece/side.php?set_lang_id=" + card["set_lang_id"];
+                        card["front_link"] = "./binder/one_piece/front.php?set_lang_id=" + card["set_lang_id"];
+                        break;
+
                     default:
                         break;
                 }
@@ -65,6 +70,7 @@
     <a class="stockMenuButton" href="./index.php?page=binder.php&game_id=1"><div class="stockMenuButton">MTG</div></a>
     <a class="stockMenuButton" href="./index.php?page=binder.php&game_id=3"><div class="stockMenuButton">Final Fantasy</div></a>
     <a class="stockMenuButton" href="./index.php?page=binder.php&game_id=4"><div class="stockMenuButton">DBS</div></a>
+    <a class="stockMenuButton" href="./index.php?page=binder.php&game_id=5"><div class="stockMenuButton">One Piece</div></a>
 </div>
 <div id="content">
 </div>
