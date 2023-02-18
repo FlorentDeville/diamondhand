@@ -46,11 +46,9 @@ $(document).ready(function()
 					if(!attached)
 					{
 						attached = true;
-						attached = true;
     					imageContainer.style.display = "block";
    						document.addEventListener("pointermove", followMouse);
-						imageElement = imageContainer.firstChild;
-						imageElement.src = "./pics/sets/" + set_id + "/" + id + ".png";
+						imageContainer.src = "./pics/sets/" + set_id + "/" + id + ".png";
 					}
 				};
 				
@@ -70,4 +68,4 @@ $(document).ready(function()
 });
 </script>
 <div id="card_list_container"></div>
-<div id="image" style="position:absolute; display:none; pointer-events:none;"><img/></div>
+<img id="image" style="position:absolute; display:none; pointer-events:none; border:15px; border-color:transparent; border-style:double;"/>
