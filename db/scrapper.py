@@ -12,6 +12,7 @@ from selenium import webdriver
 
 sys.path.append("../")
 from db.connection import get_connection
+from db.scrapper_images import scrap_images
 from db.db_pokemon import DbPokemon
 from db.db_fftcg import DbFFTcg
 from db.db_dbs import DbDbs
@@ -33,7 +34,7 @@ def scrap_all(game_name, set, csv_filename):
     log.info("Setup webdriver...")
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
-    browser = webdriver.Chrome(executable_path="C:/workspace/python/chromedriver.exe", chrome_options=chromeOptions)
+    browser = webdriver.Chrome(executable_path="C:/workspace/DiamondHand/chromedriver.exe", chrome_options=chromeOptions)
 
     filename = csv_filename
     db = None
@@ -237,6 +238,7 @@ if __name__ == "__main__":
     parser.add_argument('--setlist', dest="list_sets", action="store_true", default=False, help="List the sets for the selected game")
     parser.add_argument('--set-id', '-s', dest="set_id", help="Index of the set to work with")
     parser.add_argument("--scrap", dest="scrap", action="store_true", default=False, help="Scrap the data from tcgplayer.")
+    parser.add_argument("--scrap-image", dest="scrap_image", action="store_true", default=False, help="Scrap image data from tcgplayer.")
     parser.add_argument("--push", "-p", dest="push", action="store_true", default=False, help="Push csv file to database.")
     parser.add_argument('--commit', '-c', dest="commit", action="store_true", default=False, help="Commit to the database.")
     parser.add_argument('--online', '-o', dest="online", action="store_true", default=False, help="Push to the online db. By default, push to the local db.")
@@ -280,6 +282,30 @@ if __name__ == "__main__":
         log.info("Scrap %s %s...", selected_game["clean_name"], selected_set["clean_name"])
         csv_filename = make_csv_filename(selected_game["name"], selected_set["name"])
         scrap_all(selected_game["name"], selected_set, csv_filename)
+
+    if options.scrap_image:
+        if options.game is None:
+            log.error("Missing argument --game")
+            exit(1)
+
+        if options.set_id is None:
+            log.error("Missing argument --set_id")
+            exit(1)
+
+        selected_game = None
+        for game in games_list:
+            if game["name"] == options.game:
+                selected_game = game
+
+        if selected_game is None:
+            log.error("Unknown game %s", options.game)
+            exit(1)
+
+        selected_set = sets_list[selected_game["name"]][int(options.set_id)]
+
+        log.info("Scrap images of %s %s...", selected_game["clean_name"], selected_set["clean_name"])
+        scrap_images(selected_game["clean_name"], selected_set["clean_name"], "en")
+        #scrap_all(selected_game["name"], selected_set, csv_filename)
 
     if options.push:
         if options.game is None:
