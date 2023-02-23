@@ -27,6 +27,7 @@
                 column_array.push({header_name:"Name", field_name:"name", type:"string"});
                 column_array.push({header_name:"Variation", field_name:"variation", type:"string"});
 			    display_table("missingCards", column_array, cards, "id", 0, "asc");
+                showCardImage("missingCards", "missingCardImage", set_lang_id);
             }
             else
             {
@@ -152,6 +153,7 @@ while($row = $result->fetch())
     <div id="missingCardsContainer">
         <div id="countMissingCards"></div>
         <div id="missingCards"></div>
+        <img id="missingCardImage" style="position:absolute; display:none; pointer-events:none; border:15px; border-color:transparent; border-style:double;"/>
     </div>
 </div>
 <div id="msg"></div>

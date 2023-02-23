@@ -188,3 +188,47 @@ function display_table(container_id, column_array, data, field_row_id, sort_colu
 
     sort_table(container_id, sort_column_id, sort_dir, column_array[sort_column_id].type);
 }
+
+// Display the image of acard when mouse isover a row table.
+// container_id : id of the html element containing the table.
+// image_container_id : id of the img element to use to display the card.
+// set_id : set_lang_id of the set displayed in the table.
+function showCardImage(container_id, image_container_id, set_id)
+{
+	containerElement = document.getElementById(container_id);
+	tableElement = containerElement.firstChild;
+
+	rowCount = tableElement.childElementCount;
+
+	let imageContainer = document.getElementById(image_container_id);//document.querySelector("#image");
+	const followMouse = (event) => 
+	{
+		imageContainer.style.left = event.x + "px";
+		imageContainer.style.top = event.y + "px";
+	}
+
+	for(ii=1; ii < rowCount; ++ii)
+	{
+		rowElement = tableElement.childNodes[ii];
+		let id = rowElement.id;
+		
+		let attached = false;
+		rowElement.onpointerenter = function() 
+		{
+			if(!attached)
+			{
+				attached = true;
+				imageContainer.style.display = "block";
+				document.addEventListener("pointermove", followMouse);
+				imageContainer.src = "./pics/sets/" + set_id + "/" + id + ".png";
+			}
+		};
+		
+		rowElement.onpointerleave = function()
+		{
+			attached = false;
+			imageContainer.style.display = "none";
+			document.removeEventListener("pointermove", followMouse);
+		}
+	}
+}

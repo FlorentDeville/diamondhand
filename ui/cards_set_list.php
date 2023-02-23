@@ -22,43 +22,7 @@ $(document).ready(function()
 			column_array.push({header_name:"Var", field_name:"variation", type:"string"});
 			column_array.push({header_name:"Links", field_name:"tcg_url", type:"link"});
 			display_table("card_list_container", column_array, cards, "id", 0, "asc");
-
-			containerElement = document.getElementById("card_list_container");
-			tableElement = containerElement.firstChild;
-
-			rowCount = tableElement.childElementCount;
-
-			let imageContainer = document.querySelector("#image");
-			const followMouse = (event) => 
-			{
-				imageContainer.style.left = event.x + "px";
-				imageContainer.style.top = event.y + "px";
-			}
-
-			for(ii=1; ii < rowCount; ++ii)
-			{
-				rowElement = tableElement.childNodes[ii];
-				let id = rowElement.id;
-				
-				let attached = false;
-				rowElement.onpointerenter = function() 
-				{
-					if(!attached)
-					{
-						attached = true;
-    					imageContainer.style.display = "block";
-   						document.addEventListener("pointermove", followMouse);
-						imageContainer.src = "./pics/sets/" + set_id + "/" + id + ".png";
-					}
-				};
-				
-				rowElement.onpointerleave = function()
-				{
-					attached = false;
-  					imageContainer.style.display = "none";
-  					document.removeEventListener("pointermove", followMouse);
-				}
-			}
+			showCardImage("card_list_container", "image", set_id);
 		}
 		else
 		{
