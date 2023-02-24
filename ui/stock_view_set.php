@@ -75,7 +75,7 @@
 	function show_set(set_lang_id, sort_field, sort_dir)
 	{
 		var sql = `select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, cast(acq_price as decimal(10,2)) as acq_price,
-			owned_card.id as owned_card_id, card.printed_number 
+			owned_card.id as owned_card_id, card.printed_number, card.id as card_id 
 			from owned_card 
 			inner join card on owned_card.card_id=card.id 
 			inner join conditions on conditions.id=owned_card.condition_id
@@ -88,9 +88,6 @@
 
 		$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 		{
-			//obj = JSON.parse(return_data);
-			//var cards = obj["data"];
-			//display_array("array_container", cards, sort_field, sort_dir, set_lang_id);
 			cards = return_data.data;
 			var card_count = cards.length;
 			$("#card_count").empty();
@@ -102,68 +99,10 @@
 			column_array.push({header_name:"Set", field_name:"set_code", type:"string"});
 			column_array.push({header_name:"Condition", field_name:"cond", type:"string"});
 			column_array.push({header_name:"Acq Price", field_name:"acq_price", type:"float"});
-			display_table("array_container", column_array, cards, "owned_card_id", 0, "asc");
+			display_table("array_container", column_array, cards, "card_id", 0, "asc");
+			showCardImage("array_container", "image_container", set_lang_id);
 		}, "json");
 	}
-
-	// function get_array_header(field, dir, title, show_arrow, set_id)
-	// {
-	// 	var reverse_dir = "desc";
-	// 	var arrow = "▲";
-	// 	if(dir == "desc")
-	// 	{
-	// 		arrow = " ▼";
-	// 		reverse_dir = "asc";
-	// 	}
-	//	
-	// 	if(!show_arrow)
-	// 		arrow = "";
-	//
-	// 	var content = "<span onclick=\"show_set(" + set_id + ",'" + field + "','" + reverse_dir + "')\">" + title + arrow + "</span>";
-	// 	return content;
-	// }
-	//
-	// function display_array(container_id, data, sort_field, sort_dir, set_id)
-	// {
-	// 	var content = "<table>";
-	// 	var header_data_array = 
-	// 	[
-	// 		{field:"printed_number", title:"N"},
-	// 		{field:"name", title:"Card Name"},
-	// 		{field:"set_name", title:"Set"},
-	// 		{field:"cond", title:"Condition"},
-	// 		{field:"acq_price", title:"Acq Price"}
-	// 	];
-	//
-	// 	content += "<tr>";
-	// 	for(var ii = 0; ii < Object.keys(header_data_array).length; ++ii)
-	// 	{
-	// 		var header_data = header_data_array[ii];
-	// 		var header = get_array_header(header_data["field"], sort_dir, header_data["title"], header_data["field"] == sort_field, set_id);
-	// 		content += "<th>" + header + "</th>";
-	// 	}
-	// 	content += "<th>Options</th>";
-	// 	content += "</tr>";
-//
-	// 	for(ii=0; ii < Object.keys(data).length; ++ii)
-	// 	{
-	// 		var card = data[ii];
-	//		
-	// 		content += "<tr id='row_" + card["owned_card_id"] + "'>";
-	// 		content += "<td>" + card["printed_number"] + "</td>";
-	// 		content += "<td>" + card["name"] + "</td>";
-	// 		content += "<td style='text-align:center;' title='" + card['set_name'] + "'>" + card["set_code"] + "</td>";
-	// 		content += "<td style='text-align:center;'>" + card["cond"] + "</td>";
-	// 		content += "<td style='text-align:right;'>" + Number.parseFloat(card["acq_price"]).toFixed(2) + "</td>";
-	// 		content += "<td>Edit <a class=\"setButton\" href='#' onclick='delete_owned_card(" + card["owned_card_id"] + ")'>X</a></td>";
-	// 		content += "</tr>";
-	// 	}
-	// 	content += "</table>";
-//
-	// 	$("#" + container_id).empty();
-	// 	$("#" + container_id).prepend(content);
-	// }
-
 </script>
 <div>
 <div style="margin-bottom:20px;">
@@ -212,5 +151,6 @@
 	echo "<div>Total Spent : $" . $money . "</div>";
 	
 	echo "<div id='array_container'></div>";
+	echo "<img id='image_container' style='position:absolute; display:none; pointer-events:none; border:15px; border-color:transparent; border-style:double;'/>"
 ?>
 </div>
