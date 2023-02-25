@@ -203,8 +203,8 @@ function showCardImage(container_id, image_container_id, set_id)
 	let imageContainer = document.getElementById(image_container_id);//document.querySelector("#image");
 	const followMouse = (event) => 
 	{
-		imageContainer.style.left = event.x + "px";
-		imageContainer.style.top = event.y + "px";
+		imageContainer.style.left = event.pageX + "px";
+		imageContainer.style.top = event.pageY + "px";
 	}
 
 	for(ii=1; ii < rowCount; ++ii)
