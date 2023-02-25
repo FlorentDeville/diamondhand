@@ -32,6 +32,22 @@
 	"release_date": "2017-12-01 12:00:00"
   },
   {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-v?productLineName=final-fantasy-tcg&view=grid&setName=opus-v&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "opus-v",
+	"clean_name": "Opus V",
+	"page_count": 7,
+	"code": "op5",
+	"release_date": "2018-03-23 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-vi?productLineName=final-fantasy-tcg&view=grid&setName=opus-vi&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "opus-vi",
+	"clean_name": "Opus VI",
+	"page_count": 6,
+	"code": "op6",
+	"release_date": "2018-06-13 12:00:00"
+  },
+  {
 	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/crystal-dominion?productLineName=final-fantasy-tcg&view=grid&setName=crystal-dominion&page={}&ProductTypeName=Final+Fantasy+Singles",
 	"name": "crystal-dominion",
 	"clean_name": "Crystal Dominion",
