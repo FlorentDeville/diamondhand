@@ -48,6 +48,38 @@
 	"release_date": "2018-06-13 12:00:00"
   },
   {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-vii?productLineName=final-fantasy-tcg&view=grid&setName=opus-vii&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "opus-vii",
+	"clean_name": "Opus VII",
+	"page_count": 6,
+	"code": "op7",
+	"release_date": "2018-11-02 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-viii?productLineName=final-fantasy-tcg&view=grid&setName=opus-viii&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "opus-viii",
+	"clean_name": "Opus VIII",
+	"page_count": 7,
+	"code": "op8",
+	"release_date": "2019-03-22 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-ix?productLineName=final-fantasy-tcg&view=grid&setName=opus-ix&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "opus-ix",
+	"clean_name": "Opus IX",
+	"page_count": 6,
+	"code": "op9",
+	"release_date": "2019-07-19 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-x?productLineName=final-fantasy-tcg&view=grid&setName=opus-x&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "opus-x",
+	"clean_name": "Opus X",
+	"page_count": 13,
+	"code": "op10",
+	"release_date": "2019-11-08 12:00:00"
+  },
+  {
 	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/crystal-dominion?productLineName=final-fantasy-tcg&view=grid&setName=crystal-dominion&page={}&ProductTypeName=Final+Fantasy+Singles",
 	"name": "crystal-dominion",
 	"clean_name": "Crystal Dominion",
