@@ -203,8 +203,22 @@ function showCardImage(container_id, image_container_id, set_id)
 	let imageContainer = document.getElementById(image_container_id);//document.querySelector("#image");
 	const followMouse = (event) => 
 	{
-		imageContainer.style.left = event.pageX + "px";
-		imageContainer.style.top = event.pageY + "px";
+        //screen : entire physical screen
+        //page : entire html page
+        //window : visible area
+
+        IMAGE_HEIGHT = 450;
+        maxPossibleHeight = window.innerHeight - IMAGE_HEIGHT;
+        if(event.y > maxPossibleHeight) // y is thecoordinate of the mouse in the window
+        {
+            imageContainer.style.top = (event.pageY - IMAGE_HEIGHT) + "px";    
+        }
+        else
+        {
+		    imageContainer.style.top = event.pageY + "px";
+        }
+
+        imageContainer.style.left = event.pageX + "px";
 	}
 
 	for(ii=1; ii < rowCount; ++ii)
