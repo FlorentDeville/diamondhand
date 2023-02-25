@@ -24,6 +24,14 @@
 	"release_date": "2017-07-21 12:00:00"
   },
   {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/opus-iv?productLineName=final-fantasy-tcg&view=grid&setName=opus-iv&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "opus-iv",
+	"clean_name": "Opus IV",
+	"page_count": 7,
+	"code": "op4",
+	"release_date": "2017-12-01 12:00:00"
+  },
+  {
 	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/crystal-dominion?productLineName=final-fantasy-tcg&view=grid&setName=crystal-dominion&page={}&ProductTypeName=Final+Fantasy+Singles",
 	"name": "crystal-dominion",
 	"clean_name": "Crystal Dominion",
