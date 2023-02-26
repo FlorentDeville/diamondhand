@@ -98,8 +98,20 @@ $sql_get_all_sets = "select sets.name, sets_langs.id, languages.code
 from sets_langs inner join sets on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where " . $cond . " order by sets_langs.release_date asc";
 $result = $connection->query($sql_get_all_sets);
 			
+$COL_COUNT = 1;
+if(!isset($_GET["gameid"]))
+{
+    $COL_COUNT = 3;
+}
+$index = 0;
+
+echo "<table>";
+
 while($row = $result->fetch())
 {
+    $isNewRow = ($index % $COL_COUNT) == 0;
+    $isEndRow = ($index % $COL_COUNT) == 2;
+   
     $set_lang_id = $row["id"];
     $sql_get_card_count = "select count(*) from card where set_lang_id=" . $set_lang_id;
     $set_count_result = $connection->query($sql_get_card_count);
@@ -118,6 +130,11 @@ while($row = $result->fetch())
         continue;
     }
 
+    if($isNewRow)
+    {
+        echo "<tr>";
+    }
+
     $full_set = false;
     $style_name = "progressionSet";
     if($owned_card == $set_count)
@@ -132,6 +149,7 @@ while($row = $result->fetch())
         $onclick = "onclick=\"toggleShowMissingCard(".$set_lang_id.", this.id)\"";
     }
 
+    echo "<td style='background-color:black;'>";
     echo "<div class=\"".$style_name."\"".$onclick." id=\"".$set_lang_id."\">";
     echo "<div style=\"text-align:center;\">" . $row["name"] . " (" . strtoupper($row["code"]) . ")</div>";
 
@@ -147,7 +165,16 @@ while($row = $result->fetch())
     echo "<div style=\"float:left;height:".$HEIGHT."px;width:".$INCOMPLETE_SIZE.";background-color:red;\"></div>";
     echo "</div>";
     echo "</div>";
+    echo "</td>";
+    if($isEndRow)
+    {
+        echo "</tr>";
+    }
+
+    $index = $index + 1;
 }
+echo "</table>";
+
 ?>
     </div>
     <div id="missingCardsContainer">
