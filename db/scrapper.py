@@ -206,7 +206,7 @@ def delete_cards_from_set_lang(set_lang_id, commit, connection_name):
 
 
 def make_csv_filename(game_name, set_name):
-    csv_filename = "C:\\workspace\\python\\data\\%s\\db_%s.csv" % (game_name, set_name)
+    csv_filename = "C:\\workspace\\DiamondHand\\data\\%s\\db_%s.csv" % (game_name, set_name)
     return csv_filename
 
 
