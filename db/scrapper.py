@@ -255,7 +255,7 @@ if __name__ == "__main__":
 
         sets = sets_list[options.game]
         for index in range(len(sets)):
-            log.info("%d : %s", index, sets[index]["clean_name"])
+            log.info("%d : %s (%s)", index, sets[index]["clean_name"], sets[index]["code"])
 
         exit()
 
