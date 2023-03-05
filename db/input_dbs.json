@@ -38,5 +38,37 @@
       "page_count" : 6,
       "code" : "bt4",
       "release_date" : "2018-07-13 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/destroyer-kings?productLineName=dragon-ball-super-ccg&view=grid&setName=destroyer-kings&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "destroyer-kings",
+      "clean_name" : "Destroyer Kings",
+      "page_count" : 7,
+      "code" : "bt6",
+      "release_date" : "2019-03-15 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/malicious-machinations?productLineName=dragon-ball-super-ccg&view=grid&setName=malicious-machinations&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "malicious-machinations",
+      "clean_name" : "Malicious Machinations",
+      "page_count" : 7,
+      "code" : "bt8",
+      "release_date" : "2019-11-29 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/cross-spirits?productLineName=dragon-ball-super-ccg&view=grid&setName=cross-spirits&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "cross-spirits",
+      "clean_name" : "Cross Spirits",
+      "page_count" : 8,
+      "code" : "bt14",
+      "release_date" : "2021-08-13 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/realm-of-the-gods?productLineName=dragon-ball-super-ccg&view=grid&page={}&ProductTypeName=Dragon+Ball+Super+Singles&setName=realm-of-the-gods",
+      "name" : "realm-of-the-gods",
+      "clean_name" : "Realm Of The Gods",
+      "page_count" : 7,
+      "code" : "bt16",
+      "release_date" : "2022-03-11 12:00:00"
     }
 ]
