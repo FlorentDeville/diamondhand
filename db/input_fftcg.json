@@ -102,5 +102,13 @@
 	"page_count": 7,
 	"code": "rc",
 	"release_date": "2022-08-12 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/resurgence-of-power?productLineName=final-fantasy-tcg&view=grid&setName=resurgence-of-power&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "resurgence-of-power",
+	"clean_name": "Resurgence Of Power",
+	"page_count": 8,
+	"code": "rop",
+	"release_date": "2022-12-09 12:00:00"
   }
 ]
