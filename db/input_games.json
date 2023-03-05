@@ -14,5 +14,9 @@
 	{
 		"name":"op",
 		"clean_name":"One Piece"
+	},
+	{
+		"name":"cfv",
+		"clean_name":"Cardfight!! Vanguard"
 	}
 ]
