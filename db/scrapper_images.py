@@ -114,12 +114,12 @@ def scrap_images(game_name, set_name, lang_code):
             continue
 
         image_url = elements[0].attrib.get("src")
-        log.info("%s", image_url)
+        log.info("[%d/%d] %s", ii + 1, cardCount, image_url)
 
         dstFile = dstFolder + "\\" + str(card[0]) + ".png"
         urllib.urlretrieve(image_url, dstFile) 
 
-        log.info("File saved %s", dstFile)
+        log.info("    File saved %s", dstFile)
         
 
 
