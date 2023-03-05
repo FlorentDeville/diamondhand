@@ -208,8 +208,8 @@ def delete_cards_from_set_lang(set_lang_id, commit, connection_name):
         connection.commit()
 
 
-def make_csv_filename(game_name, set_name):
-    csv_filename = "C:\\workspace\\DiamondHand\\data\\%s\\db_%s.csv" % (game_name, set_name)
+def make_csv_filename(game_name, set_code):
+    csv_filename = "C:\\workspace\\DiamondHand\\data\\%s\\db_%s.csv" % (game_name, set_code)
     return csv_filename
 
 
@@ -283,7 +283,7 @@ if __name__ == "__main__":
         selected_set = sets_list[selected_game["name"]][int(options.set_id)]
 
         log.info("Scrap %s %s...", selected_game["clean_name"], selected_set["clean_name"])
-        csv_filename = make_csv_filename(selected_game["name"], selected_set["name"])
+        csv_filename = make_csv_filename(selected_game["name"], selected_set["code"])
         scrap_all(selected_game["name"], selected_set, csv_filename)
 
     if options.scrap_image:
@@ -346,7 +346,7 @@ if __name__ == "__main__":
         for connection_name in connection_list:
             log.info("Push set %s to db %s...", selected_set["clean_name"], connection_name)
             log.info("Load csv...")
-            csv_filename = make_csv_filename(selected_game["name"], selected_set["name"])
+            csv_filename = make_csv_filename(selected_game["name"], selected_set["code"])
             entries = load_csv(csv_filename)
             log.info("Push set...")
             set_lang_id = push_set_to_db(selected_game, selected_set, "en", options.commit, connection_name)
