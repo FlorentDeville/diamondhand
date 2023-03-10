@@ -93,14 +93,18 @@
 		$game_id = $game["id"];
 		echo "<div id='" . $game_id . "' class='tabcontent'>";
 		
-		$sql = "select sets.code as set_code, sets_langs.name as set_name, languages.code as lang, sets_langs.id as id from sets_langs inner join languages on sets_langs.lang_id = languages.id
+		$sql = "select sets.code as set_code, sets_langs.name as set_name, languages.code as lang, sets_langs.id as id, sets_langs.release_date as release_date 
+		from sets_langs inner join languages on sets_langs.lang_id = languages.id
 		inner join sets on sets_langs.set_id = sets.id where sets.game_id=" . $game_id . " order by sets_langs.release_date desc;";
 		$set_query = $connection->query($sql);
 		while($row = $set_query->fetch())
 		{
 			echo "<a class=\"setButton\" href=\"index.php?page=cards_set_list.php&set_id=" . $row["id"] . "\">";
 			echo "<div class=\"setButton\">";
-			echo $row["set_name"] . " (" .strtoupper($row["set_code"]). ") (" . strtoupper($row["lang"]) . ")";
+			echo "<span style=\"display:inline-block;width:350px\">" . $row["set_name"] . "</span>";
+			echo "<span style=\"display:inline-block;width:100px\">(" . strtoupper($row["set_code"]) . ")</span>";
+			echo "<span style=\"display:inline-block;width:50px\">" . strtoupper($row["lang"]) . "</span>";
+			echo "<span>" . $row["release_date"] . "</span>";
 			echo "</div>";
 			echo "<a/>";
 		}
