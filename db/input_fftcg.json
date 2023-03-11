@@ -84,7 +84,7 @@
 	"name": "crystal-dominion",
 	"clean_name": "Crystal Dominion",
 	"page_count": 8,
-	"code": "cd",
+	"code": "op15",
 	"release_date": "2021-11-26 12:00:00"
   },
   {
@@ -92,7 +92,7 @@
 	"name": "emissaries-of-light",
 	"clean_name": "Emissaries Of Light",
 	"page_count": 7,
-	"code": "eol",
+	"code": "op16",
 	"release_date": "2022-04-15 12:00:00"
   },
   {
@@ -100,7 +100,7 @@
 	"name": "rebellion-call",
 	"clean_name": "Rebellion's Call",
 	"page_count": 7,
-	"code": "rc",
+	"code": "op17",
 	"release_date": "2022-08-12 12:00:00"
   },
   {
@@ -108,7 +108,7 @@
 	"name": "resurgence-of-power",
 	"clean_name": "Resurgence Of Power",
 	"page_count": 8,
-	"code": "rop",
+	"code": "op18",
 	"release_date": "2022-12-09 12:00:00"
   }
 ]
