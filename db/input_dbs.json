@@ -40,6 +40,14 @@
       "release_date" : "2018-07-13 12:00:00"
     },
     {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/miraculous-revival?productLineName=dragon-ball-super-ccg&view=grid&setName=miraculous-revival&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "miraculous-revival",
+      "clean_name" : "Miraculous Revival",
+      "page_count" : 6,
+      "code" : "bt5",
+      "release_date" : "2018-11-09 12:00:00"
+    },
+    {
       "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/destroyer-kings?productLineName=dragon-ball-super-ccg&view=grid&setName=destroyer-kings&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
       "name" : "destroyer-kings",
       "clean_name" : "Destroyer Kings",
