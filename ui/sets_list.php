@@ -24,10 +24,10 @@
 		document.getElementById("tab_button_" + cityName).className += " active";
 	}
 	
-	$( document ).ready(function() 
-	{
-		$("#tab_button_1").trigger('click');
-	});
+	//$( document ).ready(function() 
+	//{
+	//	$("#tab_button_1").trigger('click');
+	//});
 </script>
 <style>
 /* Style the tab */
@@ -62,7 +62,7 @@
 
 /* Style the tab content */
 .tabcontent {
-  display: none;
+  /*display: none;*/
   padding: 6px 12px;
   animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
@@ -83,34 +83,35 @@
 	{
 		$game_id = $game["id"];
 		$game_name = $game["name"];
-		echo "<button id='tab_button_" . $game_id . "' class='tablinks' onclick=\"openTab(event, '" . $game_id . "')\">" . $game_name . "</button>";
+		$link = "./index.php?page=sets_list.php&game_id=" . $game_id;
+		echo "<button id='tab_button_" . $game_id . "' class='tablinks' onclick=\"window.location.href='".$link."'\">" . $game_name . "</button>";
 	}
 	echo "</div>";
 	
 	//Tab content
-	foreach ($games as $game)
+	$game_id = $games[0]["id"];
+	if(isset($_GET["game_id"]))
+		$game_id = $_GET["game_id"];
+
+	echo "<div id='" . $game_id . "' class='tabcontent'>";
+	
+	$sql = "select sets.code as set_code, sets_langs.name as set_name, languages.code as lang, sets_langs.id as id, sets_langs.release_date as release_date 
+	from sets_langs inner join languages on sets_langs.lang_id = languages.id
+	inner join sets on sets_langs.set_id = sets.id where sets.game_id=" . $game_id . " order by sets_langs.release_date desc, set_code desc;";
+	$set_query = $connection->query($sql);
+	while($row = $set_query->fetch())
 	{
-		$game_id = $game["id"];
-		echo "<div id='" . $game_id . "' class='tabcontent'>";
-		
-		$sql = "select sets.code as set_code, sets_langs.name as set_name, languages.code as lang, sets_langs.id as id, sets_langs.release_date as release_date 
-		from sets_langs inner join languages on sets_langs.lang_id = languages.id
-		inner join sets on sets_langs.set_id = sets.id where sets.game_id=" . $game_id . " order by sets_langs.release_date desc, set_code desc;";
-		$set_query = $connection->query($sql);
-		while($row = $set_query->fetch())
-		{
-			echo "<a class=\"setButton\" href=\"index.php?page=cards_set_list.php&set_id=" . $row["id"] . "\">";
-			echo "<div class=\"setButton\">";
-			echo "<span style=\"display:inline-block;width:350px\">" . $row["set_name"] . "</span>";
-			echo "<span style=\"display:inline-block;width:100px\">(" . strtoupper($row["set_code"]) . ")</span>";
-			echo "<span style=\"display:inline-block;width:50px\">" . strtoupper($row["lang"]) . "</span>";
-			echo "<span>" . $row["release_date"] . "</span>";
-			echo "</div>";
-			echo "<a/>";
-		}
-		
+		echo "<a class=\"setButton\" href=\"index.php?page=cards_set_list.php&set_id=" . $row["id"] . "\">";
+		echo "<div class=\"setButton\">";
+		echo "<span style=\"display:inline-block;width:350px\">" . $row["set_name"] . "</span>";
+		echo "<span style=\"display:inline-block;width:100px\">(" . strtoupper($row["set_code"]) . ")</span>";
+		echo "<span style=\"display:inline-block;width:50px\">" . strtoupper($row["lang"]) . "</span>";
+		echo "<span>" . $row["release_date"] . "</span>";
 		echo "</div>";
+		echo "<a/>";
 	}
+	
+	echo "</div>";
 	
 	$query = null;
 	$connection = null;
