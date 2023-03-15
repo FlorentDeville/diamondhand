@@ -95,7 +95,7 @@
 		
 		$sql = "select sets.code as set_code, sets_langs.name as set_name, languages.code as lang, sets_langs.id as id, sets_langs.release_date as release_date 
 		from sets_langs inner join languages on sets_langs.lang_id = languages.id
-		inner join sets on sets_langs.set_id = sets.id where sets.game_id=" . $game_id . " order by sets_langs.release_date desc;";
+		inner join sets on sets_langs.set_id = sets.id where sets.game_id=" . $game_id . " order by sets_langs.release_date desc, set_code desc;";
 		$set_query = $connection->query($sql);
 		while($row = $set_query->fetch())
 		{

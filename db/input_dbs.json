@@ -56,6 +56,14 @@
       "release_date" : "2019-03-15 12:00:00"
     },
     {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/assault-of-the-saiyans?productLineName=dragon-ball-super-ccg&view=grid&setName=assault-of-the-saiyans&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "assault-of-the-saiyans",
+      "clean_name" : "Assault Of The Saiyans",
+      "page_count" : 7,
+      "code" : "bt7",
+      "release_date" : "2019-08-02 12:00:00"
+    },
+    {
       "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/malicious-machinations?productLineName=dragon-ball-super-ccg&view=grid&setName=malicious-machinations&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
       "name" : "malicious-machinations",
       "clean_name" : "Malicious Machinations",

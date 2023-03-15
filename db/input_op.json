@@ -38,5 +38,29 @@
       "page_count" : 7,
       "code" : "op01",
       "release_date" : "2022-12-02 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/one-piece-card-game/paramount-war?view=grid&productLineName=one-piece-card-game&setName=paramount-war&ProductTypeName=Cards&page={}",
+      "name" : "paramount-war",
+      "clean_name" : "Paramount War",
+      "page_count" : 7,
+      "code" : "op02",
+      "release_date" : "2023-03-10 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/one-piece-card-game/starter-deck-5-film-edition?view=grid&productLineName=one-piece-card-game&setName=starter-deck-5-film-edition&ProductTypeName=Cards&page={}",
+      "name" : "starter-deck-5",
+      "clean_name" : "Starter Deck 5: Film Edition",
+      "page_count" : 1,
+      "code" : "st05",
+      "release_date" : "2023-02-03 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/one-piece-card-game/starter-deck-6-absolute-justice?view=grid&productLineName=one-piece-card-game&setName=starter-deck-6-absolute-justice&ProductTypeName=Cards&page={}",
+      "name" : "starter-deck-6",
+      "clean_name" : "Starter Deck 6: Absolute Justice",
+      "page_count" : 1,
+      "code" : "st06",
+      "release_date" : "2023-03-10 12:00:00"
     }
 ]
