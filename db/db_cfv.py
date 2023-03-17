@@ -39,7 +39,7 @@ class DbCfv(DbCsv):
         elements = html.xpath(xpath_number_and_rarity)
         number_and_rarity = elements[0].text
 
-        splitted = number_and_rarity.split('-')
+        splitted = number_and_rarity.split(" - ")
 
         newEntry.number = splitted[0].strip()
         newEntry.rarity = splitted[1].strip()

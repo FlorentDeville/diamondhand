@@ -38,5 +38,45 @@
       "page_count" : 4,
       "code" : "bt05",
       "release_date" : "2013-02-22 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/cardfight-vanguard/clash-of-knights-and-dragons?productLineName=cardfight-vanguard&view=grid&setName=clash-of-knights-and-dragons&page={}&ProductTypeName=Cards",
+      "name" : "clash-of-the-knights-&-dragons",
+      "clean_name" : "Clash Of The Knights & Dragons",
+      "page_count" : 5,
+      "code" : "bt09",
+      "release_date" : "2013-06-28 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/cardfight-vanguard/triumphant-return-of-the-king-of-knights?productLineName=cardfight-vanguard&setName=triumphant-return-of-the-king-of-knights&view=grid&ProductTypeName=Cards&page={}",
+      "name" : "triumphant-return-of-the-king-of-knights",
+      "clean_name" : "Triumphant Return Of The King Of Knights",
+      "page_count" : 5,
+      "code" : "bt10",
+      "release_date" : "2013-12-13 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/cardfight-vanguard/unite-team-q4?productLineName=cardfight-vanguard&setName=unite-team-q4&view=grid&ProductTypeName=Cards&page={}",
+      "name" : "unite-teamq4",
+      "clean_name" : "Unite! Team Q4",
+      "page_count" : 4,
+      "code" : "v-bt01",
+      "release_date" : "2018-06-22 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/cardfight-vanguard/strongest-team-al4?productLineName=cardfight-vanguard&setName=strongest-team-al4&view=grid&ProductTypeName=Cards&page={}",
+      "name" : "strongest-team-al4",
+      "clean_name" : "Strongest! Team AL4",
+      "page_count" : 4,
+      "code" : "v-bt02",
+      "release_date" : "2018-10-19 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/cardfight-vanguard/d-ss01-festival-collection-2021?productLineName=cardfight-vanguard&view=grid&setName=d-ss01-festival-collection-2021&page={}&ProductTypeName=Cards",
+      "name" : "festival-collection-2021",
+      "clean_name" : "Festival Collection 2021",
+      "page_count" : 4,
+      "code" : "d-ss01",
+      "release_date" : "2021-06-25 12:00:00"
     }
 ]
