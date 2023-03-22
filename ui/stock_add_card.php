@@ -5,7 +5,7 @@
 		{
 			var game_id=$('#game').val();
 			$("#set").empty();
-			var sql = "select sets_langs.id, sets.name, languages.code from sets inner join sets_langs on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where sets.game_id=" + game_id;
+			var sql = "select sets_langs.id, sets.name, languages.code from sets inner join sets_langs on sets_langs.set_id = sets.id inner join languages on sets_langs.lang_id = languages.id where sets.game_id=" + game_id + " order by sets_langs.release_date asc";
 			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
 				var sets = return_data.data;
