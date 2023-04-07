@@ -29,7 +29,15 @@ $(document).ready(function()
 			$('#card_list_container').html('No records Found');
 		}
 	}, "json");
+
+	var sql = "select name from sets_langs where id=" + set_id;
+	$.get("php_scripts/execute_sql.php", {"sql":sql}, function(return_data)
+	{
+		var set_name = return_data.data[0]["name"];
+		$("#set_name").html(set_name);
+	}, "json");
 });
 </script>
+<div id="set_name"></div>
 <div id="card_list_container"></div>
 <img id="image" style="position:absolute; display:none; pointer-events:none; border:15px; border-color:transparent; border-style:double;"/>
