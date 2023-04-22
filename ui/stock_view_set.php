@@ -75,7 +75,7 @@
 	function show_set(set_lang_id, sort_field, sort_dir)
 	{
 		var sql = `select game.name as game_name, sets.name as set_name, sets.code as set_code, card.name, conditions.code as cond, cast(acq_price as decimal(10,2)) as acq_price,
-			owned_card.id as owned_card_id, card.printed_number, card.id as card_id 
+			owned_card.id as owned_card_id, card.printed_number, card.id as card_id, card.rarity
 			from owned_card 
 			inner join card on owned_card.card_id=card.id 
 			inner join conditions on conditions.id=owned_card.condition_id
@@ -95,6 +95,7 @@
 
 			var column_array = new Array();
 			column_array.push({header_name:"N", field_name:"printed_number", type:"int"});
+			column_array.push({header_name:"Rarity", field_name:"rarity", type:"string"});
 			column_array.push({header_name:"Card Name", field_name:"name", type:"string"});
 			column_array.push({header_name:"Set", field_name:"set_code", type:"string"});
 			column_array.push({header_name:"Condition", field_name:"cond", type:"string"});
