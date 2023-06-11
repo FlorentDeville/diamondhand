@@ -110,5 +110,13 @@
 	"page_count": 8,
 	"code": "op18",
 	"release_date": "2022-12-09 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/from-nightmares?productLineName=final-fantasy-tcg&view=grid&setName=from-nightmares&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "from-nightmares",
+	"clean_name": "From Nightmares",
+	"page_count": 7,
+	"code": "op19",
+	"release_date": "2023-03-24 12:00:00"
   }
 ]
