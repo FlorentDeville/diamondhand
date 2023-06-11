@@ -22,7 +22,7 @@
 		{
 			var set_lang_id=$('#set').val();
 			$("#card").empty();
-			var sql = "select card.id, card.printed_number, card.name from card where card.set_lang_id=" + set_lang_id + " order by display_number asc;"
+			var sql = "select card.id, card.printed_number, card.name, card.variation from card where card.set_lang_id=" + set_lang_id + " order by display_number asc;"
 			$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 			{
 				var cards = return_data.data;
@@ -31,7 +31,13 @@
 				for(var ii = 0; ii < Object.keys(cards).length; ++ii)
 				{
 					var card = cards[ii];
-					$("#card").append("<option value='"+card["id"]+"'>(" + card["printed_number"] + ") " + card["name"] + "</option>");
+					var text = "(" + card["printed_number"] + ") " + card["name"];
+					if(card["variation"] != "None")
+					{
+						text = text + " (" + card["variation"] + ")";
+					}
+
+					$("#card").append("<option value='"+card["id"]+"'>" + text + "</option>");
 				}
 			}, "json");
 		});
