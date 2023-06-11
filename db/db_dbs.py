@@ -51,3 +51,20 @@ class DbDbs(DbCsv):
         newEntry.tcg_url = _url
         newEntry.variation = "None"
         return newEntry
+
+    @staticmethod
+    def condition(entry):
+        return entry.number
+
+    @staticmethod
+    def sort_entries(entries):
+        # Make a group of no variation and a group of foil
+        no_variation = [card for card in entries if card.variation == "None"]
+        foil = [card for card in entries if card.variation == "Foil"]
+
+        no_variation.sort(key=DbDbs.condition)
+        foil.sort(key=DbDbs.condition)
+
+        no_variation.extend(foil)
+
+        return no_variation

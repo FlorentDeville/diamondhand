@@ -168,6 +168,8 @@ def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
         helper_pokemon_sort_cards(entries)
     elif selected_game["name"] == "fftcg":
         entries = DbFFTcg.sort_entries(entries)
+    elif selected_game["name"] == "dbs":
+        entries = DbDbs.sort_entries(entries)
     else:
         log.warn("No sort code for game %s. Use default sort.", selected_game["name"])
         entries.sort(key=lambda x: x.number)
