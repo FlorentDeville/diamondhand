@@ -24,6 +24,14 @@
       "release_date" : "2017-11-03 12:00:00"
     },
     {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/expansion-deck-box-set-01-mighty-heroes?productLineName=dragon-ball-super-ccg&view=grid&setName=expansion-deck-box-set-01-mighty-heroes&page={}&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "mighty-heroes",
+      "clean_name" : "Mighty Heroes",
+      "page_count" : 1,
+      "code" : "ex01",
+      "release_date" : "2018-01-26 12:00:00"
+    },
+    {
       "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/cross-worlds?productLineName=dragon-ball-super-ccg&view=grid&page={}&setName=cross-worlds&ProductTypeName=Dragon+Ball+Super+Singles",
       "name" : "cross-worlds",
       "clean_name" : "Cross Worlds",
