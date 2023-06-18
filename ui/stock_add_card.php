@@ -32,7 +32,7 @@
 				{
 					var card = cards[ii];
 					var text = "(" + card["printed_number"] + ") " + card["name"];
-					if(card["variation"] != "None")
+					if(card["variation"] != null && card["variation"] != "None" && card["variation"] != "null")
 					{
 						text = text + " (" + card["variation"] + ")";
 					}
