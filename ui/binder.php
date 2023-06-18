@@ -5,12 +5,12 @@
 	    const urlParams = new URLSearchParams(queryString);
 	    const game_id = urlParams.get('game_id');
 
-        var sql = `select sets_langs.name as set_name, sets_langs.id as set_lang_id, game.id as game_id
+        var sql = `select sets_langs.name as set_name, sets_langs.id as set_lang_id, game.id as game_id, sets_langs.release_date
         from sets_langs
         inner join sets on sets_langs.set_id = sets.id
         inner join game on sets.game_id = game.id
-        where game_id=` + game_id 
-
+        where game_id=` + game_id + ` order by sets_langs.release_date`;
+        console.log(sql);
 		$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 		{
 			var sets = return_data.data;
@@ -59,7 +59,8 @@
 			column_array.push({header_name:"Front", field_name:"front_link", type:"link"});
             column_array.push({header_name:"P1", field_name:"checklist_p1", type:"link"});
             column_array.push({header_name:"P2", field_name:"checklist_p2", type:"link"});
-			display_table("content", column_array, sets, "set_lang_id", 0, "asc");
+            column_array.push({header_name:"Release", field_name:"release_date", type:"string"});
+			display_table("content", column_array, sets, "release_date", 6, "asc");
 		}, "json");
 	});
 </script>
