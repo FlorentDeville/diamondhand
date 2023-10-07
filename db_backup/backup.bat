@@ -13,3 +13,4 @@ set OUTPUT=C:\card\db_backup\%DB_NAME%_backup_%DATETIME%.sql
 %MYSQL_ROOT%\mysqldump.exe --databases %DB_NAME% --result-file %OUTPUT% --user root
 
 echo Dump saved in %OUTPUT%
+pause
