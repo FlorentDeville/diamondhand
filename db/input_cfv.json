@@ -72,6 +72,14 @@
       "release_date" : "2018-10-19 12:00:00"
     },
     {
+      "url" : "https://www.tcgplayer.com/search/cardfight-vanguard/miyaji-academy-cf-club?productLineName=cardfight-vanguard&view=grid&setName=miyaji-academy-cf-club&page={}&ProductTypeName=Cards",
+      "name" : "miyaji-academy-cf-club",
+      "clean_name" : "Miyaji Academy Cardfight Club",
+      "page_count" : 5,
+      "code" : "v-bt03",
+      "release_date" : "2019-02-15 12:00:00"
+    },
+    {
       "url" : "https://www.tcgplayer.com/search/cardfight-vanguard/d-ss01-festival-collection-2021?productLineName=cardfight-vanguard&view=grid&setName=d-ss01-festival-collection-2021&page={}&ProductTypeName=Cards",
       "name" : "festival-collection-2021",
       "clean_name" : "Festival Collection 2021",

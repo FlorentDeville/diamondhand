@@ -22,8 +22,8 @@ class DbCfv(DbCsv):
 
         newEntry = Entry()
 
-       # xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
-        xpath_card_name = "//span[contains(@class, 'lastcrumb')]"
+        xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
+       # xpath_card_name = "//span[contains(@class, 'lastcrumb')]"
         element = html.xpath(xpath_card_name)
         newEntry.name = element[0].text.strip()
 
@@ -35,7 +35,8 @@ class DbCfv(DbCsv):
         newEntry.set_name = set_clean_name
         newEntry.set_code = set_code
 
-        xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/span"
+        #xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/span"
+        xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/div/span"
         elements = html.xpath(xpath_number_and_rarity)
         number_and_rarity = elements[0].text
 
