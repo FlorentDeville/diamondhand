@@ -22,7 +22,7 @@
 function show_set(sort_field, sort_dir)
 {
 	var set_lang_id = $('#set').val();
-	sql="select id, name, printed_number, variation from card where set_lang_id=" + set_lang_id + " order by " + sort_field + " " + sort_dir + ";";
+	sql="select id, name, printed_number, variation, display_number from card where set_lang_id=" + set_lang_id + " order by " + sort_field + " " + sort_dir + ";";
 	$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 	{
 		obj = JSON.parse(return_data);
@@ -41,11 +41,15 @@ function show_set(sort_field, sort_dir)
 		
 		var number_title = get_sort_arrow("printed_number", sort_dir, "N", show_arrow);
 
-		content += "<tr><th>" + number_title + "</th><th>" + name_title +"</th><th>Variation</th><th>Date</th><th>Price</th>";
+		var display_number_title = get_sort_arrow("display_number", sort_dir, "D", show_arrow);
+		content += "<tr><th>" + display_number_title + "</th><th>" + number_title + "</th><th>" + name_title +"</th><th>Variation</th><th>Date</th><th>Price</th>";
 		for(ii=0; ii < Object.keys(cards).length; ++ii)
 		{
 			var card = cards[ii];
-			content += "<tr id='" + card["id"] + "'><td>" + card["printed_number"] + "</td><td>" + card["name"] + "</td>";
+
+			content += "<tr id='" + card["id"] + "'>";
+			content += "<td>" + card["display_number"] + "</td>";
+			content += "<td>" + card["printed_number"] + "</td><td>" + card["name"] + "</td>";
 
 			var variationText = "";
 			if(card["variation"] != "null" && card["variation"] != null)
