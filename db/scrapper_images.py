@@ -9,6 +9,7 @@ sys.path.append("../")
 
 from db.connection import get_connection
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 log = logging.getLogger(__name__)
 
@@ -84,7 +85,9 @@ def scrap_images(game_name, set_name, lang_code):
     log.info("Setup webdriver...")
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
-    browser = webdriver.Chrome(executable_path="C:/workspace/DiamondHand/chromedriver.exe", chrome_options=chromeOptions)
+
+    service = Service(executable_path="C:/workspace/DiamondHand/chromedriver.exe")
+    browser = webdriver.Chrome(service=service, options=chromeOptions)
 
     log.info("Found set_lang_id %d", set_lang_id)
 
@@ -117,7 +120,7 @@ def scrap_images(game_name, set_name, lang_code):
         log.info("[%d/%d] %s", ii + 1, cardCount, image_url)
 
         dstFile = dstFolder + "\\" + str(card[0]) + ".png"
-        urllib.urlretrieve(image_url, dstFile) 
+        urllib.request.urlretrieve(image_url, dstFile) 
 
         log.info("    File saved %s", dstFile)
         

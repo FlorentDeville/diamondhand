@@ -9,6 +9,7 @@ import time
 
 from argparse import RawTextHelpFormatter
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 sys.path.append("../")
 from db.connection import get_connection
@@ -35,7 +36,9 @@ def scrap_all(game_name, set, csv_filename):
     log.info("Setup webdriver...")
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--start-maximized")
-    browser = webdriver.Chrome(executable_path="C:/workspace/DiamondHand/chromedriver.exe", chrome_options=chromeOptions)
+
+    service = Service(executable_path="C:/workspace/DiamondHand/chromedriver.exe")
+    browser = webdriver.Chrome(service=service, options=chromeOptions)
 
     filename = csv_filename
     db = None
