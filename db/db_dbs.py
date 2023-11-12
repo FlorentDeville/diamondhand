@@ -22,8 +22,8 @@ class DbDbs(DbCsv):
 
         newEntry = Entry()
 
-       # xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
-        xpath_card_name = "//span[contains(@class, 'lastcrumb')]"
+        xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
+        #xpath_card_name = "//span[contains(@class, 'lastcrumb')]"
         element = html.xpath(xpath_card_name)
         newEntry.name = element[0].text.strip()
 
@@ -35,13 +35,15 @@ class DbDbs(DbCsv):
         newEntry.set_name = set_clean_name
         newEntry.set_code = set_code
 
-        xpath_rarity = "//li/strong[contains(text(), \"Rarity:\")]/following-sibling::span"
+        #xpath_rarity = "//li/strong[contains(text(), \"Rarity:\")]/following-sibling::span"
+        xpath_rarity = "//strong[contains(text(), \"Rarity:\")]/following-sibling::span"
         elements = html.xpath(xpath_rarity)
 
         rarity_element = elements[0]
         newEntry.rarity = rarity_element.text
 
-        xpath_number = "//li/strong[contains(text(), \"Number:\")]/following-sibling::span"
+        #xpath_number = "//li/strong[contains(text(), \"Number:\")]/following-sibling::span"
+        xpath_number = "//strong[contains(text(), \"Number:\")]/following-sibling::span"
         elements = html.xpath(xpath_number)
 
         number_element = elements[0]

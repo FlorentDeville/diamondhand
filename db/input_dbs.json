@@ -94,5 +94,13 @@
       "page_count" : 7,
       "code" : "bt16",
       "release_date" : "2022-03-11 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/dragon-ball-super-ccg/dawn-of-the-z-legends?productLineName=dragon-ball-super-ccg&view=grid&page={}&setName=dawn-of-the-z-legends&ProductTypeName=Dragon+Ball+Super+Singles",
+      "name" : "dawn-of-the-z-legends",
+      "clean_name" : "Dawn Of The Z-Legends",
+      "page_count" : 8,
+      "code" : "bt18",
+      "release_date" : "2023-09-16 12:00:00"
     }
 ]
