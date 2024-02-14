@@ -11,7 +11,7 @@
 			<?php include("./sidenav.html"); ?>
 			
 			<div id="main">
-				<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+				<span id="main-menu-button" style="font-size:30px;cursor:pointer;display:none" onclick="openNav()">&#9776;</span>
 				
 				<?php
 					if(isset($_GET["page"]))
