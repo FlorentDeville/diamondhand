@@ -6,7 +6,7 @@ $(document).ready(function()
 	const set_id = urlParams.get('set_id');
 	const display_as = urlParams.get('as');
 
-	var sql = "select * from card where set_lang_id=" + set_id;
+	var sql = "select * from card where set_lang_id=" + set_id + " order by display_number asc";
 	$.get('php_scripts/execute_sql.php',{'sql':sql},function(return_data)
 	{
 		//show missing cards
@@ -51,6 +51,8 @@ $(document).ready(function()
 					imagePath = "./pics/sets/" + set_id + "/" + card_id + ".png";
 					img.src = imagePath;
 					img.style.padding = "5px";
+					img.width = "310";
+					img.height = "430";
 				}
 			}
 		}
