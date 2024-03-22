@@ -3,3 +3,4 @@ venv/
 ui/pics/sets/
 *.pyc
 debug.log
+/db_backup/history
