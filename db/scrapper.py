@@ -17,6 +17,7 @@ from db.scrapper_images import scrap_images
 from db.db_cfv import DbCfv
 from db.db_fftcg import DbFFTcg
 from db.db_dbs import DbDbs
+from db.db_mtg import DbMtg
 from db.db_op import DbOp
 from db.db_pokemon import DbPokemon
 
@@ -52,6 +53,8 @@ def scrap_all(game_name, set, csv_filename):
         db = DbOp(browser, filename)
     elif game_name == "cfv":
         db = DbCfv(browser, filename)
+    elif game_name == "mtg":
+        db = DbMtg(browser, filename)
     else:
         log.exception("Unknown game %s", game_name)
         exit(1)
@@ -69,7 +72,7 @@ def scrap_all(game_name, set, csv_filename):
         text_html = browser.execute_script("return document.body.innerHTML")
         html = lxml.html.fromstring(text_html)
 
-        xpath_cards = "//div[contains(@class, 'search-result__content')]/a"
+        xpath_cards = "//div[contains(@class, 'product-card__content')]/a"
         elements = html.xpath(xpath_cards)
 
         for element in elements:

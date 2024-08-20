@@ -1,0 +1,10 @@
+[
+    {
+      "url" : "https://www.tcgplayer.com/search/magic/exodus?productLineName=magic&page={}&view=grid&setName=exodus&ProductTypeName=Cards",
+      "name" : "exodus",
+      "clean_name" : "Exodus",
+      "page_count" : 6,
+      "code" : "exo",
+      "release_date" : "1998-06-15 12:00:00"
+    }
+]

@@ -18,5 +18,9 @@
 	{
 		"name":"cfv",
 		"clean_name":"Cardfight!! Vanguard"
+	},
+	{
+	"name":"mtg",
+	"clean_name":"Magic The Gathering"
 	}
 ]
