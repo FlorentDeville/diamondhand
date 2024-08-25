@@ -36,16 +36,25 @@ class DbMtg(DbCsv):
         newEntry.set_code = set_code
 
         #xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/span"
-        xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/div/span"
-        elements = html.xpath(xpath_number_and_rarity)
-        number_and_rarity = elements[0].text
+        xpath_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/div/span"
+        elements = html.xpath(xpath_rarity)
+        newEntry.rarity = elements[0].text
 
-        splitted = number_and_rarity.split(" - ")
 
-        newEntry.number = splitted[0].strip()
-        newEntry.rarity = splitted[1].strip()
+        xpath_number = "//ul[contains(@class, \"product__item-details__attributes\")]/li[position()=2]/div/span"
+        elements = html.xpath(xpath_number)
+        newEntry.number = elements[0].text
         
         newEntry.id = uuid.uuid4().int
         newEntry.tcg_url = _url
         newEntry.variation = "None"
         return newEntry
+
+    @staticmethod
+    def condition(entry):
+        return int(entry.number)
+
+    @staticmethod
+    def sort_entries(entries):
+        entries.sort(key=DbMtg.condition)
+        return entries

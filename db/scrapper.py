@@ -176,8 +176,10 @@ def push_to_db(entries, selected_game, set_lang_id, commit, connection_name):
         entries = DbFFTcg.sort_entries(entries)
     elif selected_game["name"] == "dbs":
         entries = DbDbs.sort_entries(entries)
+    elif selected_game["name"] == "mtg":
+        entries = DbMtg.sort_entries(entries)
     else:
-        log.warn("No sort code for game %s. Use default sort.", selected_game["name"])
+        log.warning("No sort code for game %s. Use default sort.", selected_game["name"])
         entries.sort(key=lambda x: x.number)
 
     connection = get_connection(connection_name)
@@ -355,8 +357,8 @@ if __name__ == "__main__":
 
         for connection_name in connection_list:
             log.info("Push set %s to db %s...", selected_set["clean_name"], connection_name)
-            log.info("Load csv...")
             csv_filename = make_csv_filename(selected_game["name"], selected_set["code"])
+            log.info("Load csv %s...", csv_filename)
             entries = load_csv(csv_filename)
             log.info("Push set...")
             set_lang_id = push_set_to_db(selected_game, selected_set, "en", options.commit, connection_name)
