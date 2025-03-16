@@ -77,7 +77,7 @@ def scrap_images(game_name, set_name, lang_code):
         return None
 
     #save image to folder
-    dstFolder = ".\\..\\ui\\pics\\sets\\" + str(set_lang_id)
+    dstFolder = "E:\\workspace\\diamondhand\\ui\\pics\\sets\\" + str(set_lang_id)
     log.info("Creating folder %s", dstFolder)
     if not os.path.exists(dstFolder):
         os.mkdir(dstFolder)
@@ -116,7 +116,12 @@ def scrap_images(game_name, set_name, lang_code):
             log.info("Failed to find url for %s", cardUrl)
             continue
 
-        image_url = elements[0].attrib.get("src")
+        image_url_set = elements[0].attrib.get("srcset")
+        image_url_list = image_url_set.split(",")
+        biggest_image = image_url_list[-1]
+        biggest_image_url = biggest_image.split(" ")
+        image_url = biggest_image_url[0]
+        #image_url = elements[0].attrib.get("src")
         log.info("[%d/%d] %s", ii + 1, cardCount, image_url)
 
         dstFile = dstFolder + "\\" + str(card[0]) + ".png"
