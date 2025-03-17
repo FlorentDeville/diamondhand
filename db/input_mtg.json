@@ -6,5 +6,21 @@
       "page_count" : 6,
       "code" : "exo",
       "release_date" : "1998-06-15 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/magic/alliances?productLineName=magic&setName=alliances&view=grid&ProductTypeName=Cards&page={}",
+      "name" : "alliances",
+      "clean_name" : "Alliances",
+      "page_count" : 9,
+      "code" : "all",
+      "release_date" : "1996-06-10 12:00:00"
+    },
+    {
+      "url" : "https://www.tcgplayer.com/search/magic/fifth-edition?productLineName=magic&page={}&view=grid&setName=fifth-edition&ProductTypeName=Cards",
+      "name" : "fifth-edition",
+      "clean_name" : "Fifth Edition",
+      "page_count" : 19,
+      "code" : "5ed",
+      "release_date" : "1997-03-24 12:00:00"
     }
 ]
