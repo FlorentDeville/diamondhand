@@ -103,6 +103,13 @@ def scrap_images(game_name, set_name, lang_code):
         card = results[ii]
 
         cardUrl = card[1]
+
+        if not isinstance(cardUrl, str):
+            continue
+        
+        if cardUrl == "":
+            continue
+
         browser.get(cardUrl)
         TIME_TO_WAIT = 4
         time.sleep(TIME_TO_WAIT)
