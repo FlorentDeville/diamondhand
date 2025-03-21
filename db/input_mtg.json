@@ -1,11 +1,11 @@
 [
-    {
-      "url" : "https://www.tcgplayer.com/search/magic/exodus?productLineName=magic&page={}&view=grid&setName=exodus&ProductTypeName=Cards",
-      "name" : "exodus",
-      "clean_name" : "Exodus",
-      "page_count" : 6,
-      "code" : "exo",
-      "release_date" : "1998-06-15 12:00:00"
+	{
+      "url" : "https://www.tcgplayer.com/search/magic/ice-age?productLineName=magic&page={}&view=grid&setName=ice-age&ProductTypeName=Cards",
+      "name" : "ice-age",
+      "clean_name" : "Ice Age",
+      "page_count" : 16,
+      "code" : "ice",
+      "release_date" : "1995-06-03 12:00:00"
     },
     {
       "url" : "https://www.tcgplayer.com/search/magic/alliances?productLineName=magic&setName=alliances&view=grid&ProductTypeName=Cards&page={}",
@@ -22,5 +22,13 @@
       "page_count" : 19,
       "code" : "5ed",
       "release_date" : "1997-03-24 12:00:00"
+    },
+	{
+      "url" : "https://www.tcgplayer.com/search/magic/exodus?productLineName=magic&page={}&view=grid&setName=exodus&ProductTypeName=Cards",
+      "name" : "exodus",
+      "clean_name" : "Exodus",
+      "page_count" : 6,
+      "code" : "exo",
+      "release_date" : "1998-06-15 12:00:00"
     }
 ]
