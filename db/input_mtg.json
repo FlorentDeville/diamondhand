@@ -30,5 +30,13 @@
       "page_count" : 6,
       "code" : "exo",
       "release_date" : "1998-06-15 12:00:00"
+    },
+	{
+      "url" : "https://www.tcgplayer.com/search/magic/strixhaven-mystical-archives?productLineName=magic&page={}&view=grid&setName=strixhaven-mystical-archives&ProductTypeName=Cards&Printing=Normal",
+      "name" : "strixhaven-mystical-archive",
+      "clean_name" : "Strixhaven Mystical Archive",
+      "page_count" : 11,
+      "code" : "sta",
+      "release_date" : "2021-04-23 12:00:00"
     }
 ]
