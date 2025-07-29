@@ -20,7 +20,11 @@
 		"clean_name":"Cardfight!! Vanguard"
 	},
 	{
-	"name":"mtg",
-	"clean_name":"Magic The Gathering"
+		"name":"mtg",
+		"clean_name":"Magic The Gathering"
+	},
+	{
+		"name":"sve",
+		"clean_name":"Shadowverse: Evolve"
 	}
 ]

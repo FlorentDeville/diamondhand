@@ -20,6 +20,7 @@ from db.db_dbs import DbDbs
 from db.db_mtg import DbMtg
 from db.db_op import DbOp
 from db.db_pokemon import DbPokemon
+from db.db_sve import DbSve
 
 from db.helper_pokemon import *
 
@@ -55,6 +56,8 @@ def scrap_all(game_name, set, csv_filename):
         db = DbCfv(browser, filename)
     elif game_name == "mtg":
         db = DbMtg(browser, filename)
+    elif game_name == "sve":
+        db = DbSve(browser, filename)
     else:
         log.exception("Unknown game %s", game_name)
         exit(1)
@@ -247,7 +250,7 @@ if __name__ == "__main__":
 
     game_help_text = "Index of games:\n"
     for game in games_list:
-        game_help_text += "\t%s\n" % (game["name"])
+        game_help_text += "\t%s\t(%s)\n" % (game["name"], game["clean_name"])
 
     parser.add_argument('--game', '-g', dest="game", help=game_help_text)
     parser.add_argument('--setlist', dest="list_sets", action="store_true", default=False, help="List the sets for the selected game")
