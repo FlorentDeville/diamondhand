@@ -4,6 +4,7 @@ import uuid
 
 from db.db_csv import DbCsv
 from db.entry import Entry
+import re
 
 class DbMtg(DbCsv):
     m_browser = None
@@ -52,7 +53,18 @@ class DbMtg(DbCsv):
 
     @staticmethod
     def condition(entry):
-        return int(entry.number)
+        # 99a
+        # 99b
+        # conversion : set_number * 1000 + letter
+        matches = re.match("(\d*)([a-z]?)", entry.number)
+        number = matches.group(1)
+        letter = matches.group(2)
+        
+        if len(letter) != 0:
+            return int(number) * 1000 + ord(letter)
+        else:
+            return int(number) * 1000
+    
 
     @staticmethod
     def sort_entries(entries):
