@@ -44,8 +44,8 @@ class DbSve(DbCsv):
         #xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/span"
         xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/div/span"
         elements = html.xpath(xpath_number_and_rarity)
-        newEntry.number = elements[0].text
-        newEntry.rarity = elements[1].text
+        newEntry.rarity = elements[0].text
+        newEntry.number = elements[1].text
         #splitted = number_and_rarity.split(" - ")
 
         #newEntry.number = splitted[0].strip()
