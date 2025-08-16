@@ -118,5 +118,13 @@
 	"page_count": 7,
 	"code": "op19",
 	"release_date": "2023-03-24 12:00:00"
+  },
+  {
+	"url": "https://www.tcgplayer.com/search/final-fantasy-tcg/hidden-legends?productLineName=final-fantasy-tcg&view=grid&setName=hidden-legends&page={}&ProductTypeName=Final+Fantasy+Singles",
+	"name": "hidden-legends",
+	"clean_name": "Hidden Legends",
+	"page_count": 7,
+	"code": "op24",
+	"release_date": "2024-15-11 12:00:00"
   }
 ]
