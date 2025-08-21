@@ -55,6 +55,41 @@ $(document).ready(function()
 					img.height = "430";
 				}
 			}
+			else if(display_as == "images9")
+			{
+				var CARDS_PER_ROW = 3;
+				var CARDS_PER_PAGE = 9;
+				var containerElement = document.getElementById("card_list_container");
+				var currentDiv = null;
+
+				var cards = return_data.data;
+				for(let ii = 0; ii < cards.length; ++ii)
+				{
+					if(ii % CARDS_PER_PAGE == 0 && ii != 0)
+					{
+						pageDiv = document.createElement("div");
+						pageDiv.style.height = "100px";
+						containerElement.appendChild(pageDiv);
+					}
+					
+					if(ii % CARDS_PER_ROW == 0)
+					{
+						currentDiv = document.createElement("div");
+						containerElement.appendChild(currentDiv);
+					}
+
+					var img = document.createElement("img");
+					currentDiv.appendChild(img);
+
+					var card = cards[ii];
+					card_id = card["id"];
+					imagePath = "./pics/sets/" + set_id + "/" + card_id + ".png";
+					img.src = imagePath;
+					img.style.padding = "5px";
+					img.width = "310";
+					img.height = "430";
+				}
+			}
 		}
 		else
 		{
@@ -74,6 +109,7 @@ $(document).ready(function()
 	var displayArray = [];
 	displayArray.push({name : "Checklist", as : "checklist"});
 	displayArray.push({name : "Images", as : "images"});
+	displayArray.push({name : "Images 9", as : "images9"});
 
 	for(var ii = 0; ii < displayArray.length; ++ii)
 	{
