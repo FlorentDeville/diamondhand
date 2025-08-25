@@ -26,25 +26,34 @@ class DbMtg(DbCsv):
         xpath_card_name = "//h1[contains(@class, 'product-details__name')]"
        # xpath_card_name = "//span[contains(@class, 'lastcrumb')]"
         element = html.xpath(xpath_card_name)
-        newEntry.name = element[0].text.strip()
+        if len(element) != 0:
+            newEntry.name = element[0].text.strip()
+        else:
+            newEntry.name = "__ERROR"
 
         #xpath_set_name = "//a[contains(@class, 'product-details__set-name')]/h2"
         xpath_set_name = "//div[contains(@class, 'product-details__name__sub-header__links')]/div/a/span"
         element = html.xpath(xpath_set_name)
-        set_clean_name = element[0].text
-        set_clean_name = set_clean_name.strip('\n').strip()
-        newEntry.set_name = set_clean_name
-        newEntry.set_code = set_code
+        
+        if len(element) != 0:
+            set_clean_name = element[0].text
+            set_clean_name = set_clean_name.strip('\n').strip()
+            newEntry.set_name = set_clean_name
+            newEntry.set_code = set_code
 
         #xpath_number_and_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/span"
         xpath_rarity = "//ul[contains(@class, \"product__item-details__attributes\")]/li/div/span"
         elements = html.xpath(xpath_rarity)
-        newEntry.rarity = elements[0].text
+        
+        if len(elements) != 0 :
+            newEntry.rarity = elements[0].text
 
 
         xpath_number = "//ul[contains(@class, \"product__item-details__attributes\")]/li[position()=2]/div/span"
         elements = html.xpath(xpath_number)
-        newEntry.number = elements[0].text
+        
+        if len(elements) != 0:
+            newEntry.number = elements[0].text
         
         newEntry.id = uuid.uuid4().int
         newEntry.tcg_url = _url
@@ -59,12 +68,25 @@ class DbMtg(DbCsv):
         matches = re.match("(\d*)([a-z]?)", entry.number)
         number = matches.group(1)
         letter = matches.group(2)
-        
+        sub_number = 0
         if len(letter) != 0:
-            return int(number) * 1000 + ord(letter)
-        else:
-            return int(number) * 1000
-    
+            sub_number = ord(letter)
+        
+        multiplier = 10
+        if entry.name.endswith("(Serial Numbered)"):
+            multiplier = 1000
+        elif entry.rarity == "T":
+            multiplier = 1000000
+        elif entry.rarity == "S":
+            multiplier = 100000000
+
+        value = int(number) * multiplier + sub_number
+        
+        #if entry.rarity == "T":
+        #    print("token ", value)
+        #else:
+        #    print("regular ", value)
+        return value
 
     @staticmethod
     def sort_entries(entries):
