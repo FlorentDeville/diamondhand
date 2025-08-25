@@ -38,5 +38,13 @@
       "page_count" : 11,
       "code" : "sta",
       "release_date" : "2021-04-23 12:00:00"
+    },	
+	{
+      "url" : "https://www.tcgplayer.com/search/magic/universes-beyond-the-lord-of-the-rings-tales-of-middle-earth?productLineName=magic&page={}&view=grid&setName=universes-beyond-the-lord-of-the-rings-tales-of-middle-earth&ProductTypeName=Cards",
+      "name" : "lord-of-the-rings-tales-of-middle-earth",
+      "clean_name" : "The Lord Of The Rings: Tales of Middle-earth",
+      "page_count" : 39,
+      "code" : "ltr",
+      "release_date" : "2023-06-23 12:00:00"
     }
 ]
